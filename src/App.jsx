@@ -232,7 +232,12 @@ const plansData = {
 };
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+  const isFeedbackDomain =
+    window.location.hostname.startsWith("feedbacks.");
+
+  const [currentPage, setCurrentPage] = useState(
+    isFeedbackDomain ? "feedbacks" : "home"
+  );
   const [currency, setCurrency] = useState('USD');
   const [livePing, setLivePing] = useState(12);
 
