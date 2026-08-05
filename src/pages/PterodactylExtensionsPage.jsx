@@ -114,7 +114,7 @@ export default function PterodactylExtensionsPage({ formatPrice }) {
     },
     {
       id: 'auth',
-      title: 'Auth, Integrations & Routing',
+      title: 'Auth Integrations & Routing',
       items: [
         { name: 'Discord Authentication Blueprint', priceUSD: 12.00 },
         { name: 'Social OAuth Secure Login', priceUSD: 8.00 },
@@ -140,11 +140,55 @@ export default function PterodactylExtensionsPage({ formatPrice }) {
   return (
     <section style={{ padding: '4rem 0 5rem', minHeight: '85vh' }}>
       <div className="container">
-        <div className="section-header" style={{ marginBottom: '2.5rem' }}>
-          <div className="section-tag">Panel Extensions & Modules</div>
-          <h1 className="section-title">NexifyHost™ │ Panel Extension & Module Inventory</h1>
-          <p className="section-desc">
-            Enhance your Pterodactyl Game Panel with premium themes, administrative suites, automated backups, and advanced Minecraft management modules.
+        <div
+          style={{
+            textAlign: "center",
+            maxWidth: "900px",
+            margin: "0 auto 3rem",
+          }}
+        >
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "0.45rem 0.9rem",
+              border: "1px solid var(--border-glow)",
+              background: "rgba(0,242,254,0.08)",
+              borderRadius: "999px",
+              color: "var(--primary)",
+              fontSize: "0.85rem",
+              marginBottom: "1rem",
+            }}
+          >
+            <Box size={15} />
+            Panel Extensions & Modules
+          </div>
+
+          <h1
+            style={{
+              fontSize: "clamp(2rem,5vw,3.2rem)",
+              color: "#fff",
+              marginBottom: "1rem",
+              lineHeight: 1.15,
+              fontFamily: "var(--font-heading)",
+            }}
+          >
+            Pterodactyl Extensions Marketplace
+          </h1>
+
+          <p
+            style={{
+              color: "var(--text-muted)",
+              fontSize: "1rem",
+              lineHeight: 1.7,
+              maxWidth: "720px",
+              margin: "0 auto",
+            }}
+          >
+            Browse premium themes, admin tools, Minecraft utilities and powerful
+            extensions for your Pterodactyl panel. Every module includes a permanent
+            license and installation support.
           </p>
         </div>
 
@@ -158,22 +202,43 @@ export default function PterodactylExtensionsPage({ formatPrice }) {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               style={{
-                width: '100%',
-                padding: '0.85rem 1rem 0.85rem 2.8rem',
-                background: 'var(--bg-card)',
-                border: '1px solid var(--border-glow)',
-                borderRadius: '14px',
-                color: '#fff',
-                fontSize: '0.95rem',
-                outline: 'none'
+                  width: "100%",
+                  padding: "1rem 1rem 1rem 3rem",
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid var(--border-glow)",
+                  borderRadius: "16px",
+                  color: "#fff",
+                  fontSize: "1rem",
+                  outline: "none",
               }}
             />
           </div>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', justifyContent: 'center' }}>
+          <div
+            style={{
+              overflow: "hidden",
+              margin: 0,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                gap: "0.75rem",
+                overflowX: "auto",
+                overflowY: "hidden",
+                padding: "0.5rem 0 0.5rem 0",
+                WebkitOverflowScrolling: "touch",
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+              }}
+            >
             <button
-              onClick={() => setActiveCategory('all')}
-              className={`btn btn-sm ${activeCategory === 'all' ? 'btn-primary' : 'btn-secondary'}`}
+              onClick={() => setActiveCategory("all")}
+              className={`btn btn-sm ${activeCategory === "all" ? "btn-primary" : "btn-secondary"}`}
+              style={{
+                flexShrink: 0,
+                whiteSpace: "nowrap",
+              }}
             >
               All Modules
             </button>
@@ -181,18 +246,29 @@ export default function PterodactylExtensionsPage({ formatPrice }) {
               <button
                 key={c.id}
                 onClick={() => setActiveCategory(c.id)}
-                className={`btn btn-sm ${activeCategory === c.id ? 'btn-primary' : 'btn-secondary'}`}
+                className={`btn btn-sm ${activeCategory === c.id ? "btn-primary" : "btn-secondary"}`}
+                style={{
+                  flexShrink: 0,
+                  whiteSpace: "nowrap",
+                }}
               >
-                {c.title.split(' ')[0]}
+                {c.title.split(" ")[0]}
               </button>
             ))}
           </div>
+        </div>
         </div>
 
         {/* Categories Inventory Grid */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', marginBottom: '4rem' }}>
           {filteredCategories.map((cat, idx) => (
-            <div key={idx} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-glass)', borderRadius: '20px', padding: '2rem' }}>
+            <div key={idx} style={{
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border-glass)',
+              borderRadius: '20px',
+              padding: '2rem',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+            }}>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: '#fff', marginBottom: '1.25rem', borderBottom: '1px solid var(--border-glass)', paddingBottom: '0.85rem' }}>
                 ◈ {cat.title}
               </h3>
@@ -202,26 +278,88 @@ export default function PterodactylExtensionsPage({ formatPrice }) {
                   <div
                     key={iIdx}
                     style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      background: 'rgba(255, 255, 255, 0.025)',
-                      border: '1px solid rgba(255, 255, 255, 0.07)',
-                      borderRadius: '12px',
-                      padding: '0.9rem 1.25rem',
-                      transition: 'all 0.2s ease'
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      gap: "1rem",
+                      flexWrap: "wrap",
+                      background: "linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      borderRadius: "16px",
+                      padding: "1rem 1.2rem",
+                      transition: "all .25s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "var(--primary)";
+                      e.currentTarget.style.transform = "translateY(-2px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                      e.currentTarget.style.transform = "translateY(0)";
                     }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <Box size={16} color="var(--primary)" />
-                      <span style={{ color: '#fff', fontSize: '0.92rem', fontWeight: 600 }}>{item.name}</span>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "12px",
+                        flex: 1,
+                        minWidth: "220px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: "40px",
+                          height: "40px",
+                          borderRadius: "10px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          background: "rgba(0,242,254,.08)",
+                          flexShrink: 0,
+                        }}
+                      >
+                        <Box size={18} color="var(--primary)" />
+                      </div>
+                      <span
+                        style={{
+                          color: "#fff",
+                          fontSize: "0.95rem",
+                          fontWeight: 700,
+                          lineHeight: 1.5,
+                        }}
+                      >
+                        {item.name}
+                      </span>
                     </div>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                      <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 800, color: 'var(--success)', fontSize: '0.95rem' }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "12px",
+                        flexWrap: "wrap",
+                        justifyContent: "flex-end",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily: 'var(--font-mono)',
+                          fontWeight: 800,
+                          color: 'var(--success)',
+                          fontSize: '1rem',
+                          letterSpacing: '0.5px'
+                        }}
+                      >
                         {formatPrice(item.priceUSD)}
                       </span>
-                      <a href="https://discord.gg/hMeGraR7nc" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm" style={{ padding: '0.25rem 0.6rem', fontSize: '0.75rem' }}>
+                      <a href="https://discord.gg/hMeGraR7nc" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm" 
+                      style={{
+                        padding: "0.55rem 1rem",
+                        borderRadius: "10px",
+                        fontSize: ".82rem",
+                        whiteSpace: "nowrap",
+                      }}>
                         Get License
                       </a>
                     </div>
@@ -233,7 +371,16 @@ export default function PterodactylExtensionsPage({ formatPrice }) {
         </div>
 
         {/* License Note & Discord Authorize CTA */}
-        <div style={{ textAlign: 'center', background: 'var(--bg-card)', border: '1px solid var(--border-glow)', padding: '2.5rem', borderRadius: 'var(--radius-xl)' }}>
+        <div
+          style={{
+            textAlign: 'center',
+            background: 'var(--bg-card)',
+            border: '1px solid var(--border-glow)',
+            padding: '3rem 2rem',
+            borderRadius: 'var(--radius-xl)',
+            boxShadow: '0 15px 40px rgba(0,242,254,0.08)'
+          }}
+        >
           <ShieldCheck size={36} color="var(--success)" style={{ marginBottom: '0.5rem' }} />
           <h3 style={{ fontFamily: 'var(--font-heading)', marginBottom: '0.5rem', color: '#fff' }}>
             Permanent Non-Expiring License Guarantee
@@ -241,7 +388,16 @@ export default function PterodactylExtensionsPage({ formatPrice }) {
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.25rem' }}>
             All blueprint acquisitions grant a permanent, non-expiring infrastructure license with direct panel installation assistance.
           </p>
-          <a href="https://discord.gg/hMeGraR7nc" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+          <a
+            href="https://discord.gg/hMeGraR7nc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+            style={{
+              width: '100%',
+              maxWidth: '320px'
+            }}
+          >
             <MessageSquare size={16} /> Open Ticket in #tickets to Authorize Setup
           </a>
         </div>

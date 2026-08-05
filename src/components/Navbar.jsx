@@ -59,7 +59,7 @@ export default function Navbar({
     setShopOpen(false);
     setCompanyOpen(false);
     setMobileNavOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -516,15 +516,15 @@ export default function Navbar({
                 </div>
               </button>
 
-              {/* Reviews */}
+              {/* Feedbacks */}
               <button
                 type="button"
-                className={`mobile-drawer-btn ${currentPage === 'reviews' ? 'active' : ''}`}
-                onClick={() => handleNavClick('reviews')}
+                className={`mobile-drawer-btn ${currentPage === 'feedbacks' ? 'active' : ''}`}
+                onClick={() => handleNavClick('feedbacks')}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <Star size={18} fill="#00b67a" color="#00b67a" />
-                  <span>Reviews (Trustpilot)</span>
+                  <span>Feedbacks (Trustpilot)</span>
                 </div>
               </button>
 

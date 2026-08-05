@@ -47,7 +47,10 @@ export default function HomePage({ setCurrentPage, formatPrice }) {
                 <button className="btn btn-secondary" onClick={() => setCurrentPage('minecraft-performance')}>
                   <ArrowRight size={18} /> Explore Performance Tiers
                 </button>
-                <button className="btn btn-secondary" onClick={() => setCurrentPage('feedbacks')}>
+                <button className="btn btn-secondary" onClick={() => {
+                    setCurrentPage("feedbacks");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}>
                   <Star size={18} fill="#00b67a" color="#00b67a" /> Submit A Review
                 </button>
               </div>
@@ -139,8 +142,8 @@ export default function HomePage({ setCurrentPage, formatPrice }) {
             <button
               className="btn btn-primary"
               onClick={() => {
-                setCurrentPage('feedbacks');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setCurrentPage("feedbacks");
+                window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             >
               <Star size={18} fill="#fff" color="#fff" /> Submit A Review
