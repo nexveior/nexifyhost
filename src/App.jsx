@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
+import AISupport from './components/AISupport.jsx';
 
 import HomePage from './pages/HomePage.jsx';
 import MinecraftBudgetPage from './pages/MinecraftBudgetPage.jsx';
@@ -311,6 +312,8 @@ export default function App() {
       </main>
 
       <Footer setCurrentPage={setCurrentPage} />
+      
+      <AISupport />
     </div>
   );
 }
