@@ -23,6 +23,7 @@ export default function AISupport() {
     setMessages((prev) => [
       ...prev,
       { role: "user", content: userMessage },
+      { role: "assistant", content: "" },
     ]);
 
     setMessage("");
@@ -39,30 +40,84 @@ export default function AISupport() {
         }),
       });
 
-      const data = await response.json();
-
       if (!response.ok) {
-        throw new Error(data.error || "Request failed");
+        let errorMessage = "Request failed";
+
+        try {
+          const data = await response.json();
+          errorMessage = data.error || errorMessage;
+        } catch {
+          // Ignore JSON parsing error
+        }
+
+        throw new Error(errorMessage);
       }
 
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          content: data.reply,
-        },
-      ]);
+      if (!response.body) {
+        throw new Error("No response stream received");
+      }
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+
+      let fullResponse = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+
+        if (done) break;
+
+        const chunk = decoder.decode(value, { stream: true });
+
+        fullResponse += chunk;
+
+        setMessages((prev) => {
+          const updated = [...prev];
+
+          updated[updated.length - 1] = {
+            role: "assistant",
+            content: fullResponse,
+          };
+
+          return updated;
+        });
+      }
+
+      // Handle any remaining decoder data
+      const remaining = decoder.decode();
+
+      if (remaining) {
+        fullResponse += remaining;
+
+        setMessages((prev) => {
+          const updated = [...prev];
+
+          updated[updated.length - 1] = {
+            role: "assistant",
+            content: fullResponse,
+          };
+
+          return updated;
+        });
+      }
+
+      if (!fullResponse.trim()) {
+        throw new Error("AI returned an empty response");
+      }
     } catch (error) {
       console.error("AI CHAT ERROR:", error);
 
-      setMessages((prev) => [
-        ...prev,
-        {
+      setMessages((prev) => {
+        const updated = [...prev];
+
+        updated[updated.length - 1] = {
           role: "assistant",
           content:
             "Sorry, I'm having trouble connecting right now. Please contact our Discord support.",
-        },
-      ]);
+        };
+
+        return updated;
+      });
     } finally {
       setLoading(false);
     }
@@ -100,7 +155,7 @@ export default function AISupport() {
             boxShadow: "0 10px 30px rgba(0,0,0,.35)",
           }}
         >
-          <Bot size={25} />
+          <Bot size={24} />
         </button>
       )}
 
@@ -133,7 +188,13 @@ export default function AISupport() {
               justifyContent: "space-between",
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+              }}
+            >
               <Bot size={22} color="var(--primary)" />
 
               <div>
@@ -195,107 +256,134 @@ export default function AISupport() {
                   whiteSpace: "normal",
                 }}
               >
-                <ReactMarkdown
-                  remarkPlugins={[remarkGfm]}
-                  components={{
-                    a: ({ href, children }) => (
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          color: "var(--primary)",
-                          textDecoration: "underline",
-                          fontWeight: 600,
-                        }}
-                      >
-                        {children}
-                      </a>
-                    ),
+                {msg.content ? (
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                      a: ({ href, children }) => (
+                        <a
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            color: "var(--primary)",
+                            textDecoration: "underline",
+                            fontWeight: 600,
+                          }}
+                        >
+                          {children}
+                        </a>
+                      ),
 
-                    strong: ({ children }) => (
-                      <strong
-                        style={{
-                          color: "#fff",
-                          fontWeight: 800,
-                        }}
-                      >
-                        {children}
-                      </strong>
-                    ),
+                      strong: ({ children }) => (
+                        <strong
+                          style={{
+                            color: "#fff",
+                            fontWeight: 800,
+                          }}
+                        >
+                          {children}
+                        </strong>
+                      ),
 
-                    em: ({ children }) => (
-                      <em>{children}</em>
-                    ),
+                      em: ({ children }) => <em>{children}</em>,
 
-                    ul: ({ children }) => (
-                      <ul
-                        style={{
-                          margin: "0.5rem 0",
-                          paddingLeft: "1.25rem",
-                        }}
-                      >
-                        {children}
-                      </ul>
-                    ),
+                      ul: ({ children }) => (
+                        <ul
+                          style={{
+                            margin: "0.5rem 0",
+                            paddingLeft: "1.25rem",
+                          }}
+                        >
+                          {children}
+                        </ul>
+                      ),
 
-                    ol: ({ children }) => (
-                      <ol
-                        style={{
-                          margin: "0.5rem 0",
-                          paddingLeft: "1.25rem",
-                        }}
-                      >
-                        {children}
-                      </ol>
-                    ),
+                      ol: ({ children }) => (
+                        <ol
+                          style={{
+                            margin: "0.5rem 0",
+                            paddingLeft: "1.25rem",
+                          }}
+                        >
+                          {children}
+                        </ol>
+                      ),
 
-                    li: ({ children }) => (
-                      <li style={{ marginBottom: "0.25rem" }}>
-                        {children}
-                      </li>
-                    ),
+                      li: ({ children }) => (
+                        <li style={{ marginBottom: "0.25rem" }}>
+                          {children}
+                        </li>
+                      ),
 
-                    p: ({ children }) => (
-                      <p
-                        style={{
-                          margin: "0 0 0.5rem",
-                        }}
-                      >
-                        {children}
-                      </p>
-                    ),
+                      p: ({ children }) => (
+                        <p
+                          style={{
+                            margin: "0 0 0.5rem",
+                          }}
+                        >
+                          {children}
+                        </p>
+                      ),
 
-                    code: ({ children }) => (
-                      <code
-                        style={{
-                          background: "rgba(255,255,255,.08)",
-                          padding: "2px 6px",
-                          borderRadius: "5px",
-                          fontSize: "0.85em",
-                        }}
-                      >
-                        {children}
-                      </code>
-                    ),
-                  }}
-                >
-                  {msg.content}
-                </ReactMarkdown>
+                      code: ({ children }) => (
+                        <code
+                          style={{
+                            background: "rgba(255,255,255,.08)",
+                            padding: "2px 6px",
+                            borderRadius: "5px",
+                            fontSize: "0.85em",
+                          }}
+                        >
+                          {children}
+                        </code>
+                      ),
+                    }}
+                  >
+                    {msg.content}
+                  </ReactMarkdown>
+                ) : (
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "5px",
+                      color: "var(--text-muted)",
+                    }}
+                  >
+                    <span
+                      style={{
+                        width: "5px",
+                        height: "5px",
+                        borderRadius: "50%",
+                        background: "currentColor",
+                        animation: "aiDot 1.2s infinite ease-in-out",
+                      }}
+                    />
+
+                    <span
+                      style={{
+                        width: "5px",
+                        height: "5px",
+                        borderRadius: "50%",
+                        background: "currentColor",
+                        animation: "aiDot 1.2s 0.15s infinite ease-in-out",
+                      }}
+                    />
+
+                    <span
+                      style={{
+                        width: "5px",
+                        height: "5px",
+                        borderRadius: "50%",
+                        background: "currentColor",
+                        animation: "aiDot 1.2s 0.3s infinite ease-in-out",
+                      }}
+                    />
+                  </div>
+                )}
               </div>
             ))}
-
-            {loading && (
-              <div
-                style={{
-                  alignSelf: "flex-start",
-                  padding: "0.75rem",
-                  color: "var(--text-muted)",
-                }}
-              >
-                <Loader2 size={18} className="animate-spin" />
-              </div>
-            )}
           </div>
 
           {/* Input */}
@@ -341,11 +429,30 @@ export default function AISupport() {
                 flexShrink: 0,
               }}
             >
-              <Send size={18} />
+              {loading ? (
+                <Loader2 size={18} className="animate-spin" />
+              ) : (
+                <Send size={18} />
+              )}
             </button>
           </div>
         </div>
       )}
+
+      <style>
+        {`
+          @keyframes aiDot {
+            0%, 80%, 100% {
+              opacity: 0.25;
+              transform: scale(0.8);
+            }
+            40% {
+              opacity: 1;
+              transform: scale(1);
+            }
+          }
+        `}
+      </style>
     </>
   );
 }
