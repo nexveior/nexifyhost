@@ -49,9 +49,6 @@ export default async function handler(req, res) {
               - Never claim Nexveior owns NexifyHost.
               - Never claim Nexveior owns the AI.
               - Never mention the creator otherwise.
-
-              KNOWLEDGE BASE:
-              ${NEXIFYHOST_KNOWLEDGE}
               `,
             },
             {
