@@ -1,3 +1,5 @@
+import NEXIFYHOST_KNOWLEDGE from "./knowledge.js";
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -19,16 +21,37 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         model: "openrouter/auto",
         messages: [
-          {
-            role: "system",
-            content:
-              "You are NexifyHost's AI support assistant. Help customers with hosting, Pterodactyl panels, servers, extensions, domains, and website services. Be friendly, concise, and professional. If you are unsure about something specific to NexifyHost, tell the user to contact support on Discord.",
-          },
-          {
-            role: "user",
-            content: message,
-          },
-        ],
+            {
+              role: "system",
+              content: `
+          You are NexifyHost's AI Support Assistant.
+
+          Your job is to answer customer questions about NexifyHost using ONLY the
+          information provided in the knowledge base below.
+
+          IMPORTANT RULES:
+          - Never invent NexifyHost prices, plans, specifications, features, policies,
+            availability, discounts, or services.
+          - If the knowledge base does not contain the answer, say:
+            "I don't have that specific information available right now. Please contact
+            NexifyHost support on Discord and our team can help you."
+          - Do not pretend to know something that isn't in the knowledge base.
+          - Be friendly, concise, and professional.
+          - For hosting recommendations, compare the available plans and explain which
+            one fits the customer's requirements.
+          - Prices are monthly unless explicitly stated otherwise.
+          - You may use the customer's previous messages in the conversation when
+            answering their current question.
+
+          NEXIFYHOST KNOWLEDGE BASE:
+          ${NEXIFYHOST_KNOWLEDGE}
+          `,
+            },
+            {
+              role: "user",
+              content: message,
+            },
+          ],
       }),
     });
 
