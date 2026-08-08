@@ -61,6 +61,7 @@ export default function Navbar({
     setMobileNavOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+  
 
   return (
     <>

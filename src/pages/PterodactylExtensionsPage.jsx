@@ -273,38 +273,32 @@ export default function PterodactylExtensionsPage({ formatPrice }) {
                 ◈ {cat.title}
               </h3>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem' }}>
+              <div className="extension-product-grid">
                 {cat.items.map((item, iIdx) => (
                   <div
-                    key={iIdx}
                     style={{
                       display: "flex",
+                      flexDirection: "column",
                       justifyContent: "space-between",
-                      alignItems: "center",
-                      gap: "1rem",
-                      flexWrap: "wrap",
+                      width: "100%",
+                      minWidth: 0,
+                      minHeight: "136px",
+                      boxSizing: "border-box",
                       background: "linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))",
                       border: "1px solid rgba(255,255,255,0.08)",
                       borderRadius: "16px",
-                      padding: "1rem 1.2rem",
+                      padding: "1rem",
                       transition: "all .25s ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = "var(--primary)";
-                      e.currentTarget.style.transform = "translateY(-2px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-                      e.currentTarget.style.transform = "translateY(0)";
                     }}
                   >
                     <div
+                      className="extension-product-name"
                       style={{
                         display: "flex",
                         alignItems: "center",
-                        gap: "12px",
-                        flex: 1,
-                        minWidth: "220px",
+                        gap: "10px",
+                        width: "100%",
+                        minWidth: 0,
                       }}
                     >
                       <div
@@ -324,9 +318,10 @@ export default function PterodactylExtensionsPage({ formatPrice }) {
                       <span
                         style={{
                           color: "#fff",
-                          fontSize: "0.95rem",
+                          fontSize: "0.88rem",
                           fontWeight: 700,
-                          lineHeight: 1.5,
+                          lineHeight: 1.4,
+                          minWidth: 0,
                         }}
                       >
                         {item.name}
@@ -334,12 +329,11 @@ export default function PterodactylExtensionsPage({ formatPrice }) {
                     </div>
 
                     <div
+                      className="extension-product-actions"
                       style={{
                         display: "flex",
                         alignItems: "center",
-                        gap: "12px",
-                        flexWrap: "wrap",
-                        justifyContent: "flex-end",
+                        gap: "8px",
                       }}
                     >
                       <span
@@ -402,6 +396,58 @@ export default function PterodactylExtensionsPage({ formatPrice }) {
           </a>
         </div>
       </div>
+      <style>{`
+        .extension-product-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 1rem;
+          width: 100%;
+        }
+
+        .extension-product-name {
+          min-width: 0;
+          overflow: hidden;
+        }
+
+        .extension-product-name span {
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .extension-product-actions {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          flex-wrap: nowrap;
+        }
+
+        @media (max-width: 900px) {
+          .extension-product-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+
+        @media (max-width: 600px) {
+          .extension-product-grid {
+            grid-template-columns: 1fr;
+            gap: 0.85rem;
+          }
+
+          .extension-product-name span {
+            white-space: normal;
+            overflow: visible;
+            text-overflow: unset;
+            line-height: 1.4;
+          }
+
+          .extension-product-actions {
+            width: 100%;
+            justify-content: space-between;
+          }
+        }
+      `}</style>
     </section>
   );
 }
