@@ -22,10 +22,10 @@ export default async function handler(req, res) {
         model: "openrouter/auto",
         messages: [
             {
-  role: "system",
-  content:
-    "You are NexifyHost AI Support. Answer questions about NexifyHost using the provided knowledge.",
-},
+              role: "system",
+              content:
+                "You are NexifyHost AI Support. Answer questions about NexifyHost using the provided knowledge.",
+            },
             {
               role: "user",
               content: message,
