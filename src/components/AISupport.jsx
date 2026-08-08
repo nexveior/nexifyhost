@@ -53,13 +53,14 @@ export default function AISupport() {
         },
       ]);
     } catch (error) {
-      console.error("AI ERROR:", error);
+      console.error("AI CHAT ERROR:", error);
 
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
-          content: `AI ERROR: ${error?.message || "Unknown error"}`,
+          content:
+            "Sorry, I'm having trouble connecting right now. Please contact our Discord support.",
         },
       ]);
     } finally {
