@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { Bot, X, Send, Loader2 } from "lucide-react";
 
 export default function AISupport() {
@@ -188,10 +190,96 @@ export default function AISupport() {
                   color: "#fff",
                   fontSize: "0.88rem",
                   lineHeight: 1.5,
-                  whiteSpace: "pre-wrap",
+                  whiteSpace: "normal",
                 }}
               >
-                {msg.content}
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    a: ({ href, children }) => (
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          color: "var(--primary)",
+                          textDecoration: "underline",
+                          fontWeight: 600,
+                        }}
+                      >
+                        {children}
+                      </a>
+                    ),
+
+                    strong: ({ children }) => (
+                      <strong
+                        style={{
+                          color: "#fff",
+                          fontWeight: 800,
+                        }}
+                      >
+                        {children}
+                      </strong>
+                    ),
+
+                    em: ({ children }) => (
+                      <em>{children}</em>
+                    ),
+
+                    ul: ({ children }) => (
+                      <ul
+                        style={{
+                          margin: "0.5rem 0",
+                          paddingLeft: "1.25rem",
+                        }}
+                      >
+                        {children}
+                      </ul>
+                    ),
+
+                    ol: ({ children }) => (
+                      <ol
+                        style={{
+                          margin: "0.5rem 0",
+                          paddingLeft: "1.25rem",
+                        }}
+                      >
+                        {children}
+                      </ol>
+                    ),
+
+                    li: ({ children }) => (
+                      <li style={{ marginBottom: "0.25rem" }}>
+                        {children}
+                      </li>
+                    ),
+
+                    p: ({ children }) => (
+                      <p
+                        style={{
+                          margin: "0 0 0.5rem",
+                        }}
+                      >
+                        {children}
+                      </p>
+                    ),
+
+                    code: ({ children }) => (
+                      <code
+                        style={{
+                          background: "rgba(255,255,255,.08)",
+                          padding: "2px 6px",
+                          borderRadius: "5px",
+                          fontSize: "0.85em",
+                        }}
+                      >
+                        {children}
+                      </code>
+                    ),
+                  }}
+                >
+                  {msg.content}
+                </ReactMarkdown>
               </div>
             ))}
 
