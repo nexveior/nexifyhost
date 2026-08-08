@@ -20,6 +20,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         model: "openrouter/auto",
+        max_tokens: 1000,
         messages: [
             {
               role: "system",
