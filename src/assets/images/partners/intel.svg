@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 160">
+  <rect width="480" height="160" rx="24" fill="#f8fafc"/>
+  <path d="M55 93c19 31 83 45 158 31 52-10 94-31 112-55" fill="none" stroke="#0071c5" stroke-width="9" stroke-linecap="round"/>
+  <text x="238" y="101" text-anchor="middle" font-family="Arial,sans-serif" font-size="67" font-weight="700" fill="#0071c5">INTEL</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 160">
+  <rect width="480" height="160" rx="24" fill="#fff7ed"/>
+  <path d="M38 105h132c5-30-40-49-57-20-5-30-52-29-59 3-10 2-16 8-16 17Z" fill="#f48120"/>
+  <path d="M102 105h79c3-20-26-32-38-13-4-19-34-19-39 2-6 1-10 5-10 11Z" fill="#faae40"/>
+  <text x="324" y="99" text-anchor="middle" font-family="Arial,sans-serif" font-size="43" font-weight="700" fill="#334155">CLOUDFLARE</text>
+</svg>

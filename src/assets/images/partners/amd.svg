@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 160">
+  <rect width="480" height="160" rx="24" fill="#111827"/>
+  <path d="M355 35h75v75h-22V57h-53V35Zm20 42h20v50h-50v-20h30V77Z" fill="#ed1c24"/>
+  <text x="202" y="110" text-anchor="middle" font-family="Arial,sans-serif" font-size="82" font-weight="800" fill="#fff">AMD</text>
+</svg>

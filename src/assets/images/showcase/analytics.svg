@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800">
+  <rect width="1280" height="800" fill="#f8fafc"/>
+  <rect x="46" y="46" width="1188" height="708" rx="22" fill="#fff" stroke="#cbd5e1" stroke-width="3"/>
+  <text x="92" y="128" font-family="Arial,sans-serif" font-size="40" font-weight="700" fill="#0f172a">Server Analytics</text>
+  <g><rect x="92" y="176" width="252" height="122" rx="16" fill="#eff6ff"/><rect x="374" y="176" width="252" height="122" rx="16" fill="#f0fdf4"/><rect x="656" y="176" width="252" height="122" rx="16" fill="#fff7ed"/><rect x="938" y="176" width="250" height="122" rx="16" fill="#faf5ff"/></g>
+  <text x="218" y="251" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#2563eb">20 TPS</text><text x="500" y="251" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#16a34a">42%</text><text x="782" y="251" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#ea580c">6.2 GB</text><text x="1063" y="251" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#9333ea">128</text>
+  <rect x="92" y="348" width="1096" height="340" rx="18" fill="#f8fafc" stroke="#e2e8f0"/>
+  <path d="M126 609c88-50 114-173 211-131s133-9 196-41 126 94 205 52 113-115 190-76 131 20 225-51" fill="none" stroke="#2563eb" stroke-width="8" stroke-linecap="round"/>
+</svg>

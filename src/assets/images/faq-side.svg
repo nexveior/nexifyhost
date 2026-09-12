@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 960">
+  <defs>
+    <linearGradient id="faqBg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071120"/><stop offset="1" stop-color="#172554"/></linearGradient>
+    <linearGradient id="rack" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e2e8f0"/><stop offset=".5" stop-color="#475569"/><stop offset="1" stop-color="#0f172a"/></linearGradient>
+    <filter id="faqGlow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="720" height="960" rx="34" fill="url(#faqBg)"/>
+  <g opacity=".18" stroke="#38bdf8"><path d="M35 120h180l58 58h170l80-80h162M12 714h152l84-84h198l100 100h160"/><circle cx="216" cy="120" r="7" fill="#38bdf8"/><circle cx="443" cy="178" r="7" fill="#38bdf8"/></g>
+  <g transform="translate(326 130)">
+    <rect width="286" height="650" rx="22" fill="url(#rack)" stroke="#bae6fd" stroke-width="4"/>
+    <rect x="26" y="30" width="234" height="590" rx="12" fill="#07111e"/>
+    <g fill="#15263a" stroke="#38bdf8" stroke-width="2">
+      <rect x="45" y="60" width="196" height="66" rx="8"/><rect x="45" y="143" width="196" height="66" rx="8"/><rect x="45" y="226" width="196" height="66" rx="8"/><rect x="45" y="309" width="196" height="66" rx="8"/><rect x="45" y="392" width="196" height="66" rx="8"/>
+    </g>
+    <g fill="#22d3ee" filter="url(#faqGlow)"><circle cx="67" cy="93" r="6"/><circle cx="67" cy="176" r="6"/><circle cx="67" cy="259" r="6"/><circle cx="67" cy="342" r="6"/><circle cx="67" cy="425" r="6"/></g>
+    <g fill="#64748b"><rect x="91" y="86" width="115" height="10" rx="5"/><rect x="91" y="169" width="115" height="10" rx="5"/><rect x="91" y="252" width="115" height="10" rx="5"/><rect x="91" y="335" width="115" height="10" rx="5"/><rect x="91" y="418" width="115" height="10" rx="5"/></g>
+    <circle cx="143" cy="539" r="50" fill="#0f172a" stroke="#60a5fa" stroke-width="4"/><path d="M143 500v78M104 539h78" stroke="#60a5fa" stroke-width="5"/>
+  </g>
+  <g transform="translate(55 604)">
+    <path d="m0 95 146-72 154 73-151 75L0 95Z" fill="#65a30d"/>
+    <path d="m0 95 149 76v85L0 178V95Z" fill="#713f12"/>
+    <path d="m300 96-151 75v85l151-77V96Z" fill="#422006"/>
+    <path d="m74 58 76-38 76 38-76 39-76-39Z" fill="#94a3b8"/>
+    <path d="M74 58v67l76 39V97L74 58Z" fill="#475569"/><path d="m226 58-76 39v67l76-39V58Z" fill="#334155"/>
+    <rect x="134" y="105" width="32" height="59" fill="#1e293b"/>
+    <g fill="#22c55e"><rect x="28" y="44" width="34" height="50"/><rect x="246" y="42" width="34" height="52"/></g>
+  </g>
+  <path d="M245 690c90-80 130-126 192-174" fill="none" stroke="#22d3ee" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 20" filter="url(#faqGlow)"/>
+</svg>
