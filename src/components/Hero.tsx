@@ -1,6 +1,15 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Clock, Users, Shield, Zap, MessageCircle, Check } from "lucide-react";
+import {
+  ArrowRight,
+  Clock,
+  Users,
+  Shield,
+  Zap,
+  MessageCircle,
+  Check,
+} from "lucide-react";
 import { hero, partners } from "../data/config";
+import { img } from "../data/asset";
 import { href } from "../router";
 
 const statIcons: Record<string, typeof Clock> = {
@@ -8,6 +17,14 @@ const statIcons: Record<string, typeof Clock> = {
   users: Users,
   shield: Shield,
   zap: Zap,
+};
+
+const partnerImages: Record<string, string> = {
+  Intel: img.partners.intel,
+  AMD: img.partners.amd,
+  Pterodactyl: img.partners.pterodactyl,
+  Cloudflare: img.partners.cloudflare,
+  Hetzner: img.partners.hetzner,
 };
 
 export default function Hero() {
@@ -106,7 +123,9 @@ export default function Hero() {
                 <div
                   key={s.label}
                   className={`flex items-center gap-3 ${
-                    i > 0 ? "sm:pl-7 sm:border-l border-slate-300/70 dark:border-white/10" : ""
+                    i > 0
+                      ? "sm:pl-7 sm:border-l border-slate-300/70 dark:border-white/10"
+                      : ""
                   }`}
                 >
                   <Icon className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0" />
@@ -135,12 +154,14 @@ export default function Hero() {
             <div className="relative flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
               <div className="flex w-max animate-marquee items-center gap-12">
                 {[...partners, ...partners].map((p, i) => (
-                  <div
+                  <img
                     key={`${p.name}-${i}`}
-                    className="flex h-9 w-32 items-center justify-center text-xs font-orbitron tracking-wide text-slate-500 dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity duration-300"
-                  >
-                    {p.name}
-                  </div>
+                    src={partnerImages[p.name]}
+                    alt={`${p.name} logo`}
+                    loading="lazy"
+                    draggable={false}
+                    className="h-8 w-28 flex-shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  />
                 ))}
               </div>
             </div>

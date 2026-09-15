@@ -63,13 +63,17 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center">
           {/* brand */}
-          <a href={href("/")} className="flex items-center gap-3 mr-6 flex-shrink-0 py-3">
+          <a href={href("/")} className="flex items-center gap-2.5 mr-6 flex-shrink-0 py-2.5">
             <img
               src="/images/logo.webp"
               alt={`${site.brandName}${site.brandAccent} logo`}
-              className="h-12 w-auto object-contain"
+              className="h-11 w-11 rounded-xl object-contain drop-shadow-[0_4px_12px_rgba(37,99,235,0.2)]"
               draggable={false}
             />
+            <span className="font-orbitron text-base sm:text-lg font-bold tracking-tight text-slate-900 dark:text-white whitespace-nowrap">
+              {site.brandName}
+              <span className="text-blue-600 dark:text-blue-400">{site.brandAccent}</span>
+            </span>
           </a>
 
           {/* desktop links */}
@@ -84,7 +88,7 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
               <div className="absolute top-full left-0 w-[560px] max-w-[90vw] bg-white/95 dark:bg-[#0d0f16]/95 backdrop-blur-xl border border-slate-200 dark:border-white/10 border-t-2 border-t-blue-500 rounded-b-xl shadow-2xl shadow-slate-900/10 dark:shadow-black/60 opacity-0 pointer-events-none translate-y-2 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-300 p-3 z-50">
                 <div className="grid grid-cols-3 gap-3">
                   {minecraft.categories.map((c) => {
-                    const from = Math.min(...c.plans.map((p) => p.price));
+                    const from = Math.min(...c.plans.map((p) => Number(p.price)));
                     return (
                       <a
                         key={c.id}

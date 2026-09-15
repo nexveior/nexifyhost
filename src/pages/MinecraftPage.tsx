@@ -10,7 +10,6 @@ import {
 import { minecraft, site } from "../data/config";
 import PageHero from "../components/PageHero";
 import PlanCard from "../components/PlanCard";
-import FreeCallout from "../components/FreeCallout";
 import { useCurrency } from "../hooks/useCurrency";
 
 export default function MinecraftPage({ category }: { category?: string }) {
@@ -145,11 +144,6 @@ export default function MinecraftPage({ category }: { category?: string }) {
                 image={cat.image}
               />
             ))}
-          </div>
-
-          {/* free hint */}
-          <div className="mt-8">
-            <FreeCallout />
           </div>
 
           <motion.div

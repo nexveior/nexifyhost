@@ -1,8 +1,21 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Cpu, Users2, Bot, Gamepad2, Globe, Blocks } from "lucide-react";
-import { minecraft, botHosting, gameServers, domains, site } from "../data/config";
+import {
+  ArrowRight,
+  Cpu,
+  Users2,
+  Bot,
+  Gamepad2,
+  Globe,
+  Blocks,
+} from "lucide-react";
+import {
+  minecraft,
+  botHosting,
+  gameServers,
+  domains,
+  site,
+} from "../data/config";
 import SectionHeading from "./SectionHeading";
-import FreeCallout from "./FreeCallout";
 import { href } from "../router";
 import { useCurrency } from "../hooks/useCurrency";
 
@@ -94,7 +107,10 @@ export default function Pricing() {
               <div className="relative p-5 pb-0">
                 <span
                   className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-[9px] font-orbitron tracking-widest uppercase"
-                  style={{ color: cat.accent, backgroundColor: `${cat.accent}14` }}
+                  style={{
+                    color: cat.accent,
+                    backgroundColor: `${cat.accent}14`,
+                  }}
                 >
                   <Blocks className="w-2.5 h-2.5" /> Minecraft
                 </span>
@@ -108,11 +124,15 @@ export default function Pricing() {
 
               <div className="p-5 flex flex-col flex-1">
                 <div className="flex items-baseline gap-1.5">
-                  <span className="text-slate-400 dark:text-slate-500 text-xs">from</span>
+                  <span className="text-slate-400 dark:text-slate-500 text-xs">
+                    from
+                  </span>
                   <span className="font-orbitron text-2xl font-bold text-slate-900 dark:text-white transition-colors">
                     {format(minFrom(cat.plans))}
                   </span>
-                  <span className="text-slate-400 dark:text-slate-500 text-xs">/mo</span>
+                  <span className="text-slate-400 dark:text-slate-500 text-xs">
+                    /mo
+                  </span>
                 </div>
 
                 <p className="mt-3 text-xs text-slate-500 dark:text-slate-400 leading-relaxed transition-colors">
@@ -121,11 +141,17 @@ export default function Pricing() {
 
                 <div className="mt-4 space-y-2">
                   <div className="flex items-center gap-2 text-[11px] text-slate-600 dark:text-slate-300 transition-colors">
-                    <Cpu className="w-3.5 h-3.5 flex-shrink-0" style={{ color: cat.accent }} />
+                    <Cpu
+                      className="w-3.5 h-3.5 flex-shrink-0"
+                      style={{ color: cat.accent }}
+                    />
                     {cat.cpu}
                   </div>
                   <div className="flex items-center gap-2 text-[11px] text-slate-600 dark:text-slate-300 transition-colors">
-                    <Users2 className="w-3.5 h-3.5 flex-shrink-0" style={{ color: cat.accent }} />
+                    <Users2
+                      className="w-3.5 h-3.5 flex-shrink-0"
+                      style={{ color: cat.accent }}
+                    />
                     {cat.bestFor}
                   </div>
                 </div>
@@ -147,11 +173,6 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* ---- free plan hint ---- */}
-        <div className="mt-6">
-          <FreeCallout />
-        </div>
-
         {/* ---- other services ---- */}
         <div className="mt-14">
           <h3 className="text-center font-orbitron text-sm font-semibold tracking-[0.2em] uppercase text-slate-400 dark:text-slate-500 mb-6">
@@ -170,7 +191,11 @@ export default function Pricing() {
               >
                 <span
                   className="w-12 h-12 rounded-lg flex-shrink-0 border flex items-center justify-center"
-                  style={{ color: s.accent, borderColor: `${s.accent}44`, backgroundColor: `${s.accent}14` }}
+                  style={{
+                    color: s.accent,
+                    borderColor: `${s.accent}44`,
+                    backgroundColor: `${s.accent}14`,
+                  }}
                 >
                   <s.icon className="w-5 h-5" />
                 </span>
@@ -183,7 +208,9 @@ export default function Pricing() {
                   </p>
                   <span className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-orbitron font-semibold tracking-wider text-slate-700 dark:text-slate-200">
                     from {format(s.from)}
-                    <span className="text-slate-400 dark:text-slate-500">{s.unit}</span>
+                    <span className="text-slate-400 dark:text-slate-500">
+                      {s.unit}
+                    </span>
                     <ArrowRight
                       className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"
                       style={{ color: s.accent }}

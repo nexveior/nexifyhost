@@ -13,13 +13,17 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
           {/* brand */}
           <div className="col-span-2">
-            <a href="#/" className="flex items-center gap-3">
+            <a href="#/" className="flex items-center gap-2.5">
               <img
                 src="/images/logo.webp"
                 alt={`${site.brandName}${site.brandAccent} logo`}
-                className="h-14 w-auto object-contain"
+                className="h-12 w-12 rounded-xl object-contain drop-shadow-[0_4px_12px_rgba(37,99,235,0.2)]"
                 draggable={false}
               />
+              <span className="font-orbitron text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+                {site.brandName}
+                <span className="text-blue-600 dark:text-blue-400">{site.brandAccent}</span>
+              </span>
             </a>
             <p className="mt-4 text-sm text-slate-500 dark:text-slate-400 leading-relaxed max-w-xs transition-colors">
               {footer.tagline}

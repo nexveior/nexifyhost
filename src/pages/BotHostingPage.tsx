@@ -14,7 +14,6 @@ import { botHosting, site } from "../data/config";
 import PageHero from "../components/PageHero";
 import PlanCard from "../components/PlanCard";
 import SectionHeading from "../components/SectionHeading";
-import FreeCallout from "../components/FreeCallout";
 
 const icons: Record<string, typeof Zap> = {
   code: Code2,
@@ -105,9 +104,6 @@ export default function BotHostingPage() {
             {botHosting.plans.map((p, i) => (
               <PlanCard key={p.name} plan={p} index={i} accent="#5865F2" />
             ))}
-          </div>
-          <div className="mt-8">
-            <FreeCallout />
           </div>
         </div>
       </section>

@@ -12,14 +12,16 @@ export default function FAQ() {
       className="relative py-24 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#f2f5fb] dark:bg-void overflow-hidden transition-colors duration-300"
     >
       <div className="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] gap-10 lg:gap-14 items-start">
-        <div className="hidden lg:block lg:sticky lg:top-28">
-          <img
-            src="/images/faq.webp"
-            alt="NexifyHost frequently asked questions"
-            loading="lazy"
-            draggable={false}
-            className="w-full max-h-[460px] object-contain rounded-2xl"
-          />
+        <div className="hidden lg:flex lg:self-stretch">
+          <div className="sticky top-28 self-start h-fit w-full">
+            <img
+              src="/images/faq.webp"
+              alt="NexifyHost frequently asked questions"
+              loading="lazy"
+              draggable={false}
+              className="w-full max-h-[460px] object-contain rounded-2xl"
+            />
+          </div>
         </div>
 
         {/* accordion */}
@@ -84,7 +86,11 @@ export default function FAQ() {
                       {item.question}
                     </span>
                     <span className="flex-shrink-0 text-blue-600 dark:text-blue-400">
-                      {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                      {isOpen ? (
+                        <Minus className="w-4 h-4" />
+                      ) : (
+                        <Plus className="w-4 h-4" />
+                      )}
                     </span>
                   </button>
                   <AnimatePresence initial={false}>

@@ -9,7 +9,7 @@ export const site = {
   discord: "https://discord.gg/ezydpvUF7J",
   trustpilot: "#",
   gamePanel: "#",
-  statusPage: "#",
+  statusPage: "/status",
 };
 
 export const banner = {
@@ -1320,4 +1320,266 @@ export const footer = {
       ],
     },
   ],
+};
+
+/* --------------------------- STATUS PAGE -------------------------- */
+
+export const status = {
+  badge: "Trust Center",
+  title: "Live Service",
+  accent: "Status",
+  subtitle:
+    "Real-time availability across every layer of our platform. This page refreshes automatically and is powered by the same probes that page our on-call engineers.",
+  refreshSeconds: 30,
+  services: [
+    {
+      id: "panel",
+      name: "Game Panel",
+      desc: "Dashboard, console & shell access",
+      uptime: "99.98%",
+      latency: 42,
+      seed: 3,
+    },
+    {
+      id: "mc",
+      name: "Minecraft Nodes",
+      desc: "Budget · Standard · Performance fleets",
+      uptime: "99.95%",
+      latency: 38,
+      seed: 7,
+    },
+    {
+      id: "bots",
+      name: "Bot Hosting Nodes",
+      desc: "Always-on Discord bot workers",
+      uptime: "99.91%",
+      latency: 51,
+      seed: 11,
+    },
+    {
+      id: "games",
+      name: "Game Server Nodes",
+      desc: "Dockerized multi-game runtimes",
+      uptime: "99.97%",
+      latency: 44,
+      seed: 17,
+    },
+    {
+      id: "dns",
+      name: "Domains & DNS",
+      desc: "Registrar, DNS zones & SSL issuance",
+      uptime: "100.0%",
+      latency: 23,
+      seed: 23,
+    },
+    {
+      id: "api",
+      name: "Public API & Billing",
+      desc: "Client API, orders & provisioning",
+      uptime: "99.99%",
+      latency: 35,
+      seed: 29,
+    },
+  ],
+  regions: [
+    { name: "Mumbai Edge", ms: 11 },
+    { name: "Singapore Edge", ms: 38 },
+    { name: "Frankfurt Core", ms: 92 },
+    { name: "New York Core", ms: 138 },
+    { name: "São Paulo Edge", ms: 196 },
+  ],
+  incidents: [
+    {
+      date: "Jan 20, 2026",
+      title: "Scheduled migration — node MC-EU-03",
+      body: "Kernel and NVMe driver upgrade on one Frankfurt Minecraft node. Zero-downtime live migration was executed across a two-hour maintenance window.",
+      tag: "Maintenance",
+      tone: "amber" as const,
+    },
+    {
+      date: "Jan 12, 2026",
+      title: "Bot worker restart loop after faulty deploy",
+      body: "A runtime image caused repeated restarts on a subset of bot hosting workers. Rollback completed in 45 minutes; no bot data or configurations were affected.",
+      tag: "Resolved",
+      tone: "emerald" as const,
+    },
+    {
+      date: "Dec 28, 2025",
+      title: "Upstream DDoS filtering flapping",
+      body: "One transit provider briefly re-routed around our edge filters. Mitigation engaged automatically and connectivity normalized within 18 minutes.",
+      tag: "Mitigated",
+      tone: "emerald" as const,
+    },
+  ],
+};
+
+/* ------------------- BLUEPRINTS & EXTENSIONS ----------------------- */
+
+export interface Extension {
+  icon: string;
+  name: string;
+  price: number; // USD
+  desc: string;
+  flagship?: boolean;
+}
+
+export const blueprints = {
+  badge: "Panel Store",
+  title: "Blueprints",
+  accent: "& Extensions",
+  subtitle:
+    "Production-grade extensions for our game panel — hand-built, security-reviewed and tuned to work together. Install once, our team maintains compatibility with every panel release.",
+  note: "All extension prices are listed in USD.",
+  categories: [
+    {
+      id: "ux",
+      name: "UI, UX & Presentation",
+      tagline:
+        "Thirteen focused upgrades that make the panel feel like a native product.",
+      accent: "#2563EB",
+      items: [
+        {
+          icon: "table",
+          name: "Blue Tables UI Modifier",
+          price: 3.0,
+          desc: "Responsive blue-accent table theme with sticky headers, zebra rows and compact mode.",
+        },
+        {
+          icon: "brush",
+          name: "Custom CSS Injection Tool",
+          price: 4.0,
+          desc: "Inject scoped stylesheets safely, with live preview, versioning and one-click rollback.",
+        },
+        {
+          icon: "code",
+          name: "Monaco Advanced Code Editor",
+          price: 5.5,
+          desc: "Upgrade every file editor to Monaco with IntelliSense, minimap and multi-cursor.",
+        },
+        {
+          icon: "infinity",
+          name: "No-Pagination Endless Scrolling",
+          price: 3.5,
+          desc: "Seamless infinite scroll in place of pagination — filters keep their live context.",
+        },
+        {
+          icon: "users",
+          name: "Player Listing Displays",
+          price: 4.0,
+          desc: "Real-time online player cards with avatars, ping and session duration.",
+        },
+        {
+          icon: "package",
+          name: "Pteromonaco Code Suite",
+          price: 5.0,
+          desc: "Monaco plus tabbed editing, syntax themes and editor code actions, bundled.",
+        },
+        {
+          icon: "image",
+          name: "Dynamic Server Backgrounds",
+          price: 3.0,
+          desc: "Animated, server-aware ambient backgrounds for the dashboard and login screen.",
+        },
+        {
+          icon: "sidebar",
+          name: "Sidebar Navigation Customizer",
+          price: 3.5,
+          desc: "Drag to reorder, pin and group sidebar navigation per user profile.",
+        },
+        {
+          icon: "star",
+          name: "Simple Favicon Manager",
+          price: 2.0,
+          desc: "Upload and swap panel favicons with instant CDN cache invalidation.",
+        },
+        {
+          icon: "footer",
+          name: "Simple Footer Editor",
+          price: 2.5,
+          desc: "Edit footer text, links and legal rows from the admin UI — zero code changes.",
+        },
+        {
+          icon: "snowflake",
+          name: "Snowflake Particle Overlay",
+          price: 2.0,
+          desc: "Configurable seasonal particle overlays with density and drift controls.",
+        },
+        {
+          icon: "rocket",
+          name: "Startup Changer Utility",
+          price: 3.5,
+          desc: "Switch between pre-built startup command profiles per game version in one click.",
+        },
+        {
+          icon: "chart",
+          name: "Static & Panel Statistics Views",
+          price: 4.5,
+          desc: "Embeddable TPS, players and uptime widgets for the panel or external sites.",
+        },
+      ] as Extension[],
+    },
+    {
+      id: "auth",
+      name: "Authentication, Integrations & Routing",
+      tagline:
+        "Deeper platform capabilities — identity, chat, alerts and network automation.",
+      accent: "#8B5CF6",
+      items: [
+        {
+          icon: "key",
+          name: "Discord Authentication Blueprint",
+          price: 12.0,
+          desc: "Full OAuth2 Discord SSO with role-based permissions and guild membership validation.",
+          flagship: true,
+        },
+        {
+          icon: "shield",
+          name: "Social OAuth Secure Login",
+          price: 8.0,
+          desc: "Google and GitHub sign-in with MFA-ready session management.",
+        },
+        {
+          icon: "chat",
+          name: "Tawk.to Live Chat Integration",
+          price: 4.5,
+          desc: "Embed Tawk.to with authenticated user context passed straight into tickets.",
+        },
+        {
+          icon: "redirect",
+          name: "Domain & Network Redirector",
+          price: 4.0,
+          desc: "Smart multi-domain redirects with path preservation and SSL handling.",
+        },
+        {
+          icon: "bell",
+          name: "Resource Threshold Alerts",
+          price: 5.5,
+          desc: "CPU, RAM and disk alerts delivered via panel notifications and webhooks.",
+        },
+        {
+          icon: "globe",
+          name: "Network Subdomain Manager",
+          price: 7.5,
+          desc: "Bulk-create, assign and release SRV and A records tied to allocations.",
+        },
+        {
+          icon: "map",
+          name: "Subdomains Mapping Matrix",
+          price: 6.0,
+          desc: "Visual map of every subdomain to its server, port and ownership state.",
+        },
+        {
+          icon: "languages",
+          name: "CoreSystem Translations Module",
+          price: 9.0,
+          desc: "Panel-wide i18n with per-user locales, crowd-editable packs and RTL support.",
+        },
+      ] as Extension[],
+    },
+  ],
+  licensing: {
+    icon: "shield",
+    title: "One license, forever",
+    body: "Every extension and module includes a permanent, non-expiring license for the purchased component. No recurring license renewal is required.",
+  },
 };

@@ -14,6 +14,7 @@ import GameServersPage from "./pages/GameServersPage";
 import DomainsPage from "./pages/DomainsPage";
 import LegalPage from "./pages/LegalPage";
 import NotFound from "./pages/NotFound";
+import StatusPage from "./pages/StatusPage";
 
 function RouterView() {
   const route = useRoute();
@@ -32,6 +33,8 @@ function RouterView() {
       return <GameServersPage />;
     case "domains":
       return <DomainsPage />;
+    case "status":
+      return <StatusPage />;
     case "terms-of-services":
     case "privacy-policy":
       return <LegalPage docKey={first} key={first} />;
@@ -47,7 +50,10 @@ export default function App() {
     <ThemeProvider>
       <CurrencyProvider>
         <div className="min-h-screen bg-[#f2f5fb] dark:bg-void text-slate-900 dark:text-white font-quicksand antialiased transition-colors duration-300">
-          <Banner visible={bannerVisible} onClose={() => setBannerVisible(false)} />
+          <Banner
+            visible={bannerVisible}
+            onClose={() => setBannerVisible(false)}
+          />
           <Navbar bannerVisible={bannerVisible} />
           <main>
             <RouterView />
