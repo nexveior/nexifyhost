@@ -10,17 +10,17 @@ export default function Footer() {
       <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[700px] h-[300px] blob-primary rounded-full blur-3xl opacity-50 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
+        <div className="footer-grid grid grid-cols-2 md:grid-cols-5 gap-10">
           {/* brand */}
           <div className="col-span-2">
-            <a href="#/" className="flex items-center gap-2.5">
+            <a href="#/" className="flex items-center gap-3">
               <img
-                src="/images/logo.webp"
-                alt={`${site.brandName}${site.brandAccent} logo`}
-                className="h-12 w-12 rounded-xl object-contain drop-shadow-[0_4px_12px_rgba(37,99,235,0.2)]"
-                draggable={false}
+                src={site.logo}
+                alt="NexifyHost logo"
+                loading="lazy"
+                className="w-10 h-10 rounded-lg object-contain"
               />
-              <span className="font-orbitron text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+              <span className="text-xl font-bold text-slate-900 dark:text-white font-orbitron tracking-wide transition-colors">
                 {site.brandName}
                 <span className="text-blue-600 dark:text-blue-400">{site.brandAccent}</span>
               </span>
@@ -37,6 +37,8 @@ export default function Footer() {
                 <a
                   key={s.label}
                   href={s.href}
+                  target={s.href.startsWith("http") ? "_blank" : undefined}
+                  rel={s.href.startsWith("http") ? "noreferrer noopener" : undefined}
                   aria-label={s.label}
                   className="w-9 h-9 rounded-lg border border-slate-300 dark:border-white/10 bg-white dark:bg-white/[0.03] flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500/40 transition-colors"
                 >
@@ -80,6 +82,19 @@ export default function Footer() {
             </span>
             All systems operational
           </div>
+        </div>
+
+        {/* Professional closing statement shown last on every page. */}
+        <div className="mt-6 pt-6 border-t border-slate-200/70 dark:border-white/5 text-center sm:text-left">
+          <p className="font-orbitron text-xs font-semibold tracking-[0.14em] uppercase text-slate-700 dark:text-slate-300 transition-colors">
+            {footer.closingTitle}
+          </p>
+          <p className="mt-2 max-w-3xl text-xs leading-relaxed text-slate-500 dark:text-slate-400 transition-colors">
+            {footer.closingText}
+          </p>
+          <p className="mt-3 max-w-4xl text-[10px] leading-relaxed text-slate-400 dark:text-slate-600 transition-colors">
+            {footer.trademarkNotice}
+          </p>
         </div>
       </div>
     </footer>

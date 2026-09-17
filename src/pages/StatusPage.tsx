@@ -16,7 +16,7 @@ const DAYS = 30;
 
 /* deterministic pseudo-random per service+day so bars are stable */
 function dayTone(seed: number, day: number): "ok" | "degraded" | "down" {
-  const v = Math.abs(Math.sin(seed * 37.13 + day * 12.9898) * 43758.5453) % 1;
+  const v = (Math.abs(Math.sin(seed * 37.13 + day * 12.9898) * 43758.5453) % 1);
   if (v > 0.985) return "down";
   if (v > 0.94) return "degraded";
   return "ok";
@@ -53,11 +53,7 @@ export default function StatusPage() {
     Math.max(2, Math.round(base + Math.sin(tick * 0.9 + seed) * 6));
 
   const allOperational = true;
-  const time = updatedAt.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-  });
+  const time = updatedAt.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" });
 
   return (
     <>
@@ -93,9 +89,7 @@ export default function StatusPage() {
               </span>
               <div className="flex-1">
                 <h2 className="font-orbitron font-bold text-xl sm:text-2xl text-slate-900 dark:text-white transition-colors">
-                  {allOperational
-                    ? "All Systems Operational"
-                    : "Some services degraded"}
+                  {allOperational ? "All Systems Operational" : "Some services degraded"}
                 </h2>
                 <p className="mt-1 text-xs sm:text-sm text-slate-500 dark:text-slate-400 transition-colors">
                   Monitored across 5 edge regions · last probe at {time}
@@ -169,12 +163,7 @@ export default function StatusPage() {
                           className="flex-1 rounded-sm transition-transform hover:scale-y-110 hover:scale-x-105"
                           style={{
                             backgroundColor: toneColor[tone],
-                            height:
-                              tone === "ok"
-                                ? "100%"
-                                : tone === "degraded"
-                                  ? "66%"
-                                  : "34%",
+                            height: tone === "ok" ? "100%" : tone === "degraded" ? "66%" : "34%",
                             opacity: 0.45 + ((d + 1) / DAYS) * 0.55,
                           }}
                         />
@@ -184,10 +173,7 @@ export default function StatusPage() {
 
                   <div className="mt-3 flex items-center justify-between text-[11px]">
                     <span className="text-slate-500 dark:text-slate-400">
-                      30-day uptime{" "}
-                      <span className="font-semibold text-emerald-600 dark:text-emerald-400">
-                        {s.uptime}
-                      </span>
+                      30-day uptime <span className="font-semibold text-emerald-600 dark:text-emerald-400">{s.uptime}</span>
                     </span>
                     <span className="font-mono tabular-nums text-slate-700 dark:text-slate-200 flex items-center gap-1">
                       <Activity className="w-3 h-3 text-blue-500" />
@@ -216,9 +202,7 @@ export default function StatusPage() {
                   <h3 className="font-orbitron text-sm font-semibold text-slate-900 dark:text-white transition-colors">
                     Round-trip latency by region
                   </h3>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                    Measured every minute from our edge probes
-                  </p>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400">Measured every minute from our edge probes</p>
                 </div>
               </div>
               <div className="space-y-3.5">
@@ -228,12 +212,8 @@ export default function StatusPage() {
                   return (
                     <div key={r.name}>
                       <div className="flex justify-between text-xs mb-1.5">
-                        <span className="text-slate-600 dark:text-slate-300 font-medium">
-                          {r.name}
-                        </span>
-                        <span className="font-mono tabular-nums text-slate-900 dark:text-white">
-                          {ms} ms
-                        </span>
+                        <span className="text-slate-600 dark:text-slate-300 font-medium">{r.name}</span>
+                        <span className="font-mono tabular-nums text-slate-900 dark:text-white">{ms} ms</span>
                       </div>
                       <div className="h-1.5 rounded-full bg-slate-900/5 dark:bg-white/8 overflow-hidden">
                         <motion.div
@@ -265,17 +245,12 @@ export default function StatusPage() {
                   <h3 className="font-orbitron text-sm font-semibold text-slate-900 dark:text-white transition-colors">
                     Incident & maintenance history
                   </h3>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                    Full postmortems are posted on Discord
-                  </p>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400">Full postmortems are posted on Discord</p>
                 </div>
               </div>
               <div className="space-y-4">
                 {status.incidents.map((inc) => (
-                  <div
-                    key={inc.title}
-                    className="relative pl-5 border-l-2 border-slate-200 dark:border-white/10"
-                  >
+                  <div key={inc.title} className="relative pl-5 border-l-2 border-slate-200 dark:border-white/10">
                     <span
                       className={`absolute -left-[5px] top-1 w-2 h-2 rounded-full ${
                         inc.tone === "amber" ? "bg-amber-500" : "bg-emerald-500"
@@ -314,28 +289,20 @@ export default function StatusPage() {
             viewport={{ once: true }}
             className="card-shell px-5 py-3.5 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] text-slate-500 dark:text-slate-400"
           >
-            <span className="font-orbitron text-[10px] tracking-[0.2em] uppercase">
-              Legend
-            </span>
+            <span className="font-orbitron text-[10px] tracking-[0.2em] uppercase">Legend</span>
             {[
               { c: toneColor.ok, t: "Operational" },
               { c: toneColor.degraded, t: "Elevated latency" },
               { c: toneColor.down, t: "Brief outage" },
             ].map((l) => (
               <span key={l.t} className="inline-flex items-center gap-2">
-                <span
-                  className="w-2.5 h-2.5 rounded-sm"
-                  style={{ backgroundColor: l.c }}
-                />
+                <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: l.c }} />
                 {l.t}
               </span>
             ))}
             <span className="ml-auto">
               Something looks off?{" "}
-              <a
-                href={site.discord}
-                className="text-blue-600 dark:text-blue-400 font-semibold underline underline-offset-2"
-              >
+              <a href={site.discord} className="text-blue-600 dark:text-blue-400 font-semibold underline underline-offset-2">
                 Report it on Discord
               </a>
             </span>

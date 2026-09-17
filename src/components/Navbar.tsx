@@ -14,6 +14,8 @@ import {
   Star,
   MessageCircle,
   Cpu,
+  Puzzle,
+  User,
 } from "lucide-react";
 import { site, minecraft, legalDropdown } from "../data/config";
 import { useRoute, href } from "../router";
@@ -22,7 +24,7 @@ import CurrencySelector from "./CurrencySelector";
 import { useCurrency } from "../hooks/useCurrency";
 
 const linkBase =
-  "relative px-3.5 py-6 text-[13px] font-bold transition-colors flex items-center gap-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-center cursor-pointer";
+  "relative px-3.5 py-6 text-[13px] font-bold transition-colors flex items-center gap-2 whitespace-nowrap after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-center cursor-pointer";
 const linkIdle = "text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400";
 const linkActive = "text-blue-600 dark:text-blue-400 after:scale-x-100";
 
@@ -48,6 +50,7 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
     { icon: Bot, label: "Bot Hosting", path: "/bots" },
     { icon: Gamepad2, label: "Game Servers", path: "/gameservers" },
     { icon: Globe, label: "Domains", path: "/domains" },
+    { icon: Puzzle, label: "Extensions", path: "/extensions" },
   ];
 
   return (
@@ -61,16 +64,15 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center">
+        <div className="flex items-center justify-between">
           {/* brand */}
-          <a href={href("/")} className="flex items-center gap-2.5 mr-6 flex-shrink-0 py-2.5">
+          <a href={href("/")} className="flex items-center gap-2 sm:gap-3 flex-shrink-0 py-3">
             <img
-              src="/images/logo.webp"
-              alt={`${site.brandName}${site.brandAccent} logo`}
-              className="h-11 w-11 rounded-xl object-contain drop-shadow-[0_4px_12px_rgba(37,99,235,0.2)]"
-              draggable={false}
+              src={site.logo}
+              alt="NexifyHost logo"
+              className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg object-contain"
             />
-            <span className="font-orbitron text-base sm:text-lg font-bold tracking-tight text-slate-900 dark:text-white whitespace-nowrap">
+            <span className="text-base sm:text-xl font-bold text-slate-900 dark:text-white font-orbitron tracking-wide transition-colors whitespace-nowrap">
               {site.brandName}
               <span className="text-blue-600 dark:text-blue-400">{site.brandAccent}</span>
             </span>
@@ -88,33 +90,33 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
               <div className="absolute top-full left-0 w-[560px] max-w-[90vw] bg-white/95 dark:bg-[#0d0f16]/95 backdrop-blur-xl border border-slate-200 dark:border-white/10 border-t-2 border-t-blue-500 rounded-b-xl shadow-2xl shadow-slate-900/10 dark:shadow-black/60 opacity-0 pointer-events-none translate-y-2 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-300 p-3 z-50">
                 <div className="grid grid-cols-3 gap-3">
                   {minecraft.categories.map((c) => {
-                    const from = Math.min(...c.plans.map((p) => Number(p.price)));
+                    const from = Math.min(
+                      ...c.plans.map((p) => Number(p.price) || 0).filter((n) => n > 0)
+                    );
                     return (
                       <a
                         key={c.id}
                         href={href(`/minecraft/${c.id}`)}
                         className="relative block rounded-lg overflow-hidden border border-slate-200 dark:border-white/10 hover:border-blue-500/50 transition-colors group/card"
                       >
-                        <div
-                          className="relative h-24 overflow-hidden p-2.5 flex items-end"
-                        >
+                        <div className="relative h-20">
                           <img
                             src={c.image}
-                            alt={`${c.name} plans`}
+                            alt={c.name}
                             loading="lazy"
                             draggable={false}
                             className="absolute inset-0 w-full h-full object-cover"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
                           <div
                             className="absolute inset-0 mix-blend-overlay"
-                            style={{ backgroundColor: c.accent, opacity: 0.22 }}
+                            style={{ backgroundColor: c.accent, opacity: 0.25 }}
                           />
-                          <div className="relative">
-                            <h3 className="text-white text-[13px] font-orbitron font-semibold drop-shadow-sm">
+                          <div className="absolute inset-0 bg-black/45 group-hover/card:bg-black/30 transition-colors" />
+                          <div className="absolute bottom-2 left-2.5">
+                            <h3 className="text-white text-[13px] font-orbitron font-semibold">
                               {c.name}
                             </h3>
-                            <p className="text-white/80 text-[9px]">From {format(from)}/mo</p>
+                            <p className="text-white/70 text-[9px]">From {format(from)}/mo</p>
                           </div>
                         </div>
                         <div className="p-2.5 bg-white dark:bg-transparent">
@@ -137,7 +139,7 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
               </a>
             ))}
 
-            <a href={site.statusPage} className={`${linkBase} ${linkIdle}`}>
+            <a href={href("/status")} className={`${linkBase} ${linkIdle}`}>
               <Activity className="w-4 h-4" />
               <span>Status</span>
             </a>
@@ -190,6 +192,8 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
             </a>
             <a
               href={site.trustpilot}
+              target="_blank"
+              rel="noreferrer noopener"
               aria-label="Trustpilot"
               className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
             >
@@ -197,18 +201,27 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
             </a>
             <CurrencySelector />
             <ThemeToggle />
+            <a
+              href={site.gamePanel}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="button-primary inline-flex items-center gap-1.5 px-3.5 py-1.75 rounded-lg font-orbitron text-[10px] font-semibold tracking-wider"
+            >
+              <User className="w-3.5 h-3.5" />
+              Dashboard
+            </a>
           </div>
 
           {/* mobile toggle */}
-          <div className="xl:hidden ml-auto py-3 flex items-center gap-2">
+          <div className="xl:hidden h-full py-3 flex items-center gap-2 flex-shrink-0">
             <CurrencySelector />
             <ThemeToggle />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
-              className="p-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="flex items-center justify-center w-9 h-9 rounded-lg text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
             >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -229,13 +242,13 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
               <div className="flex">
                 <a
                   href={href("/minecraft")}
-                  className={`flex-1 flex items-center gap-3 px-3 py-3 rounded-l-lg font-medium transition-colors ${
+                  className={`flex-1 flex items-center gap-3 px-3 py-3 rounded-l-lg font-bold whitespace-nowrap transition-colors ${
                     isActive("/minecraft")
                       ? "text-blue-600 dark:text-blue-400 bg-blue-500/10"
                       : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5"
                   }`}
                 >
-                  <Blocks className="w-5 h-5 text-blue-600 dark:text-blue-400" /> Minecraft Hosting
+                  <Blocks className="w-5 h-5 text-blue-600 dark:text-blue-400" /> Minecraft
                 </a>
                 <button
                   onClick={() => setOpenSection(openSection === "mc" ? null : "mc")}
@@ -272,13 +285,8 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
                           from{" "}
                           {format(
                             Math.min(
-                              ...c.plans
-                                .map((p) => p.price)
-                                .filter(
-                                  (price): price is number =>
-                                    typeof price === "number" && price > 0,
-                                ),
-                            ),
+                              ...c.plans.map((p) => Number(p.price) || 0).filter((n) => n > 0)
+                            )
                           )}
                         </span>
                       </a>
@@ -291,7 +299,7 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
                 <a
                   key={s.path}
                   href={href(s.path)}
-                  className={`flex items-center gap-3 px-3 py-3 rounded-lg font-medium transition-colors ${
+                  className={`flex items-center gap-3 px-3 py-3 rounded-lg font-bold whitespace-nowrap transition-colors ${
                     isActive(s.path)
                       ? "text-blue-600 dark:text-blue-400 bg-blue-500/10"
                       : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5"
@@ -303,19 +311,21 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
               ))}
 
               <a
-                href={site.statusPage}
-                className="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 transition-colors font-medium"
+                href={href("/status")}
+                className="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 font-bold whitespace-nowrap transition-colors"
               >
                 <Activity className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                 Status
               </a>
+
+
 
               {/* legal accordion */}
               <button
                 onClick={() => setOpenSection(openSection === "legal" ? null : "legal")}
                 className="w-full flex items-center justify-between px-3 py-3 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
               >
-                <span className="flex items-center gap-3 font-medium">
+                <span className="flex items-center gap-3 font-bold whitespace-nowrap">
                   <FileText className="w-5 h-5 text-blue-600 dark:text-blue-400" /> Legal
                 </span>
                 <ChevronRight
@@ -334,7 +344,7 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
                       <a
                         key={item.name}
                         href={href(item.href)}
-                        className="block py-2 text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                        className="block py-2 text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 font-bold whitespace-nowrap transition-colors"
                       >
                         {item.name}
                       </a>
@@ -350,6 +360,16 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
                 </span>
                 <CurrencySelector full />
               </div>
+
+              <a
+                href={site.gamePanel}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="button-primary mt-3 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-orbitron text-sm font-semibold tracking-wider w-full"
+              >
+                <User className="w-4 h-4" />
+                Dashboard
+              </a>
             </div>
           </motion.div>
         )}

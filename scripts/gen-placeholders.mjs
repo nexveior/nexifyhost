@@ -1,11 +1,7 @@
 /**
  * NexifyHost safe placeholder generator.
  *
- * It writes genuine PNG files with .png extensions only. Existing files are
- * preserved unless --force is supplied, so temporary or custom artwork is safe.
- *
- *   node scripts/gen-placeholders.mjs
- *   node scripts/gen-placeholders.mjs --force
+ * Existing files are preserved unless --force is supplied.
  */
 import fs from "node:fs";
 import path from "node:path";

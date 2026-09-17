@@ -20,6 +20,19 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #f2f5fb;
+}
+
+/* Clip accidental horizontal overflow without creating a scroll container.
+   Unlike overflow:hidden, this keeps nested position:sticky working. */
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow-x: clip;
 }
 
 body {
@@ -27,13 +40,25 @@ body {
   color: #0f172a;
   font-family: var(--font-quicksand);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
   transition: background-color 0.35s ease, color 0.35s ease;
 }
 
-.dark body {
+.dark,
+.dark body,
+.dark #root {
   background-color: #0a0b0f;
   color: #ffffff;
+}
+
+/* Prevent viewport-width rounding and oversized decorative elements from
+   exposing an empty strip in portrait phones using desktop-site mode. */
+section,
+header,
+footer,
+nav,
+main {
+  width: 100%;
+  max-width: 100%;
 }
 
 .font-orbitron {
@@ -255,4 +280,103 @@ body {
 .dark ::selection {
   background: rgba(37, 99, 235, 0.45);
   color: #fff;
+}
+
+/* ------------------------------------------------------------------ */
+/* Mobile fit — make the whole layout comfortably compact on phones     */
+/* without shrinking desktop.                                          */
+/* ------------------------------------------------------------------ */
+@media (max-width: 640px) {
+  /* content rhythm */
+  section {
+    background-clip: padding-box;
+  }
+
+  header {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  footer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* tighter section spacing than the desktop's py-24–py-28 */
+  #features,
+  #plans,
+  #panel,
+  #faq,
+  .pricing-section,
+  .domains-section,
+  .bot-section,
+  .gameservers-section,
+  .status-section {
+    padding-top: 3.25rem !important;
+    padding-bottom: 3.25rem !important;
+  }
+
+  /* hero should sit closer to the fixed navbar */
+  .hero-section {
+    padding-top: 8.5rem !important;
+    padding-bottom: 2rem !important;
+    min-height: auto !important;
+  }
+
+  .page-hero-section {
+    padding-top: 8.75rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* headings don't need to be as large on phones */
+  .font-orbitron.text-4xl,
+  .font-orbitron.text-5xl,
+  .font-orbitron.text-6xl,
+  .font-orbitron.text-3xl {
+    line-height: 1.18;
+  }
+
+  /* badges and small chips trim their letter-spacing on narrow screens */
+  .chip-badge {
+    letter-spacing: 0.08em;
+    padding: 0.38rem 0.75rem;
+    font-size: 0.666rem;
+  }
+
+  .button-primary,
+  .button-secondary {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* cards get slightly tighter padding by default */
+  .card-shell.p-5,
+  .card-shell.p-6,
+  .card-shell.p-7 {
+    padding: 1.1rem !important;
+  }
+
+  /* shared pricing family cards: image shouldn't dominate the phone */
+  .plan-family-image {
+    height: 6.25rem !important;
+  }
+
+  /* plan cards used across Minecraft/bots/game servers */
+  .plan-card-price {
+    font-size: 1.85rem !important;
+  }
+
+  /* free plan CTA becomes a clean vertical block */
+  .free-callout {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+  }
+  .free-callout a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* footer columns shouldn't be cramped side-by-side */
+  .footer-grid {
+    gap: 2rem !important;
+  }
 }

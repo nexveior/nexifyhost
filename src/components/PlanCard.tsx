@@ -5,9 +5,8 @@ import type { Plan } from "../data/config";
 import { useCurrency } from "../hooks/useCurrency";
 
 /**
- * Universal plan card — used by Minecraft categories, bot hosting and
- * general game servers. Prices are stored in INR and formatted through
- * the active currency.
+ * Universal plan card used by Minecraft, bot hosting and game servers.
+ * Prices are stored in INR and formatted through the active currency.
  */
 export default function PlanCard({
   plan,
@@ -28,7 +27,9 @@ export default function PlanCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
-      className={`card-shell relative flex flex-col overflow-visible ${plan.popular ? "!border-blue-500/50" : ""}`}
+      className={`card-shell relative flex flex-col overflow-visible ${
+        plan.popular ? "!border-blue-500/50" : ""
+      }`}
     >
       {plan.popular && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-30 inline-flex items-center gap-1 bg-blue-600 text-white text-[9px] font-orbitron font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full shadow-lg shadow-blue-600/40 whitespace-nowrap">
@@ -70,7 +71,7 @@ export default function PlanCard({
         </div>
 
         <div className="mt-4 flex items-baseline gap-1">
-          <span className="font-orbitron text-3xl font-bold text-slate-900 dark:text-white transition-colors">
+          <span className="plan-card-price font-orbitron text-3xl font-bold text-slate-900 dark:text-white transition-colors">
             {typeof plan.price === "number" ? format(plan.price) : plan.price}
           </span>
           {typeof plan.price === "number" && (
@@ -81,9 +82,9 @@ export default function PlanCard({
         <div className="my-4 h-px bg-slate-200 dark:bg-white/8 transition-colors" />
 
         <ul className="space-y-2 flex-1">
-          {plan.specs.map((s) => (
+          {plan.specs.map((spec) => (
             <li
-              key={s}
+              key={spec}
               className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-300 transition-colors"
             >
               <span
@@ -92,13 +93,15 @@ export default function PlanCard({
               >
                 <Check className="w-2.5 h-2.5" style={{ color: accent }} />
               </span>
-              {s}
+              {spec}
             </li>
           ))}
         </ul>
 
         <a
           href={site.gamePanel}
+          target="_blank"
+          rel="noreferrer noopener"
           className={`group/btn mt-6 w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-orbitron text-[11px] font-semibold tracking-wider ${
             plan.popular ? "button-primary" : "button-secondary text-slate-800 dark:text-white"
           }`}

@@ -1,27 +1,20 @@
 import { motion } from "framer-motion";
 
-/**
- * Shared inner-page hero with chip badge, Orbitron title with accent word
- * and subtitle.
- */
 export default function PageHero({
   badge,
   title,
   accent,
   subtitle,
-  accentColor,
   children,
 }: {
   badge: string;
   title: string;
   accent?: string;
   subtitle: string;
-  accentColor?: string;
   children?: React.ReactNode;
 }) {
   return (
-    <section className="relative pt-44 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#f2f5fb] dark:bg-void transition-colors duration-300">
-      {/* glows */}
+    <section className="page-hero-section relative pt-44 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#f2f5fb] dark:bg-void transition-colors duration-300">
       <div className="absolute -top-24 -right-24 w-[420px] h-[420px] blob-primary rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 -left-32 w-[380px] h-[380px] blob-secondary rounded-full blur-3xl pointer-events-none" />
       <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
@@ -33,9 +26,6 @@ export default function PageHero({
           transition={{ duration: 0.6 }}
           className="chip-badge mb-5"
         >
-          {accentColor && (
-            <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: accentColor }} />
-          )}
           {badge}
         </motion.div>
 
@@ -47,10 +37,7 @@ export default function PageHero({
         >
           {title}{" "}
           {accent && (
-            <span
-              className="drop-shadow-[0_0_22px_rgba(37,99,235,0.35)]"
-              style={{ color: accentColor ?? "#2563eb" }}
-            >
+            <span className="text-blue-600 dark:text-blue-400 drop-shadow-[0_0_22px_rgba(37,99,235,0.35)]">
               {accent}
             </span>
           )}
@@ -70,7 +57,7 @@ export default function PageHero({
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.26 }}
-            className="mt-8 flex flex-wrap items-center gap-4"
+            className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4"
           >
             {children}
           </motion.div>

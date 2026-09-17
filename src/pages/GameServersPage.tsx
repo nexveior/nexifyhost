@@ -16,6 +16,8 @@ export default function GameServersPage() {
       >
         <a
           href={site.gamePanel}
+          target="_blank"
+          rel="noreferrer noopener"
           className="button-primary inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg font-orbitron text-sm font-semibold tracking-wider"
         >
           Deploy Server
@@ -31,7 +33,7 @@ export default function GameServersPage() {
       </PageHero>
 
       {/* plans */}
-      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#f2f5fb] dark:bg-void overflow-hidden transition-colors duration-300">
+      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#f2f5fb] dark:bg-void transition-colors duration-300">
         <div className="relative z-10 max-w-6xl mx-auto">
           <SectionHeading
             align="center"

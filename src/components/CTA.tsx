@@ -6,7 +6,7 @@ import { href } from "../router";
 export default function CTA() {
   return (
     <section className="relative py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#eaeef7] dark:bg-[#0c0e14] overflow-hidden transition-colors duration-300">
-      <div className="relative z-10 max-w-5xl mx-auto">
+      <div className="relative max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

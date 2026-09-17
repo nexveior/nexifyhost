@@ -35,6 +35,8 @@ export default function BotHostingPage() {
       >
         <a
           href={site.gamePanel}
+          target="_blank"
+          rel="noreferrer noopener"
           className="button-primary inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg font-orbitron text-sm font-semibold tracking-wider"
         >
           Host Your Bot
@@ -68,15 +70,13 @@ export default function BotHostingPage() {
                 transition={{ duration: 0.45, delay: i * 0.06 }}
                 className="card-shell group p-5 flex flex-col items-center text-center gap-3"
               >
-                <span className="w-16 h-16 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 overflow-hidden">
-                  <img
-                    src={r.image}
-                    alt={`${r.name} runtime`}
-                    loading="lazy"
-                    draggable={false}
-                    className="w-14 h-14 object-contain"
-                  />
-                </span>
+                <img
+                  src={r.image}
+                  alt={`${r.name} logo`}
+                  loading="lazy"
+                  draggable={false}
+                  className="w-12 h-12 rounded-lg object-contain group-hover:scale-110 transition-transform duration-300"
+                />
                 <div>
                   <h3 className="font-orbitron text-sm font-semibold text-slate-900 dark:text-white transition-colors">
                     {r.name}
@@ -92,7 +92,7 @@ export default function BotHostingPage() {
       </section>
 
       {/* plans */}
-      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#eaeef7] dark:bg-[#0c0e14] overflow-hidden transition-colors duration-300">
+      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#eaeef7] dark:bg-[#0c0e14] transition-colors duration-300">
         <div className="relative z-10 max-w-6xl mx-auto">
           <SectionHeading
             align="center"

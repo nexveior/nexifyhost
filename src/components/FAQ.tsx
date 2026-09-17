@@ -9,18 +9,29 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="relative py-24 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#f2f5fb] dark:bg-void overflow-hidden transition-colors duration-300"
+      className="relative py-24 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#f2f5fb] dark:bg-void [overflow-x:clip] transition-colors duration-300"
     >
-      <div className="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] gap-10 lg:gap-14 items-start">
-        <div className="hidden lg:flex lg:self-stretch">
-          <div className="sticky top-28 self-start h-fit w-full">
-            <img
-              src="/images/faq.webp"
-              alt="NexifyHost frequently asked questions"
-              loading="lazy"
-              draggable={false}
-              className="w-full max-h-[460px] object-contain rounded-2xl"
-            />
+      <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-14 items-start">
+        {/* The column stretches to the full FAQ height. The fixed-size image
+            follows the viewport and stops when the FAQ section ends. */}
+        <div className="hidden md:block self-stretch min-w-0">
+          <div className="sticky top-28">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="absolute -inset-4 blob-primary rounded-full blur-3xl opacity-70" />
+              <img
+                src={faq.image}
+                alt="Server features illustration"
+                loading="lazy"
+                draggable={false}
+                className="relative block h-[480px] w-full rounded-xl object-contain"
+              />
+            </motion.div>
           </div>
         </div>
 
@@ -86,11 +97,7 @@ export default function FAQ() {
                       {item.question}
                     </span>
                     <span className="flex-shrink-0 text-blue-600 dark:text-blue-400">
-                      {isOpen ? (
-                        <Minus className="w-4 h-4" />
-                      ) : (
-                        <Plus className="w-4 h-4" />
-                      )}
+                      {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                     </span>
                   </button>
                   <AnimatePresence initial={false}>

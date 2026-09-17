@@ -13,7 +13,7 @@ export default function FreeCallout() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6 }}
-      className="card-shell !border-emerald-500/40 relative overflow-hidden p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center gap-5"
+      className="free-callout card-shell !border-emerald-500/40 relative overflow-hidden p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center gap-5"
     >
       <div className="absolute -top-20 -right-16 w-64 h-48 rounded-full blur-3xl pointer-events-none bg-emerald-500/15" />
 

@@ -1,15 +1,6 @@
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  Clock,
-  Users,
-  Shield,
-  Zap,
-  MessageCircle,
-  Check,
-} from "lucide-react";
+import { ArrowRight, Clock, Users, Shield, Zap, MessageCircle, Check } from "lucide-react";
 import { hero, partners } from "../data/config";
-import { img } from "../data/asset";
 import { href } from "../router";
 
 const statIcons: Record<string, typeof Clock> = {
@@ -19,27 +10,19 @@ const statIcons: Record<string, typeof Clock> = {
   zap: Zap,
 };
 
-const partnerImages: Record<string, string> = {
-  Intel: img.partners.intel,
-  AMD: img.partners.amd,
-  Pterodactyl: img.partners.pterodactyl,
-  Cloudflare: img.partners.cloudflare,
-  Hetzner: img.partners.hetzner,
-};
-
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden bg-[#f2f5fb] dark:bg-void transition-colors duration-300">
+    <section className="hero-section relative min-h-screen flex flex-col overflow-hidden bg-[#f2f5fb] dark:bg-void transition-colors duration-300">
       <div className="absolute -top-32 -right-32 w-[600px] h-[600px] blob-primary rounded-full blur-3xl pointer-events-none opacity-70" />
 
       {/* ---------- content ---------- */}
-      <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-40 pb-10">
+      <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="chip-badge mb-7"
+            className="chip-badge mb-5 sm:mb-7"
           >
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             {hero.badge}
@@ -49,7 +32,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.7 }}
-            className="font-orbitron font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.14] text-slate-900 dark:text-white transition-colors duration-300"
+            className="font-orbitron font-bold text-3xl sm:text-5xl lg:text-6xl leading-[1.14] text-slate-900 dark:text-white transition-colors duration-300"
           >
             {hero.titlePrefix}
             <span className="block">
@@ -74,7 +57,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.33, duration: 0.7 }}
-            className="mt-6 flex flex-wrap gap-x-5 gap-y-2"
+            className="mt-5 flex flex-wrap gap-x-5 gap-y-2"
           >
             {hero.highlights.map((h) => (
               <li
@@ -92,7 +75,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.42, duration: 0.7 }}
-            className="mt-9 flex flex-wrap items-center gap-4"
+            className="mt-7 sm:mt-9 flex flex-wrap items-center gap-4"
           >
             <a
               href={href(hero.primaryCta.href)}
@@ -103,7 +86,7 @@ export default function Hero() {
             </a>
             <a
               href={hero.secondaryCta.href}
-              className="button-secondary inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg font-orbitron text-sm font-semibold tracking-wider text-slate-800 dark:text-white"
+              className="button-secondary hidden sm:inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg font-orbitron text-sm font-semibold tracking-wider text-slate-800 dark:text-white"
             >
               <MessageCircle className="w-4 h-4 text-blue-600 dark:text-blue-400" />
               {hero.secondaryCta.label}
@@ -115,7 +98,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55, duration: 0.7 }}
-            className="mt-14 flex flex-wrap items-center gap-x-7 gap-y-5"
+            className="hidden sm:flex flex-wrap items-center gap-x-7 gap-y-5 mt-9 sm:mt-14"
           >
             {hero.stats.map((s, i) => {
               const Icon = statIcons[s.icon];
@@ -123,9 +106,7 @@ export default function Hero() {
                 <div
                   key={s.label}
                   className={`flex items-center gap-3 ${
-                    i > 0
-                      ? "sm:pl-7 sm:border-l border-slate-300/70 dark:border-white/10"
-                      : ""
+                    i > 0 ? "sm:pl-7 sm:border-l border-slate-300/70 dark:border-white/10" : ""
                   }`}
                 >
                   <Icon className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0" />
@@ -152,16 +133,14 @@ export default function Hero() {
               Powered by
             </span>
             <div className="relative flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
-              <div className="flex w-max animate-marquee items-center gap-12">
+              <div className="flex w-max animate-marquee items-center gap-16">
                 {[...partners, ...partners].map((p, i) => (
-                  <img
+                  <span
                     key={`${p.name}-${i}`}
-                    src={partnerImages[p.name]}
-                    alt={`${p.name} logo`}
-                    loading="lazy"
-                    draggable={false}
-                    className="h-8 w-28 flex-shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
-                  />
+                    className="font-orbitron text-xs font-semibold tracking-[0.3em] uppercase text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors whitespace-nowrap"
+                  >
+                    {p.name}
+                  </span>
                 ))}
               </div>
             </div>
