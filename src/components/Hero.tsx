@@ -16,7 +16,7 @@ export default function Hero() {
       <div className="absolute -top-32 -right-32 w-[600px] h-[600px] blob-primary rounded-full blur-3xl pointer-events-none opacity-70" />
 
       {/* ---------- content ---------- */}
-      <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-10">
         <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

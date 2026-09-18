@@ -19,7 +19,7 @@ export default function HomePage() {
       <CTA />
 
       {/* free plans — shown once, only here, at the very end */}
-      <section className="relative px-4 sm:px-6 lg:px-8 pb-20 sm:pb-24 bg-[#eaeef7] dark:bg-[#0c0e14] transition-colors duration-300">
+      <section className="relative px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24 bg-[#eaeef7] dark:bg-[#0c0e14] transition-colors duration-300">
         <div className="max-w-5xl mx-auto">
           <FreeCallout />
         </div>

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Cpu, Users2, Bot, Gamepad2, Globe, Blocks, Puzzle } from "lucide-react";
-import { minecraft, botHosting, gameServers, domains, extensions, site } from "../data/config";
+import { ArrowRight, Cpu, Users2, Bot, Gamepad2, Globe, Blocks, Puzzle, Cloud } from "lucide-react";
+import { minecraft, botHosting, vps, gameServers, domains, extensions, site } from "../data/config";
 import SectionHeading from "./SectionHeading";
 import { href } from "../router";
 import { useCurrency } from "../hooks/useCurrency";
@@ -12,6 +12,26 @@ export default function Pricing() {
     Math.min(...arr.map((p) => Number(p.price) || 0).filter((n) => n > 0));
 
   const otherServices = [
+    {
+      id: "vps",
+      icon: Cloud,
+      name: "VPS Hosting",
+      desc: "High-performance virtual servers in Thailand. Intel® Xeon® & full root access.",
+      from: minFrom(vps.plans),
+      unit: "/mo",
+      accent: "#3b82f6",
+      href: "/vps",
+    },
+    {
+      id: "vps",
+      icon: Cloud,
+      name: "VPS Hosting",
+      desc: "High-performance virtual servers in Thailand. Intel® Xeon® & full root access.",
+      from: minFrom(vps.plans),
+      unit: "/mo",
+      accent: "#3b82f6",
+      href: "/vps",
+    },
     {
       id: "bots",
       icon: Bot,

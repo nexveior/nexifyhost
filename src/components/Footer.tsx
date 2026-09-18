@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="relative bg-[#e3e8f2] dark:bg-[#08090d] border-t border-slate-200 dark:border-white/5 overflow-hidden transition-colors duration-300">
       <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[700px] h-[300px] blob-primary rounded-full blur-3xl opacity-50 pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-14 pb-8">
         <div className="footer-grid grid grid-cols-2 md:grid-cols-5 gap-10">
           {/* brand */}
           <div className="col-span-2">

@@ -25,7 +25,7 @@ export default function SectionHeading({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7 }}
-      className={`mb-12 ${align === "center" ? "text-center" : "text-left"}`}
+      className={`mb-10 sm:mb-12 ${align === "center" ? "text-center" : "text-left"}`}
     >
       {badge && (
         <div className={`chip-badge mb-5 ${align === "center" ? "mx-auto" : ""}`}>{badge}</div>

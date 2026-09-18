@@ -5,6 +5,7 @@ import {
   Bot,
   Gamepad2,
   Globe,
+  Cloud,
   Activity,
   FileText,
   ChevronRight,
@@ -24,9 +25,9 @@ import CurrencySelector from "./CurrencySelector";
 import { useCurrency } from "../hooks/useCurrency";
 
 const linkBase =
-  "relative px-3.5 py-6 text-[13px] font-bold transition-colors flex items-center gap-2 whitespace-nowrap after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-center cursor-pointer";
+  "relative px-2.5 xl:px-3 py-3 text-[12px] xl:text-[13px] font-bold transition-colors flex items-center gap-1.5 whitespace-nowrap rounded-lg hover:bg-slate-100/70 dark:hover:bg-white/5 after:content-[''] after:absolute after:-bottom-2 after:left-2 after:right-2 after:h-[2px] after:bg-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-center cursor-pointer";
 const linkIdle = "text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400";
-const linkActive = "text-blue-600 dark:text-blue-400 after:scale-x-100";
+const linkActive = "text-blue-600 dark:text-blue-400 bg-blue-500/8 dark:bg-blue-500/10 after:scale-x-100";
 
 export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -48,6 +49,7 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
 
   const services = [
     { icon: Bot, label: "Bot Hosting", path: "/bots" },
+    { icon: Cloud, label: "VPS Hosting", path: "/vps" },
     { icon: Gamepad2, label: "Game Servers", path: "/gameservers" },
     { icon: Globe, label: "Domains", path: "/domains" },
     { icon: Puzzle, label: "Extensions", path: "/extensions" },
@@ -64,28 +66,27 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-4 min-h-[72px]">
           {/* brand */}
-          <a href={href("/")} className="flex items-center gap-2 sm:gap-3 flex-shrink-0 py-3">
+          <a href={href("/")} className="flex items-center gap-2 sm:gap-3 flex-shrink-0 py-3 min-w-0 lg:w-[220px] xl:w-[250px]">
             <img
               src={site.logo}
               alt="NexifyHost logo"
-              className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg object-contain"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg object-contain"
             />
-            <span className="text-base sm:text-xl font-bold text-slate-900 dark:text-white font-orbitron tracking-wide transition-colors whitespace-nowrap">
+            <span className="text-base sm:text-lg xl:text-xl font-bold text-slate-900 dark:text-white font-orbitron tracking-wide transition-colors whitespace-nowrap truncate">
               {site.brandName}
               <span className="text-blue-600 dark:text-blue-400">{site.brandAccent}</span>
             </span>
           </a>
 
           {/* desktop links */}
-          <div className="hidden xl:flex items-center">
+          <div className="hidden xl:flex items-center justify-center flex-1 min-w-0">
             {/* minecraft dropdown */}
             <div className="relative group">
               <a href={href("/minecraft")} className={navCls("/minecraft")}>
-                <Blocks className="w-4 h-4" />
                 <span>Minecraft</span>
-                <ChevronDown className="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 transition-transform duration-300" />
+                <ChevronDown className="w-3 h-3 opacity-60 group-hover:rotate-180 transition-transform duration-300" />
               </a>
               <div className="absolute top-full left-0 w-[560px] max-w-[90vw] bg-white/95 dark:bg-[#0d0f16]/95 backdrop-blur-xl border border-slate-200 dark:border-white/10 border-t-2 border-t-blue-500 rounded-b-xl shadow-2xl shadow-slate-900/10 dark:shadow-black/60 opacity-0 pointer-events-none translate-y-2 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-300 p-3 z-50">
                 <div className="grid grid-cols-3 gap-3">
@@ -134,13 +135,11 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
 
             {services.map((s) => (
               <a key={s.path} href={href(s.path)} className={navCls(s.path)}>
-                <s.icon className="w-4 h-4" />
                 <span>{s.label}</span>
               </a>
             ))}
 
             <a href={href("/status")} className={`${linkBase} ${linkIdle}`}>
-              <Activity className="w-4 h-4" />
               <span>Status</span>
             </a>
 
@@ -154,11 +153,10 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
                     : linkIdle
                 }`}
               >
-                <FileText className="w-4 h-4" />
                 <span>Legal</span>
-                <ChevronDown className="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 transition-transform duration-300" />
+                <ChevronDown className="w-3 h-3 opacity-60 group-hover:rotate-180 transition-transform duration-300" />
               </a>
-              <div className="absolute top-full left-0 w-[280px] bg-white/95 dark:bg-[#0d0f16]/95 backdrop-blur-xl border border-slate-200 dark:border-white/10 border-t-2 border-t-blue-500 rounded-b-xl shadow-2xl shadow-slate-900/10 dark:shadow-black/60 opacity-0 pointer-events-none translate-y-2 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-300 p-3 z-50">
+              <div className="absolute top-full left-0 w-[260px] bg-white/95 dark:bg-[#0d0f16]/95 backdrop-blur-xl border border-slate-200 dark:border-white/10 border-t-2 border-t-blue-500 rounded-b-xl shadow-2xl shadow-slate-900/10 dark:shadow-black/60 opacity-0 pointer-events-none translate-y-2 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-300 p-3 z-50">
                 {legalDropdown.map((item) => (
                   <a
                     key={item.name}
@@ -182,7 +180,7 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
           </div>
 
           {/* right actions */}
-          <div className="hidden xl:flex items-center gap-3 ml-auto">
+          <div className="hidden xl:flex items-center gap-2 flex-shrink-0 lg:w-[220px] xl:w-[250px] justify-end">
             <a
               href={site.discord}
               aria-label="Discord"
@@ -205,7 +203,7 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
               href={site.gamePanel}
               target="_blank"
               rel="noreferrer noopener"
-              className="button-primary inline-flex items-center gap-1.5 px-3.5 py-1.75 rounded-lg font-orbitron text-[10px] font-semibold tracking-wider"
+              className="button-primary inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg font-orbitron text-[10px] font-semibold tracking-wider whitespace-nowrap"
             >
               <User className="w-3.5 h-3.5" />
               Dashboard
@@ -213,7 +211,7 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
           </div>
 
           {/* mobile toggle */}
-          <div className="xl:hidden h-full py-3 flex items-center gap-2 flex-shrink-0">
+          <div className="lg:hidden h-full py-3 flex items-center gap-2 flex-shrink-0">
             <CurrencySelector />
             <ThemeToggle />
             <button
@@ -235,7 +233,7 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="xl:hidden overflow-hidden bg-white dark:bg-[#10121b] border-t border-slate-200 dark:border-white/10 transition-colors"
+            className="lg:hidden overflow-hidden bg-white dark:bg-[#10121b] border-t border-slate-200 dark:border-white/10 transition-colors"
           >
             <div className="px-4 py-4 space-y-1.5 max-h-[70vh] overflow-y-auto">
               {/* minecraft accordion */}

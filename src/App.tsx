@@ -12,6 +12,7 @@ import MinecraftPage from "./pages/MinecraftPage";
 import BotHostingPage from "./pages/BotHostingPage";
 import GameServersPage from "./pages/GameServersPage";
 import DomainsPage from "./pages/DomainsPage";
+import VPSPage from "./pages/VPSPage";
 import StatusPage from "./pages/StatusPage";
 import ExtensionsPage from "./pages/ExtensionsPage";
 import LegalPage from "./pages/LegalPage";
@@ -32,6 +33,8 @@ function RouterView() {
     case "games":
     case "gameservers":
       return <GameServersPage />;
+    case "vps":
+      return <VPSPage />;
     case "domains":
       return <DomainsPage />;
     case "status":

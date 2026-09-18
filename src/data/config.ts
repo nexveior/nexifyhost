@@ -364,6 +364,71 @@ export const botHosting = {
   ],
 };
 
+/* -------------------------- VPS HOSTING --------------------------- */
+
+export const vps = {
+  badge: "Virtual Servers",
+  title: "VPS",
+  accent: "Hosting",
+  subtitle:
+    "High-performance virtual servers located in Thailand. Powered by Intel® Xeon® processors and Gen4 NVMe storage for maximum reliability and speed.",
+  plans: [
+    {
+      name: "2GiB",
+      ram: "2GB DDR4",
+      price: 299,
+      specs: ["1 vCore", "20GB NVME SSD", "Dedicated IPv4", "Full Root Access"],
+    },
+    {
+      name: "4GiB",
+      ram: "4GB DDR4",
+      price: 549,
+      specs: ["2 vCores", "40GB NVME SSD", "Dedicated IPv4", "Full Root Access"],
+    },
+    {
+      name: "8GiB",
+      ram: "8GB DDR4",
+      price: 899,
+      popular: true,
+      specs: ["4 vCores", "80GB NVME SSD", "Dedicated IPv4", "Full Root Access"],
+    },
+    {
+      name: "16GiB",
+      ram: "16GB DDR4",
+      price: 1499,
+      specs: ["6 vCores", "120GB NVME SSD", "Dedicated IPv4", "Full Root Access"],
+    },
+    {
+      name: "32GiB",
+      ram: "32GB DDR4",
+      price: 2199,
+      specs: ["8 vCores", "200GB NVME SSD", "Dedicated IPv4", "Full Root Access"],
+    },
+    {
+      name: "64GiB",
+      ram: "64GB DDR4",
+      price: 4199,
+      specs: ["16 vCores", "300GB NVME SSD", "Dedicated IPv4", "Full Root Access"],
+    },
+    {
+      name: "Custom Plan",
+      ram: "Custom",
+      price: "Create Ticket",
+      specs: ["Scalable Resources", "Tailored Hardware", "Bespoke Config", "Bulk Pricing"],
+    },
+  ] as Plan[],
+  hardware: [
+    { label: "CPU", value: "Intel® Xeon® E5-2670 v2" },
+    { label: "RAM", value: "DDR4 ECC" },
+    { label: "Storage", value: "Gen4 NVMe" },
+    { label: "Location", value: "Thailand" },
+    { label: "Network", value: "1 Gbps" },
+    { label: "Virtualization", value: "KVM" },
+    { label: "Access", value: "Full Root" },
+    { label: "DDoS", value: "Standard Protection" },
+  ],
+};
+
 /* ------------------- GAME SERVERS (general) ----------------------- */
 
 export const gameServers = {
