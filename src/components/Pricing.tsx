@@ -1,6 +1,24 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Cpu, Users2, Bot, Gamepad2, Globe, Blocks, Puzzle, Cloud } from "lucide-react";
-import { minecraft, botHosting, vps, gameServers, domains, extensions, site } from "../data/config";
+import {
+  ArrowRight,
+  Cpu,
+  Users2,
+  Bot,
+  Gamepad2,
+  Globe,
+  Blocks,
+  Puzzle,
+  Cloud,
+} from "lucide-react";
+import {
+  minecraft,
+  botHosting,
+  vps,
+  gameServers,
+  domains,
+  extensions,
+  site,
+} from "../data/config";
 import SectionHeading from "./SectionHeading";
 import { href } from "../router";
 import { useCurrency } from "../hooks/useCurrency";
@@ -12,16 +30,6 @@ export default function Pricing() {
     Math.min(...arr.map((p) => Number(p.price) || 0).filter((n) => n > 0));
 
   const otherServices = [
-    {
-      id: "vps",
-      icon: Cloud,
-      name: "VPS Hosting",
-      desc: "High-performance virtual servers in Thailand. Intel® Xeon® & full root access.",
-      from: minFrom(vps.plans),
-      unit: "/mo",
-      accent: "#3b82f6",
-      href: "/vps",
-    },
     {
       id: "vps",
       icon: Cloud,
@@ -68,7 +76,9 @@ export default function Pricing() {
       name: "Panel Extensions",
       desc: "One-time panel upgrades — UI polish, OAuth, chat, DNS automation and more.",
       from: Math.min(
-        ...extensions.categories.flatMap((category) => category.items.map((item) => item.price)),
+        ...extensions.categories.flatMap((category) =>
+          category.items.map((item) => item.price),
+        ),
       ),
       unit: " one-time",
       accent: "#F59E0B",
@@ -82,10 +92,20 @@ export default function Pricing() {
       id="plans"
       className="pricing-section relative py-24 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#f2f5fb] dark:bg-void overflow-hidden transition-colors duration-300"
     >
+      <video
+        src="/images/minecraft-aquarium.3840x2160.mp4"
+        aria-hidden="true"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover opacity-10 dark:opacity-20 pointer-events-none"
+      />
+      <div className="absolute inset-0 bg-[#f2f5fb]/80 dark:bg-void/70 pointer-events-none" />
       {/* soft ambient glow only — no plan imagery */}
       <div className="absolute top-32 -left-40 w-[460px] h-[460px] blob-primary rounded-full blur-3xl opacity-50 pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto rounded-3xl border border-white/50 bg-white/20 p-4 shadow-2xl backdrop-blur-md dark:border-white/10 dark:bg-black/15 sm:p-8">
         <SectionHeading
           align="center"
           badge={minecraft.badge}
@@ -115,7 +135,10 @@ export default function Pricing() {
                   draggable={false}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 mix-blend-overlay" style={{ backgroundColor: cat.accent, opacity: 0.2 }} />
+                <div
+                  className="absolute inset-0 mix-blend-overlay"
+                  style={{ backgroundColor: cat.accent, opacity: 0.2 }}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/20 to-transparent dark:from-[#0d0f16]/95 dark:via-[#0d0f16]/20" />
               </div>
 
@@ -140,11 +163,15 @@ export default function Pricing() {
 
               <div className="p-5 flex flex-col flex-1">
                 <div className="flex items-baseline gap-1.5">
-                  <span className="text-slate-400 dark:text-slate-500 text-xs">from</span>
+                  <span className="text-slate-400 dark:text-slate-500 text-xs">
+                    from
+                  </span>
                   <span className="font-orbitron text-2xl font-bold text-slate-900 dark:text-white transition-colors">
                     {format(minFrom(cat.plans))}
                   </span>
-                  <span className="text-slate-400 dark:text-slate-500 text-xs">/mo</span>
+                  <span className="text-slate-400 dark:text-slate-500 text-xs">
+                    /mo
+                  </span>
                 </div>
 
                 <p className="mt-3 text-xs text-slate-500 dark:text-slate-400 leading-relaxed transition-colors">
@@ -153,11 +180,17 @@ export default function Pricing() {
 
                 <div className="mt-4 space-y-2">
                   <div className="flex items-center gap-2 text-[11px] text-slate-600 dark:text-slate-300 transition-colors">
-                    <Cpu className="w-3.5 h-3.5 flex-shrink-0" style={{ color: cat.accent }} />
+                    <Cpu
+                      className="w-3.5 h-3.5 flex-shrink-0"
+                      style={{ color: cat.accent }}
+                    />
                     {cat.cpu}
                   </div>
                   <div className="flex items-center gap-2 text-[11px] text-slate-600 dark:text-slate-300 transition-colors">
-                    <Users2 className="w-3.5 h-3.5 flex-shrink-0" style={{ color: cat.accent }} />
+                    <Users2
+                      className="w-3.5 h-3.5 flex-shrink-0"
+                      style={{ color: cat.accent }}
+                    />
                     {cat.bestFor}
                   </div>
                 </div>
@@ -179,12 +212,11 @@ export default function Pricing() {
           ))}
         </div>
 
-
         {/* ---- other services ---- */}
         <div className="mt-14">
-                  <h3 className="text-center font-orbitron text-sm font-semibold tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400 mb-6">
-                    We also offer
-                  </h3>
+          <h3 className="text-center font-orbitron text-sm font-semibold tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400 mb-6">
+            We also offer
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {otherServices.map((s, i) => (
               <motion.a
@@ -198,7 +230,10 @@ export default function Pricing() {
               >
                 <span
                   className="w-12 h-12 rounded-xl border flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105"
-                  style={{ backgroundColor: `${s.accent}14`, borderColor: `${s.accent}44` }}
+                  style={{
+                    backgroundColor: `${s.accent}14`,
+                    borderColor: `${s.accent}44`,
+                  }}
                 >
                   <s.icon className="w-6 h-6" style={{ color: s.accent }} />
                 </span>
@@ -211,7 +246,9 @@ export default function Pricing() {
                   </p>
                   <span className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-orbitron font-semibold tracking-wider text-slate-700 dark:text-slate-200">
                     from {format(s.from)}
-                    <span className="text-slate-400 dark:text-slate-500">{s.unit}</span>
+                    <span className="text-slate-400 dark:text-slate-500">
+                      {s.unit}
+                    </span>
                     <ArrowRight
                       className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"
                       style={{ color: s.accent }}

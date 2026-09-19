@@ -63,10 +63,20 @@ export default function Features() {
       id="features"
       className="relative py-24 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#f2f5fb] dark:bg-void overflow-hidden transition-colors duration-300"
     >
+      <video
+        src="/images/minecraft-aquarium.3840x2160.mp4"
+        aria-hidden="true"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover opacity-15 dark:opacity-25 pointer-events-none"
+      />
+      <div className="absolute inset-0 bg-[#f2f5fb]/75 dark:bg-void/65 pointer-events-none" />
       {/* one soft glow only */}
       <div className="absolute top-24 -right-40 w-[480px] h-[480px] blob-primary rounded-full blur-3xl opacity-60 pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto rounded-3xl border border-white/50 bg-white/20 p-4 shadow-2xl backdrop-blur-md dark:border-white/10 dark:bg-black/15 sm:p-8">
         <SectionHeading
           badge={features.badge}
           title={features.title}

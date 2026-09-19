@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Clock, Users, Shield, Zap, MessageCircle, Check } from "lucide-react";
 import { hero, partners } from "../data/config";
+import { img } from "../data/asset";
 import { href } from "../router";
+
 
 const statIcons: Record<string, typeof Clock> = {
   clock: Clock,
@@ -10,14 +12,32 @@ const statIcons: Record<string, typeof Clock> = {
   zap: Zap,
 };
 
+const partnerImages: Record<string, string> = {
+  Intel: img.partners.intel,
+  AMD: img.partners.amd,
+  Pterodactyl: img.partners.pterodactyl,
+  Cloudflare: img.partners.cloudflare,
+  Hetzner: img.partners.hetzner,
+};
+
 export default function Hero() {
   return (
-    <section className="hero-section relative min-h-screen flex flex-col overflow-hidden bg-[#f2f5fb] dark:bg-void transition-colors duration-300">
+    <section className="hero-section relative min-h-[calc(100vh-108px)] flex flex-col overflow-hidden bg-[#f2f5fb] dark:bg-void transition-colors duration-300 pt-20 sm:pt-24 xl:pt-28">
+      <video
+        src="/images/minecraft-sunset.3840x2160.mp4"
+        aria-hidden="true"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover opacity-20 dark:opacity-30 pointer-events-none"
+      />
+      <div className="absolute inset-0 bg-[#f2f5fb]/75 dark:bg-void/65 pointer-events-none" />
       <div className="absolute -top-32 -right-32 w-[600px] h-[600px] blob-primary rounded-full blur-3xl pointer-events-none opacity-70" />
 
       {/* ---------- content ---------- */}
-      <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-10">
-        <div className="max-w-3xl">
+      <div className="relative z-10 flex-1 flex items-start xl:items-center max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-6 xl:pt-0 pb-10">
+        <div className="max-w-3xl rounded-3xl border border-white/50 bg-white/25 p-5 shadow-2xl backdrop-blur-md dark:border-white/10 dark:bg-black/20 sm:p-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -133,14 +153,20 @@ export default function Hero() {
               Powered by
             </span>
             <div className="relative flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
-              <div className="flex w-max animate-marquee items-center gap-16">
+              <div className="flex w-max animate-marquee items-center gap-12 sm:gap-16">
                 {[...partners, ...partners].map((p, i) => (
-                  <span
+                  <div
                     key={`${p.name}-${i}`}
-                    className="font-orbitron text-xs font-semibold tracking-[0.3em] uppercase text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors whitespace-nowrap"
+                    className="flex h-10 w-28 sm:w-32 items-center justify-center opacity-55 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
                   >
-                    {p.name}
-                  </span>
+                    <img
+                      src={partnerImages[p.name]}
+                      alt={`${p.name} logo`}
+                      loading="lazy"
+                      draggable={false}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
                 ))}
               </div>
             </div>

@@ -78,11 +78,11 @@ export const hero = {
 };
 
 export const partners = [
-  { name: "Intel" },
-  { name: "AMD" },
-  { name: "Pterodactyl" },
-  { name: "Cloudflare" },
-  { name: "Hetzner" },
+  { name: "Intel", logo: "https://nexifyhosting.vercel.app/images/intel.svg" },
+  { name: "AMD", logo: "https://nexifyhosting.vercel.app/images/amd.svg" },
+  { name: "Pterodactyl", logo: "https://nexifyhosting.vercel.app/images/pterodactyl.svg" },
+  { name: "Cloudflare", logo: "https://nexifyhosting.vercel.app/images/cloudflare.svg" },
+  { name: "Hetzner", logo: "https://nexifyhosting.vercel.app/images/hetzner.svg" },
 ];
 
 /* ----------------------------- PLANS ------------------------------ */

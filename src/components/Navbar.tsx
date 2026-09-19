@@ -25,7 +25,7 @@ import CurrencySelector from "./CurrencySelector";
 import { useCurrency } from "../hooks/useCurrency";
 
 const linkBase =
-  "relative px-2.5 xl:px-3 py-3 text-[12px] xl:text-[13px] font-bold transition-colors flex items-center gap-1.5 whitespace-nowrap rounded-lg hover:bg-slate-100/70 dark:hover:bg-white/5 after:content-[''] after:absolute after:-bottom-2 after:left-2 after:right-2 after:h-[2px] after:bg-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-center cursor-pointer";
+  "relative px-2.5 py-3 text-[12px] font-bold transition-colors flex items-center gap-1.5 whitespace-nowrap rounded-lg hover:bg-slate-100/70 dark:hover:bg-white/5 after:content-[''] after:absolute after:-bottom-2 after:left-2 after:right-2 after:h-[2px] after:bg-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-center cursor-pointer";
 const linkIdle = "text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400";
 const linkActive = "text-blue-600 dark:text-blue-400 bg-blue-500/8 dark:bg-blue-500/10 after:scale-x-100";
 
@@ -48,9 +48,9 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
   useEffect(() => setMobileOpen(false), [path]);
 
   const services = [
-    { icon: Bot, label: "Bot Hosting", path: "/bots" },
-    { icon: Cloud, label: "VPS Hosting", path: "/vps" },
-    { icon: Gamepad2, label: "Game Servers", path: "/gameservers" },
+    { icon: Bot, label: "Bots", path: "/bots" },
+    { icon: Cloud, label: "VPS", path: "/vps" },
+    { icon: Gamepad2, label: "Games", path: "/gameservers" },
     { icon: Globe, label: "Domains", path: "/domains" },
     { icon: Puzzle, label: "Extensions", path: "/extensions" },
   ];
@@ -81,7 +81,7 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
           </a>
 
           {/* desktop links */}
-          <div className="hidden xl:flex items-center justify-center flex-1 min-w-0">
+          <div className="hidden xl:flex items-center justify-center flex-1 min-w-0 gap-0.5">
             {/* minecraft dropdown */}
             <div className="relative group">
               <a href={href("/minecraft")} className={navCls("/minecraft")}>
@@ -180,7 +180,7 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
           </div>
 
           {/* right actions */}
-          <div className="hidden xl:flex items-center gap-2 flex-shrink-0 lg:w-[220px] xl:w-[250px] justify-end">
+          <div className="hidden xl:flex items-center gap-1.5 flex-shrink-0 xl:w-[235px] justify-end">
             <a
               href={site.discord}
               aria-label="Discord"
@@ -233,7 +233,7 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden overflow-hidden bg-white dark:bg-[#10121b] border-t border-slate-200 dark:border-white/10 transition-colors"
+            className="xl:hidden overflow-hidden bg-white dark:bg-[#10121b] border-t border-slate-200 dark:border-white/10 transition-colors"
           >
             <div className="px-4 py-4 space-y-1.5 max-h-[70vh] overflow-y-auto">
               {/* minecraft accordion */}
