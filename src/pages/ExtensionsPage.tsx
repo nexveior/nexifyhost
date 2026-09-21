@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -25,6 +26,42 @@ import {
   Table2,
   Users,
   MessageCircle,
+  Palette,
+  Layout,
+  Cat,
+  Briefcase,
+  Sparkles,
+  Zap,
+  Cloud,
+  Layers,
+  Scissors,
+  Maximize,
+  FileSearch,
+  Trash,
+  Ban,
+  Save,
+  Edit,
+  SortAsc,
+  RefreshCw,
+  Hash,
+  Import,
+  Split,
+  Undo,
+  Link,
+  Info,
+  Box,
+  UserCheck,
+  Radar,
+  Search,
+  Edit3,
+  Settings2,
+  Sliders,
+  Wand2,
+  ListTree,
+  CheckCircle,
+  FileCode,
+  ArrowDown,
+  BarChart,
 } from "lucide-react";
 import { extensions, site, type Extension } from "../data/config";
 import PageHero from "../components/PageHero";
@@ -51,6 +88,42 @@ const icons: Record<string, typeof Puzzle> = {
   globe: Globe2,
   map: MapIcon,
   languages: Languages,
+  palette: Palette,
+  layout: Layout,
+  cat: Cat,
+  briefcase: Briefcase,
+  sparkles: Sparkles,
+  zap: Zap,
+  nebula: Cloud,
+  layers: Layers,
+  slice: Scissors,
+  maximize: Maximize,
+  "file-search": FileSearch,
+  trash: Trash,
+  ban: Ban,
+  save: Save,
+  edit: Edit,
+  sort: SortAsc,
+  "refresh-cw": RefreshCw,
+  hash: Hash,
+  import: Import,
+  split: Split,
+  undo: Undo,
+  link: Link,
+  info: Info,
+  box: Box,
+  "user-check": UserCheck,
+  radar: Radar,
+  search: Search,
+  "edit-3": Edit3,
+  "settings-2": Settings2,
+  sliders: Sliders,
+  "wand-2": Wand2,
+  "list-tree": ListTree,
+  "check-circle": CheckCircle,
+  "file-code": FileCode,
+  "arrow-down": ArrowDown,
+  "bar-chart": BarChart,
 };
 
 const usd = (n: number) => `$${n.toFixed(2)}`;
@@ -118,6 +191,7 @@ function ExtensionCard({
 }
 
 export default function ExtensionsPage() {
+  const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const totalItems = extensions.categories.reduce(
     (sum, category) => sum + category.items.length,
     0,
@@ -125,6 +199,10 @@ export default function ExtensionsPage() {
   const cheapest = Math.min(
     ...extensions.categories.flatMap((category) => category.items.map((item) => item.price)),
   );
+
+  const filtered = activeFilter
+    ? extensions.categories.filter((c) => c.id === activeFilter)
+    : extensions.categories;
 
   return (
     <>
@@ -142,26 +220,65 @@ export default function ExtensionsPage() {
           Purchase via Discord
         </a>
         <span className="chip-badge">{totalItems} extensions</span>
-        <span className="chip-badge">from {usd(cheapest)} one-time</span>
+        <span className="chip-badge">from {usd(cheapest)} /mo</span>
       </PageHero>
 
-      {extensions.categories.map((category) => (
+      {/* ---- category filter bar ---- */}
+      <section className="sticky top-[68px] xl:top-[72px] z-40 bg-white/80 dark:bg-[#10121b]/80 backdrop-blur-xl border-b border-slate-200/60 dark:border-white/8 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 overflow-x-auto sm:overflow-x-hidden">
+          <div className="flex sm:flex-wrap items-center gap-2 min-w-max sm:min-w-0">
+            <button
+              onClick={() => setActiveFilter(null)}
+              className={`px-3 py-1.5 rounded-lg font-orbitron text-[10px] sm:text-[11px] font-bold tracking-wider whitespace-nowrap border transition-all duration-200 ${
+                !activeFilter
+                  ? "bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-600/30"
+                  : "border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300 hover:border-blue-500/50 hover:text-blue-600 dark:hover:text-blue-400"
+              }`}
+            >
+              All ({totalItems})
+            </button>
+            {extensions.categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveFilter(activeFilter === cat.id ? null : cat.id)}
+                className={`px-3 py-1.5 rounded-lg font-orbitron text-[10px] sm:text-[11px] font-bold tracking-wider whitespace-nowrap border transition-all duration-200 ${
+                  activeFilter === cat.id
+                    ? "text-white shadow-md border-transparent"
+                    : "border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300 hover:border-blue-500/50"
+                }`}
+                style={
+                  activeFilter === cat.id
+                    ? { backgroundColor: cat.accent, borderColor: cat.accent, boxShadow: `0 4px 14px -4px ${cat.accent}88` }
+                    : undefined
+                }
+              >
+                <span className="flex items-center gap-1.5">
+                  <span
+                    className="w-2 h-2 rounded-full flex-shrink-0"
+                    style={{ backgroundColor: cat.accent }}
+                  />
+                  {cat.name.split(" ").slice(0, 2).join(" ")}
+                  <span className="opacity-60">({cat.items.length})</span>
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {filtered.map((category, idx) => (
         <section
           key={category.id}
-          className={`${
-            category.id === "ux" ? "extensions-section" : ""
-          } relative py-14 sm:py-16 px-4 sm:px-6 lg:px-8 ${
-            category.id === "ux"
-              ? "bg-[#f2f5fb] dark:bg-void"
-              : "bg-[#eaeef7] dark:bg-[#0c0e14]"
+          className={`relative py-14 sm:py-16 px-4 sm:px-6 lg:px-8 ${
+            idx % 2 === 0 ? "bg-[#f2f5fb] dark:bg-void" : "bg-[#eaeef7] dark:bg-[#0c0e14]"
           } overflow-hidden transition-colors duration-300`}
         >
           <div
             className="absolute -top-32 w-[420px] h-[420px] rounded-full blur-3xl pointer-events-none opacity-50"
             style={{
               background: `radial-gradient(circle, ${category.accent}30, transparent 65%)`,
-              right: category.id === "ux" ? "-10%" : "auto",
-              left: category.id === "ux" ? "auto" : "-10%",
+              right: idx % 2 === 0 ? "-10%" : "auto",
+              left: idx % 2 === 0 ? "auto" : "-10%",
             }}
           />
 

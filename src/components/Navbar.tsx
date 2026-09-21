@@ -198,16 +198,18 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
               <Star className="w-4.5 h-4.5" />
             </a>
             <CurrencySelector />
-            <ThemeToggle />
-            <a
-              href={site.gamePanel}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="button-primary inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg font-orbitron text-[10px] font-semibold tracking-wider whitespace-nowrap"
-            >
-              <User className="w-3.5 h-3.5" />
-              Dashboard
-            </a>
+            <div className="flex items-center gap-1.5 ml-1">
+              <ThemeToggle />
+              <a
+                href={site.gamePanel}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="button-primary inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg font-orbitron text-[10px] font-semibold tracking-wider whitespace-nowrap"
+              >
+                <User className="w-3.5 h-3.5" />
+                Dashboard
+              </a>
+            </div>
           </div>
 
           {/* mobile toggle */}

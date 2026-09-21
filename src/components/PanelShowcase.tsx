@@ -35,7 +35,7 @@ export default function PanelShowcase() {
       className="relative py-24 sm:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#eaeef7] dark:bg-[#0c0e14] transition-colors duration-300"
     >
       <video
-        src="/images/minecraft-sunset.3840x2160.mp4"
+        src="https://raw.githubusercontent.com/nexveior/nexifyhost/main/public/images/minecraft-sunset.3840x2160.mp4"
         aria-hidden="true"
         autoPlay
         muted

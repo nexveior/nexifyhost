@@ -24,7 +24,7 @@ export default function Hero() {
   return (
     <section className="hero-section relative min-h-[calc(100vh-108px)] flex flex-col overflow-hidden bg-[#f2f5fb] dark:bg-void transition-colors duration-300 pt-20 sm:pt-24 xl:pt-28">
       <video
-        src="/images/minecraft-sunset.3840x2160.mp4"
+        src="https://raw.githubusercontent.com/nexveior/nexifyhost/main/public/images/minecraft-sunset.3840x2160.mp4"
         aria-hidden="true"
         autoPlay
         muted

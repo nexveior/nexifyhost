@@ -64,7 +64,7 @@ export default function Features() {
       className="relative py-24 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#f2f5fb] dark:bg-void overflow-hidden transition-colors duration-300"
     >
       <video
-        src="/images/minecraft-aquarium.3840x2160.mp4"
+        src="https://raw.githubusercontent.com/nexveior/nexifyhost/main/public/images/minecraft-aquarium.3840x2160.mp4"
         aria-hidden="true"
         autoPlay
         muted
