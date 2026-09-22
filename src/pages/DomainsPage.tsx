@@ -21,6 +21,7 @@ import {
 import { domains, site } from "../data/config";
 import PageHero from "../components/PageHero";
 import SectionHeading from "../components/SectionHeading";
+import BackgroundVideo from "../components/BackgroundVideo";
 import { useCurrency } from "../hooks/useCurrency";
 
 type LookupState = "idle" | "checking" | "available" | "registered" | "unknown";
@@ -232,6 +233,11 @@ export default function DomainsPage() {
 
       {/* Search is the primary action, visually connected to the hero. */}
       <section className="relative -mt-5 pb-16 px-4 sm:px-6 lg:px-8 bg-[#f2f5fb] dark:bg-void transition-colors duration-300">
+        <BackgroundVideo
+          src="https://raw.githubusercontent.com/nexveior/nexifyhost/main/public/images/minecraft-sunset.3840x2160.mp4"
+          className="opacity-20"
+        />
+        <div className="absolute inset-0 bg-[#f2f5fb]/40 dark:bg-void/70 pointer-events-none" />
         <div className="relative z-10 max-w-5xl mx-auto">
           <motion.form
             id="domain-search"
@@ -475,6 +481,11 @@ export default function DomainsPage() {
 
       {/* Curated pricing grid replaces the long list. */}
       <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#eaeef7] dark:bg-[#0c0e14] overflow-hidden transition-colors duration-300">
+        <BackgroundVideo
+          src="https://raw.githubusercontent.com/nexveior/nexifyhost/main/public/images/minecraft-aquarium.3840x2160.mp4"
+          className="opacity-30"
+        />
+        <div className="absolute inset-0 bg-[#eaeef7]/40 dark:bg-[#0c0e14]/70 pointer-events-none" />
         <div className="absolute top-12 -right-40 w-[420px] h-[420px] blob-primary rounded-full blur-3xl opacity-50 pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto">
           <SectionHeading
@@ -549,6 +560,11 @@ export default function DomainsPage() {
       </section>
 
       <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#f2f5fb] dark:bg-void transition-colors duration-300">
+        <BackgroundVideo
+          src="https://raw.githubusercontent.com/nexveior/nexifyhost/main/public/images/minecraft-aquarium.3840x2160.mp4"
+          className="opacity-40"
+        />
+        <div className="absolute inset-0 bg-[#f2f5fb]/40 dark:bg-void/70 pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto">
           <SectionHeading
             align="center"

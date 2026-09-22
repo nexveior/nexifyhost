@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import { faq } from "../data/config";
+import BackgroundVideo from "./BackgroundVideo";
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
@@ -11,16 +12,11 @@ export default function FAQ() {
       id="faq"
       className="relative py-24 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#f2f5fb] dark:bg-void [overflow-x:clip] transition-colors duration-300"
     >
-      <video
+      <BackgroundVideo
         src="https://raw.githubusercontent.com/nexveior/nexifyhost/main/public/images/minecraft-sunset.3840x2160.mp4"
-        aria-hidden="true"
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 h-full w-full object-cover opacity-10 dark:opacity-20 pointer-events-none"
+        className="opacity-40"
       />
-      <div className="absolute inset-0 bg-[#f2f5fb]/80 dark:bg-void/70 pointer-events-none" />
+      <div className="absolute inset-0 bg-[#f2f5fb]/40 dark:bg-void/70 pointer-events-none" />
       <div className="relative z-10 max-w-7xl mx-auto rounded-3xl border border-white/50 bg-white/20 p-4 shadow-2xl backdrop-blur-md dark:border-white/10 dark:bg-black/15 sm:p-8 grid md:grid-cols-2 gap-10 md:gap-14 items-start">
         {/* The column stretches to the full FAQ height. The fixed-size image
             follows the viewport and stops when the FAQ section ends. */}

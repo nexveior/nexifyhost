@@ -14,6 +14,7 @@ import { botHosting, site } from "../data/config";
 import PageHero from "../components/PageHero";
 import PlanCard from "../components/PlanCard";
 import SectionHeading from "../components/SectionHeading";
+import BackgroundVideo from "../components/BackgroundVideo";
 
 const icons: Record<string, typeof Zap> = {
   code: Code2,
@@ -92,7 +93,12 @@ export default function BotHostingPage() {
       </section>
 
       {/* plans */}
-      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#eaeef7] dark:bg-[#0c0e14] transition-colors duration-300">
+      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#eaeef7] dark:bg-[#0c0e14] overflow-hidden transition-colors duration-300">
+        <BackgroundVideo
+          src="https://raw.githubusercontent.com/nexveior/nexifyhost/main/public/images/minecraft-aquarium.3840x2160.mp4"
+          className="opacity-40"
+        />
+        <div className="absolute inset-0 bg-[#eaeef7]/40 dark:bg-[#0c0e14]/70 pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto">
           <SectionHeading
             align="center"

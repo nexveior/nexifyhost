@@ -92,9 +92,14 @@ export default function Footer() {
           <p className="mt-2 max-w-3xl text-xs leading-relaxed text-slate-500 dark:text-slate-400 transition-colors">
             {footer.closingText}
           </p>
-          <p className="mt-3 max-w-4xl text-[10px] leading-relaxed text-slate-400 dark:text-slate-600 transition-colors">
-            {footer.trademarkNotice}
-          </p>
+          <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p className="max-w-4xl text-[10px] leading-relaxed text-slate-400 dark:text-slate-600 transition-colors">
+              {footer.trademarkNotice}
+            </p>
+            <p className="text-[10px] font-medium text-slate-400 dark:text-slate-500 tracking-wide transition-colors">
+              Made with <span className="text-red-500 animate-pulse inline-block">❤</span> by your developer
+            </p>
+          </div>
         </div>
       </div>
     </footer>

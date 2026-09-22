@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Banner from "./components/Banner";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { ThemeProvider } from "./hooks/useTheme";
 import { CurrencyProvider } from "./hooks/useCurrency";
 import { useRoute } from "./router";
-import { banner } from "./data/config";
+import { banner, site } from "./data/config";
 
 import HomePage from "./pages/HomePage";
 import MinecraftPage from "./pages/MinecraftPage";
@@ -50,12 +51,61 @@ function RouterView() {
   }
 }
 
+function LoadingScreen() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Hide loading screen when window fully loads or after 1.5 seconds maximum
+    const handleLoad = () => setLoading(false);
+
+    if (document.readyState === "complete") {
+      setLoading(false);
+    } else {
+      window.addEventListener("load", handleLoad);
+    }
+
+    const timeout = setTimeout(() => setLoading(false), 1500);
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+      clearTimeout(timeout);
+    };
+  }, []);
+
+  return (
+    <AnimatePresence>
+      {loading && (
+        <motion.div
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#f2f5fb] dark:bg-void transition-colors duration-300"
+        >
+          <motion.img
+            src={site.logo}
+            alt={site.brandName}
+            className="w-16 h-16 object-contain mb-6"
+            animate={{ scale: [0.95, 1.05, 0.95], opacity: [0.6, 1, 0.6] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-bounce" style={{ animationDelay: "0ms" }} />
+            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-bounce" style={{ animationDelay: "150ms" }} />
+            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-bounce" style={{ animationDelay: "300ms" }} />
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 export default function App() {
   const [bannerVisible, setBannerVisible] = useState(banner.show);
 
   return (
     <ThemeProvider>
       <CurrencyProvider>
+        <LoadingScreen />
         <div className="min-h-screen bg-[#f2f5fb] dark:bg-void text-slate-900 dark:text-white font-quicksand antialiased transition-colors duration-300">
           <Banner visible={bannerVisible} onClose={() => setBannerVisible(false)} />
           <Navbar bannerVisible={bannerVisible} />

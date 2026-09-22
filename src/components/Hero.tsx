@@ -3,7 +3,7 @@ import { ArrowRight, Clock, Users, Shield, Zap, MessageCircle, Check } from "luc
 import { hero, partners } from "../data/config";
 import { img } from "../data/asset";
 import { href } from "../router";
-
+import BackgroundVideo from "./BackgroundVideo";
 
 const statIcons: Record<string, typeof Clock> = {
   clock: Clock,
@@ -23,16 +23,11 @@ const partnerImages: Record<string, string> = {
 export default function Hero() {
   return (
     <section className="hero-section relative min-h-[calc(100vh-108px)] flex flex-col overflow-hidden bg-[#f2f5fb] dark:bg-void transition-colors duration-300 pt-20 sm:pt-24 xl:pt-28">
-      <video
+      <BackgroundVideo
         src="https://raw.githubusercontent.com/nexveior/nexifyhost/main/public/images/minecraft-sunset.3840x2160.mp4"
-        aria-hidden="true"
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 h-full w-full object-cover opacity-20 dark:opacity-30 pointer-events-none"
+        className="opacity-50"
       />
-      <div className="absolute inset-0 bg-[#f2f5fb]/75 dark:bg-void/65 pointer-events-none" />
+      <div className="absolute inset-0 bg-[#f2f5fb]/40 dark:bg-void/65 pointer-events-none" />
       <div className="absolute -top-32 -right-32 w-[600px] h-[600px] blob-primary rounded-full blur-3xl pointer-events-none opacity-70" />
 
       {/* ---------- content ---------- */}
@@ -157,7 +152,7 @@ export default function Hero() {
                 {[...partners, ...partners].map((p, i) => (
                   <div
                     key={`${p.name}-${i}`}
-                    className="flex h-10 w-28 sm:w-32 items-center justify-center opacity-55 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                    className="flex h-10 w-28 sm:w-32 items-center justify-center transition-all duration-300"
                   >
                     <img
                       src={partnerImages[p.name]}

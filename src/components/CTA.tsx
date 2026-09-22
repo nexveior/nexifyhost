@@ -2,10 +2,16 @@ import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, Zap } from "lucide-react";
 import { site } from "../data/config";
 import { href } from "../router";
+import BackgroundVideo from "./BackgroundVideo";
 
 export default function CTA() {
   return (
     <section className="relative py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#eaeef7] dark:bg-[#0c0e14] overflow-hidden transition-colors duration-300">
+      <BackgroundVideo
+        src="https://raw.githubusercontent.com/nexveior/nexifyhost/main/public/images/minecraft-aquarium.3840x2160.mp4"
+        className="opacity-40"
+      />
+      <div className="absolute inset-0 bg-[#eaeef7]/40 dark:bg-[#0c0e14]/70 pointer-events-none" />
       <div className="relative max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
