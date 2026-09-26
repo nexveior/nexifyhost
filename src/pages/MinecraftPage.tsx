@@ -4,7 +4,6 @@ import { ArrowRight, Cpu, Users2, MessageCircle, HardDrive } from "lucide-react"
 import { minecraft, site } from "../data/config";
 import PageHero from "../components/PageHero";
 import PlanCard from "../components/PlanCard";
-import BackgroundVideo from "../components/BackgroundVideo";
 import { useCurrency } from "../hooks/useCurrency";
 
 export default function MinecraftPage({ category }: { category?: string }) {
@@ -49,11 +48,6 @@ export default function MinecraftPage({ category }: { category?: string }) {
       </PageHero>
 
       <section className="relative py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#f2f5fb] dark:bg-void overflow-hidden transition-colors duration-300">
-        <BackgroundVideo
-          src="https://raw.githubusercontent.com/nexveior/nexifyhost/main/public/images/minecraft-aquarium.3840x2160.mp4"
-          className="opacity-40"
-        />
-        <div className="absolute inset-0 bg-[#f2f5fb]/40 dark:bg-void/70 pointer-events-none" />
         {/* soft ambient glow only */}
         <div className="absolute top-24 -right-40 w-[460px] h-[460px] blob-primary rounded-full blur-3xl opacity-50 pointer-events-none" />
 

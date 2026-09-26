@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import { features } from "../data/config";
 import SectionHeading from "./SectionHeading";
-import BackgroundVideo from "./BackgroundVideo";
 
 const icons: Record<string, typeof Cpu> = {
   cpu: Cpu,
@@ -64,11 +63,6 @@ export default function Features() {
       id="features"
       className="relative py-24 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#f2f5fb] dark:bg-void overflow-hidden transition-colors duration-300"
     >
-      <BackgroundVideo
-        src="https://raw.githubusercontent.com/nexveior/nexifyhost/main/public/images/minecraft-aquarium.3840x2160.mp4"
-        className="opacity-40"
-      />
-      <div className="absolute inset-0 bg-[#f2f5fb]/40 dark:bg-void/65 pointer-events-none" />
       {/* one soft glow only */}
       <div className="absolute top-24 -right-40 w-[480px] h-[480px] blob-primary rounded-full blur-3xl opacity-60 pointer-events-none" />
 

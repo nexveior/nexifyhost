@@ -21,7 +21,6 @@ import {
 } from "../data/config";
 import SectionHeading from "./SectionHeading";
 import { href } from "../router";
-import BackgroundVideo from "./BackgroundVideo";
 import { useCurrency } from "../hooks/useCurrency";
 
 export default function Pricing() {
@@ -93,11 +92,6 @@ export default function Pricing() {
       id="plans"
       className="pricing-section relative py-24 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#f2f5fb] dark:bg-void overflow-hidden transition-colors duration-300"
     >
-      <BackgroundVideo
-        src="https://raw.githubusercontent.com/nexveior/nexifyhost/main/public/images/minecraft-aquarium.3840x2160.mp4"
-        className="opacity-40"
-      />
-      <div className="absolute inset-0 bg-[#f2f5fb]/40 dark:bg-void/70 pointer-events-none" />
       {/* soft ambient glow only — no plan imagery */}
       <div className="absolute top-32 -left-40 w-[460px] h-[460px] blob-primary rounded-full blur-3xl opacity-50 pointer-events-none" />
 

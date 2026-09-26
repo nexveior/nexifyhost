@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Terminal, Plug, Archive, HeartPulse, Zap } from "lucide-react";
 import { showcase } from "../data/config";
-import BackgroundVideo from "./BackgroundVideo";
 
 const icons: Record<string, typeof Zap> = {
   terminal: Terminal,
@@ -35,11 +34,6 @@ export default function PanelShowcase() {
       id="panel"
       className="relative py-24 sm:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#eaeef7] dark:bg-[#0c0e14] transition-colors duration-300"
     >
-      <BackgroundVideo
-        src="https://raw.githubusercontent.com/nexveior/nexifyhost/main/public/images/minecraft-sunset.3840x2160.mp4"
-        className="opacity-40"
-      />
-      <div className="absolute inset-0 bg-[#eaeef7]/40 dark:bg-[#0c0e14]/70 pointer-events-none" />
       <div className="absolute top-20 -left-40 w-96 h-96 blob-primary rounded-full blur-3xl opacity-60 pointer-events-none" />
       <div className="relative z-10 max-w-7xl mx-auto rounded-3xl border border-white/50 bg-white/20 p-4 shadow-2xl backdrop-blur-md dark:border-white/10 dark:bg-black/15 sm:p-8">
         <motion.div

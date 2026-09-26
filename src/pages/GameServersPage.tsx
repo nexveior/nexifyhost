@@ -4,7 +4,6 @@ import { gameServers, site } from "../data/config";
 import PageHero from "../components/PageHero";
 import PlanCard from "../components/PlanCard";
 import SectionHeading from "../components/SectionHeading";
-import BackgroundVideo from "../components/BackgroundVideo";
 
 export default function GameServersPage() {
   return (
@@ -35,11 +34,6 @@ export default function GameServersPage() {
 
       {/* plans */}
       <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#f2f5fb] dark:bg-void overflow-hidden transition-colors duration-300">
-        <BackgroundVideo
-          src="https://raw.githubusercontent.com/nexveior/nexifyhost/main/public/images/minecraft-aquarium.3840x2160.mp4"
-          className="opacity-40"
-        />
-        <div className="absolute inset-0 bg-[#f2f5fb]/40 dark:bg-void/70 pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto">
           <SectionHeading
             align="center"

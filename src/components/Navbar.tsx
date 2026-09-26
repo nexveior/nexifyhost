@@ -85,6 +85,7 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
             {/* minecraft dropdown */}
             <div className="relative group">
               <a href={href("/minecraft")} className={navCls("/minecraft")}>
+                <Blocks className="w-4 h-4" />
                 <span>Minecraft</span>
                 <ChevronDown className="w-3 h-3 opacity-60 group-hover:rotate-180 transition-transform duration-300" />
               </a>
@@ -135,11 +136,13 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
 
             {services.map((s) => (
               <a key={s.path} href={href(s.path)} className={navCls(s.path)}>
+                <s.icon className="w-4 h-4" />
                 <span>{s.label}</span>
               </a>
             ))}
 
             <a href={href("/status")} className={`${linkBase} ${linkIdle}`}>
+              <Activity className="w-4 h-4" />
               <span>Status</span>
             </a>
 
@@ -153,6 +156,7 @@ export default function Navbar({ bannerVisible }: { bannerVisible: boolean }) {
                     : linkIdle
                 }`}
               >
+                <FileText className="w-4 h-4" />
                 <span>Legal</span>
                 <ChevronDown className="w-3 h-3 opacity-60 group-hover:rotate-180 transition-transform duration-300" />
               </a>

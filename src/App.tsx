@@ -106,7 +106,16 @@ export default function App() {
     <ThemeProvider>
       <CurrencyProvider>
         <LoadingScreen />
-        <div className="min-h-screen bg-[#f2f5fb] dark:bg-void text-slate-900 dark:text-white font-quicksand antialiased transition-colors duration-300">
+        <div className="site-shell relative isolate min-h-screen bg-transparent text-slate-900 dark:text-white font-quicksand antialiased transition-colors duration-300">
+          <div className="fixed inset-0 z-[-1] overflow-hidden" aria-hidden="true">
+            <img
+              src="/images/snowy.avif"
+              alt=""
+              className="h-full w-full object-cover object-center"
+              fetchPriority="high"
+            />
+            <div className="absolute inset-0 bg-slate-50/45 dark:bg-[#080d18]/55" />
+          </div>
           <Banner visible={bannerVisible} onClose={() => setBannerVisible(false)} />
           <Navbar bannerVisible={bannerVisible} />
           <main>
