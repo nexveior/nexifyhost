@@ -1,47 +1,62 @@
 /* ------------------------------------------------------------------ */
-/*  Image assets — files in images/ and images-src/ are auto-imported   */
-/*  and INLINED into the single-file build (base64).                    */
-/*                                                                      */
-/*  HOW TO ADD YOUR IMAGES — two steps:                                 */
-/*    1. Drop your image into the matching folder below, using the      */
-/*       SAME BASE NAME (any extension: .webp .png .jpg .jpeg .svg).    */
-/*       e.g. src/assets/images/banners/budget.jpg                      */
-/*    2. Run  npm run build                                             */
-/*  No code edits needed — the lookup finds your file automatically     */
-/*  (your custom file wins over the bundled .svg artwork).              */
+/*  Image assets — Next.js-safe static manifest.                       */
+/*  SVG & image files are served from public images and static assets. */
+/*  This avoids Vite-only import.meta.glob calls during Next builds.    */
 /* ------------------------------------------------------------------ */
 
-const files = import.meta.glob<string>(
-  [
-    "../assets/images/**/*.*",
-    "../assets/images-src/**/*.*",
-    "!../assets/images/**/*.md",
-    "!../assets/images-src/**/*.md",
-  ],
-  { eager: true, import: "default" },
-);
+const IMAGES_BASE = "/images";
+const IMAGES_SRC_BASE = "/nexify/assets/images-src";
+const EXTS = ["webp", "avif", "jpg", "jpeg", "png", "svg"] as const;
 
-/** preferred formats first — your custom file beats bundled svg art */
-const EXTS = ["webp", "avif", "jpg", "jpeg", "png", "svg"];
+const userFiles = new Set([
+  "banners/bots.svg",
+  "banners/budget.webp",
+  "banners/domains.svg",
+  "banners/gameservers.svg",
+  "banners/minecraft.svg",
+  "banners/performance.webp",
+  "banners/standard.webp",
+  "faq.webp",
+  "logo.webp",
+  "partners/amd.svg",
+  "partners/cloudflare.svg",
+  "partners/hetzner.svg",
+  "partners/intel.svg",
+  "partners/pterodactyl.svg",
+  "runtimes/go.svg",
+  "runtimes/java.webp",
+  "runtimes/lua.svg",
+  "runtimes/node.webp",
+  "runtimes/php.webp",
+  "runtimes/python.webp",
+  "showcase/analytics.svg",
+  "showcase/mods.svg",
+  "showcase/plugins.svg",
+  "showcase/shell.svg",
+  "snowy.avif",
+]);
+
+const srcFiles = new Set([
+  "banners/vps.svg",
+  "partners/amd.svg",
+  "partners/cloudflare.svg",
+  "partners/hetzner.svg",
+  "partners/intel.svg",
+  "partners/pterodactyl.svg",
+]);
 
 export const getImage = (stem: string): string => {
-  /* User-provided files in images/ always win. */
   for (const ext of EXTS) {
-    const key = `../assets/images/${stem}.${ext}`;
-    if (files[key]) return files[key];
+    const name = `${stem}.${ext}`;
+    if (userFiles.has(name)) return `${IMAGES_BASE}/${name}`;
   }
 
-  /* Persistent source artwork keeps every built-in slot working. */
   for (const ext of EXTS) {
-    const key = `../assets/images-src/${stem}.${ext}`;
-    if (files[key]) return files[key];
+    const name = `${stem}.${ext}`;
+    if (srcFiles.has(name)) return `${IMAGES_SRC_BASE}/${name}`;
   }
 
-  // Last resort: any imported file sharing the base name.
-  const hit = Object.keys(files).find((key) =>
-    key.toLowerCase().includes(`/${stem.toLowerCase()}.`),
-  );
-  return hit ? files[hit] : "";
+  return "";
 };
 
 export const img = {
