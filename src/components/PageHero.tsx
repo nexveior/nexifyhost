@@ -4,12 +4,14 @@ export default function PageHero({
   badge,
   title,
   accent,
+  accentColor,
   subtitle,
   children,
 }: {
   badge: string;
   title: string;
   accent?: string;
+  accentColor?: string;
   subtitle: string;
   children?: React.ReactNode;
 }) {
@@ -37,7 +39,10 @@ export default function PageHero({
         >
           {title}{" "}
           {accent && (
-            <span className="text-blue-600 dark:text-blue-400 drop-shadow-[0_0_22px_rgba(37,99,235,0.35)]">
+            <span
+              className="drop-shadow-[0_0_22px_rgba(37,99,235,0.35)]"
+              style={{ color: accentColor ?? undefined }}
+            >
               {accent}
             </span>
           )}

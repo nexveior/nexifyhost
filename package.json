@@ -22,15 +22,19 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.1.17",
+    "@tailwindcss/vite": "4.1.17",
     "@types/node": "22.19.15",
     "@types/pg": "8.18.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "5.0.1",
     "drizzle-kit": "0.31.10",
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.6",
     "postcss": "8.5.8",
     "tailwindcss": "4.1.17",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vite": "7.1.7",
+    "vite-plugin-singlefile": "0.5.1"
   }
 }

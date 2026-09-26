@@ -31,21 +31,89 @@ export interface Currency {
 
 /** INR is the base currency (rate 1) and the site default. */
 export const currencies: Currency[] = [
-  { code: "INR", symbol: "₹", name: "Indian Rupee", flag: "IN", rate: 1, decimals: 0 },
-  { code: "USD", symbol: "$", name: "US Dollar", flag: "US", rate: 0.012, decimals: 2 },
-  { code: "EUR", symbol: "€", name: "Euro", flag: "EU", rate: 0.011, decimals: 2 },
-  { code: "GBP", symbol: "£", name: "British Pound", flag: "GB", rate: 0.0094, decimals: 2 },
-  { code: "AED", symbol: "د.إ", name: "UAE Dirham", flag: "AE", rate: 0.044, decimals: 2 },
-  { code: "AUD", symbol: "A$", name: "Australian Dollar", flag: "AU", rate: 0.018, decimals: 2 },
-  { code: "CAD", symbol: "C$", name: "Canadian Dollar", flag: "CA", rate: 0.016, decimals: 2 },
-  { code: "SGD", symbol: "S$", name: "Singapore Dollar", flag: "SG", rate: 0.016, decimals: 2 },
-  { code: "BRL", symbol: "R$", name: "Brazilian Real", flag: "BR", rate: 0.065, decimals: 2 },
-  { code: "JPY", symbol: "¥", name: "Japanese Yen", flag: "JP", rate: 1.75, decimals: 0 },
+  {
+    code: "INR",
+    symbol: "₹",
+    name: "Indian Rupee",
+    flag: "IN",
+    rate: 1,
+    decimals: 0,
+  },
+  {
+    code: "USD",
+    symbol: "$",
+    name: "US Dollar",
+    flag: "US",
+    rate: 0.012,
+    decimals: 2,
+  },
+  {
+    code: "EUR",
+    symbol: "€",
+    name: "Euro",
+    flag: "EU",
+    rate: 0.011,
+    decimals: 2,
+  },
+  {
+    code: "GBP",
+    symbol: "£",
+    name: "British Pound",
+    flag: "GB",
+    rate: 0.0094,
+    decimals: 2,
+  },
+  {
+    code: "AED",
+    symbol: "د.إ",
+    name: "UAE Dirham",
+    flag: "AE",
+    rate: 0.044,
+    decimals: 2,
+  },
+  {
+    code: "AUD",
+    symbol: "A$",
+    name: "Australian Dollar",
+    flag: "AU",
+    rate: 0.018,
+    decimals: 2,
+  },
+  {
+    code: "CAD",
+    symbol: "C$",
+    name: "Canadian Dollar",
+    flag: "CA",
+    rate: 0.016,
+    decimals: 2,
+  },
+  {
+    code: "SGD",
+    symbol: "S$",
+    name: "Singapore Dollar",
+    flag: "SG",
+    rate: 0.016,
+    decimals: 2,
+  },
+  {
+    code: "BRL",
+    symbol: "R$",
+    name: "Brazilian Real",
+    flag: "BR",
+    rate: 0.065,
+    decimals: 2,
+  },
+  {
+    code: "JPY",
+    symbol: "¥",
+    name: "Japanese Yen",
+    flag: "JP",
+    rate: 1.75,
+    decimals: 0,
+  },
 ];
 
 export const defaultCurrency = "INR";
-
-
 
 /* ------------------------- FREE PLAN NOTE ------------------------- */
 
@@ -67,22 +135,39 @@ export const hero = {
   subtitle:
     "Lag-free Minecraft servers on high-clock Ryzen CPUs and NVMe storage. Java & Bedrock, one-click modpacks, free DDoS protection — online in under 60 seconds.",
   primaryCta: { label: "View Plans", href: "/minecraft" },
-  secondaryCta: { label: "Join our Discord", href: "https://discord.gg/ezydpvUF7J" },
+  secondaryCta: {
+    label: "Join our Discord",
+    href: "https://discord.gg/ezydpvUF7J",
+  },
   stats: [
     { icon: "clock", value: "99.9%", label: "Uptime SLA" },
     { icon: "users", value: "12K+", label: "Servers Hosted" },
     { icon: "shield", value: "2.4Tbps", label: "DDoS Protection" },
     { icon: "zap", value: "<50ms", label: "Avg. Latency" },
   ],
-  highlights: ["Java & Bedrock", "One-click modpacks", "Instant setup", "Free plans via Discord"],
+  highlights: [
+    "Java & Bedrock",
+    "One-click modpacks",
+    "Instant setup",
+    "Free plans via Discord",
+  ],
 };
 
 export const partners = [
   { name: "Intel", logo: "https://nexifyhosting.vercel.app/images/intel.svg" },
   { name: "AMD", logo: "https://nexifyhosting.vercel.app/images/amd.svg" },
-  { name: "Pterodactyl", logo: "https://nexifyhosting.vercel.app/images/pterodactyl.svg" },
-  { name: "Cloudflare", logo: "https://nexifyhosting.vercel.app/images/cloudflare.svg" },
-  { name: "Hetzner", logo: "https://nexifyhosting.vercel.app/images/hetzner.svg" },
+  {
+    name: "Pterodactyl",
+    logo: "https://nexifyhosting.vercel.app/images/pterodactyl.svg",
+  },
+  {
+    name: "Cloudflare",
+    logo: "https://nexifyhosting.vercel.app/images/cloudflare.svg",
+  },
+  {
+    name: "Hetzner",
+    logo: "https://nexifyhosting.vercel.app/images/hetzner.svg",
+  },
 ];
 
 /* ----------------------------- PLANS ------------------------------ */
@@ -130,50 +215,84 @@ export const minecraft = {
           name: "Aether",
           ram: "2 GB",
           price: 30,
-          specs: ["2 GB DDR5 RAM", "65% Dedicated CPU Allocation", "15 GB Gen4 NVMe Storage"],
+          specs: [
+            "2 GB DDR5 RAM",
+            "65% Dedicated CPU Allocation",
+            "15 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Zephyr",
           ram: "4 GB",
           price: 60,
           popular: true,
-          specs: ["4 GB DDR5 RAM", "120% Dedicated CPU Allocation", "30 GB Gen4 NVMe Storage"],
+          specs: [
+            "4 GB DDR5 RAM",
+            "120% Dedicated CPU Allocation",
+            "30 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Nyx",
           ram: "6 GB",
           price: 90,
-          specs: ["6 GB DDR5 RAM", "180% Dedicated CPU Allocation", "45 GB Gen4 NVMe Storage"],
+          specs: [
+            "6 GB DDR5 RAM",
+            "180% Dedicated CPU Allocation",
+            "45 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Helix",
           ram: "8 GB",
           price: 120,
-          specs: ["8 GB DDR5 RAM", "250% Dedicated CPU Allocation", "60 GB Gen4 NVMe Storage"],
+          specs: [
+            "8 GB DDR5 RAM",
+            "250% Dedicated CPU Allocation",
+            "60 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Solaris",
           ram: "12 GB",
           price: 180,
-          specs: ["12 GB DDR5 RAM", "300% Dedicated CPU Allocation", "90 GB Gen4 NVMe Storage"],
+          specs: [
+            "12 GB DDR5 RAM",
+            "300% Dedicated CPU Allocation",
+            "90 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Vortex",
           ram: "24 GB",
           price: 360,
-          specs: ["24 GB DDR5 RAM", "400% Dedicated CPU Allocation", "180 GB Gen4 NVMe Storage"],
+          specs: [
+            "24 GB DDR5 RAM",
+            "400% Dedicated CPU Allocation",
+            "180 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Echelon",
           ram: "48 GB",
           price: 720,
-          specs: ["48 GB DDR5 RAM", "800% Dedicated CPU Allocation", "360 GB Gen4 NVMe Storage"],
+          specs: [
+            "48 GB DDR5 RAM",
+            "800% Dedicated CPU Allocation",
+            "360 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Custom Architecture",
           ram: "Custom",
           price: "Create Ticket",
-          specs: ["Custom RAM", "Custom CPU Allocation", "Custom NVMe Storage", "Tailored hardware resource framework", "Custom deployment options"],
+          specs: [
+            "Custom RAM",
+            "Custom CPU Allocation",
+            "Custom NVMe Storage",
+            "Tailored hardware resource framework",
+            "Custom deployment options",
+          ],
         },
       ],
     },
@@ -192,44 +311,74 @@ export const minecraft = {
           name: "Essential Engine",
           ram: "4 GB",
           price: 89,
-          specs: ["4 GB DDR5 RAM", "150% Dedicated CPU Allocation", "20 GB Gen4 NVMe Storage"],
+          specs: [
+            "4 GB DDR5 RAM",
+            "150% Dedicated CPU Allocation",
+            "20 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Xenora Matrix",
           ram: "8 GB",
           price: 175,
           popular: true,
-          specs: ["8 GB DDR5 RAM", "250% Dedicated CPU Allocation", "35 GB Gen4 NVMe Storage"],
+          specs: [
+            "8 GB DDR5 RAM",
+            "250% Dedicated CPU Allocation",
+            "35 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Apex Tier",
           ram: "12 GB",
           price: 351,
-          specs: ["12 GB DDR5 RAM", "350% Dedicated CPU Allocation", "50 GB Gen4 NVMe Storage"],
+          specs: [
+            "12 GB DDR5 RAM",
+            "350% Dedicated CPU Allocation",
+            "50 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Quantum Core",
           ram: "24 GB",
           price: 615,
-          specs: ["24 GB DDR5 RAM", "600% Dedicated CPU Allocation", "100 GB Gen4 NVMe Storage"],
+          specs: [
+            "24 GB DDR5 RAM",
+            "600% Dedicated CPU Allocation",
+            "100 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Nova Nexus",
           ram: "32 GB",
           price: 879,
-          specs: ["32 GB DDR5 RAM", "800% Dedicated CPU Allocation", "150 GB Gen4 NVMe Storage"],
+          specs: [
+            "32 GB DDR5 RAM",
+            "800% Dedicated CPU Allocation",
+            "150 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Enterprise Overlord",
           ram: "48 GB",
           price: 1143,
-          specs: ["48 GB DDR5 RAM", "1200% Dedicated CPU Allocation", "200 GB Gen4 NVMe Storage"],
+          specs: [
+            "48 GB DDR5 RAM",
+            "1200% Dedicated CPU Allocation",
+            "200 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Custom Core Architecture",
           ram: "Custom",
           price: "Create Ticket",
-          specs: ["Custom RAM", "Custom CPU Allocation", "Custom NVMe Storage", "Tailored hardware resource framework", "Custom deployment options"],
+          specs: [
+            "Custom RAM",
+            "Custom CPU Allocation",
+            "Custom NVMe Storage",
+            "Tailored hardware resource framework",
+            "Custom deployment options",
+          ],
         },
       ],
     },
@@ -248,44 +397,75 @@ export const minecraft = {
           name: "Vanguard Node",
           ram: "4 GB",
           price: 220,
-          specs: ["4 GB DDR5 RAM", "200% Dedicated CPU Allocation", "35 GB Gen4 NVMe Storage"],
+          specs: [
+            "4 GB DDR5 RAM",
+            "200% Dedicated CPU Allocation",
+            "35 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Catalyst Core",
           ram: "8 GB",
           price: 440,
           popular: true,
-          specs: ["8 GB DDR5 RAM", "350% Dedicated CPU Allocation", "60 GB Gen4 NVMe Storage"],
+          specs: [
+            "8 GB DDR5 RAM",
+            "350% Dedicated CPU Allocation",
+            "60 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Synapse Prime",
           ram: "12 GB",
           price: 664,
-          specs: ["12 GB DDR5 RAM", "500% Dedicated CPU Allocation", "90 GB Gen4 NVMe Storage"],
+          specs: [
+            "12 GB DDR5 RAM",
+            "500% Dedicated CPU Allocation",
+            "90 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Overdrive Matrix",
           ram: "24 GB",
           price: 1329,
-          specs: ["24 GB DDR5 RAM", "800% Dedicated CPU Allocation", "160 GB Gen4 NVMe Storage"],
+          specs: [
+            "24 GB DDR5 RAM",
+            "800% Dedicated CPU Allocation",
+            "160 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Kinetic Horizon",
           ram: "32 GB",
           price: 1773,
-          specs: ["32 GB DDR5 RAM", "1000% Dedicated CPU Allocation", "220 GB Gen4 NVMe Storage"],
+          specs: [
+            "32 GB DDR5 RAM",
+            "1000% Dedicated CPU Allocation",
+            "220 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Singularity Protocol",
           ram: "48 GB",
           price: 2658,
-          specs: ["48 GB DDR5 RAM", "1600% Dedicated CPU Allocation", "320 GB Gen4 NVMe Storage"],
+          specs: [
+            "48 GB DDR5 RAM",
+            "1600% Dedicated CPU Allocation",
+            "320 GB Gen4 NVMe Storage",
+          ],
         },
         {
           name: "Custom Prowess Architecture",
           ram: "Custom",
           price: "Create Ticket",
-          specs: ["Custom RAM", "Custom CPU Allocation", "Custom NVMe Storage", "Tailored hardware resource framework", "Custom deployment options", "Global Locations"],
+          specs: [
+            "Custom RAM",
+            "Custom CPU Allocation",
+            "Custom NVMe Storage",
+            "Tailored hardware resource framework",
+            "Custom deployment options",
+            "Global Locations",
+          ],
         },
       ],
     },
@@ -302,65 +482,150 @@ export const botHosting = {
   subtitle:
     "Keep your bot online 24/7 on always-on infrastructure. Deploy from Git, watch logs live, and let auto-restart handle the rest.",
   runtimes: [
-    { name: "Node.js", image: "https://nexifyhosting.vercel.app/images/node.webp", note: "discord.js · v18–v22" },
-    { name: "Python", image: "https://nexifyhosting.vercel.app/images/python.webp", note: "discord.py · 3.9–3.12" },
-    { name: "Java", image: "https://nexifyhosting.vercel.app/images/java.webp", note: "JDA · 17 & 21" },
-    { name: "Go", image: "https://nexifyhosting.vercel.app/images/go.svg", note: "discordgo · latest" },
-    { name: "PHP", image: "https://nexifyhosting.vercel.app/images/php.webp", note: "DiscordPHP · 8.x" },
-    { name: "Lua", image: "https://nexifyhosting.vercel.app/images/lua.svg", note: "Discordia · 5.4" },
+    {
+      name: "Node.js",
+      image: "https://nexifyhosting.vercel.app/images/node.webp",
+      note: "discord.js · v18–v22",
+    },
+    {
+      name: "Python",
+      image: "https://nexifyhosting.vercel.app/images/python.webp",
+      note: "discord.py · 3.9–3.12",
+    },
+    {
+      name: "Java",
+      image: "https://nexifyhosting.vercel.app/images/java.webp",
+      note: "JDA · 17 & 21",
+    },
+    {
+      name: "Go",
+      image: "https://nexifyhosting.vercel.app/images/go.svg",
+      note: "discordgo · latest",
+    },
+    {
+      name: "PHP",
+      image: "https://nexifyhosting.vercel.app/images/php.webp",
+      note: "DiscordPHP · 8.x",
+    },
+    {
+      name: "Lua",
+      image: "https://nexifyhosting.vercel.app/images/lua.svg",
+      note: "Discordia · 5.4",
+    },
   ],
   plans: [
     {
       name: "Basic Node",
       ram: "1 GB",
       price: 54,
-      specs: ["1 GB DDR5 RAM", "75% Dedicated CPU Allocation", "5 GB Gen4 NVMe Storage"],
+      specs: [
+        "1 GB DDR5 RAM",
+        "75% Dedicated CPU Allocation",
+        "5 GB Gen4 NVMe Storage",
+      ],
     },
     {
       name: "Plus Matrix",
       ram: "2 GB",
       price: 108,
       popular: true,
-      specs: ["2 GB DDR5 RAM", "100% Dedicated CPU Allocation", "10 GB Gen4 NVMe Storage"],
+      specs: [
+        "2 GB DDR5 RAM",
+        "100% Dedicated CPU Allocation",
+        "10 GB Gen4 NVMe Storage",
+      ],
     },
     {
       name: "Pro Tier",
       ram: "4 GB",
       price: 216,
-      specs: ["4 GB DDR5 RAM", "150% Dedicated CPU Allocation", "15 GB Gen4 NVMe Storage"],
+      specs: [
+        "4 GB DDR5 RAM",
+        "150% Dedicated CPU Allocation",
+        "15 GB Gen4 NVMe Storage",
+      ],
     },
     {
       name: "Advanced Core",
       ram: "8 GB",
       price: 423,
-      specs: ["8 GB DDR5 RAM", "250% Dedicated CPU Allocation", "25 GB Gen4 NVMe Storage"],
+      specs: [
+        "8 GB DDR5 RAM",
+        "250% Dedicated CPU Allocation",
+        "25 GB Gen4 NVMe Storage",
+      ],
     },
     {
       name: "Elite Nexus",
       ram: "16 GB",
       price: 846,
-      specs: ["16 GB DDR5 RAM", "400% Dedicated CPU Allocation", "40 GB Gen4 NVMe Storage"],
+      specs: [
+        "16 GB DDR5 RAM",
+        "400% Dedicated CPU Allocation",
+        "40 GB Gen4 NVMe Storage",
+      ],
     },
     {
       name: "Ultimate Overlord",
       ram: "24 GB",
       price: 1260,
-      specs: ["24 GB DDR5 RAM", "600% Dedicated CPU Allocation", "60 GB Gen4 NVMe Storage"],
+      specs: [
+        "24 GB DDR5 RAM",
+        "600% Dedicated CPU Allocation",
+        "60 GB Gen4 NVMe Storage",
+      ],
     },
     {
       name: "Custom App Framework",
       ram: "Custom",
       price: "Create Ticket",
-      specs: ["Custom RAM", "Custom CPU Allocation", "Custom NVMe Storage", "Tailored hardware resource framework", "Bespoke budget & specs", "Custom project parameters"],
+      specs: [
+        "Custom RAM",
+        "Custom CPU Allocation",
+        "Custom NVMe Storage",
+        "Tailored hardware resource framework",
+        "Bespoke budget & specs",
+        "Custom project parameters",
+      ],
     },
   ] as Plan[],
   features: [
-    { icon: "code", title: "Any Language", description: "Node.js, Python, Java, Go, PHP and Lua images ready to go — or bring your own." },
-    { icon: "git", title: "Git Deploys", description: "Push to your repo and your bot redeploys automatically. Roll back in one click." },
-    { icon: "heart", title: "Auto-Restart", description: "Crash watchdogs bring your bot back within seconds, any time of day." },
-    { icon: "terminal", title: "Live Console", description: "Stream logs in real time and run commands directly from the panel." },
-    { icon: "database", title: "Free Database", description: "MongoDB or MySQL included on higher plans — no external service needed." },
-    { icon: "clock", title: "24/7 Uptime", description: "Always-on nodes with monitoring so your bot never silently disappears." },
+    {
+      icon: "code",
+      title: "Any Language",
+      description:
+        "Node.js, Python, Java, Go, PHP and Lua images ready to go — or bring your own.",
+    },
+    {
+      icon: "git",
+      title: "Git Deploys",
+      description:
+        "Push to your repo and your bot redeploys automatically. Roll back in one click.",
+    },
+    {
+      icon: "heart",
+      title: "Auto-Restart",
+      description:
+        "Crash watchdogs bring your bot back within seconds, any time of day.",
+    },
+    {
+      icon: "terminal",
+      title: "Live Console",
+      description:
+        "Stream logs in real time and run commands directly from the panel.",
+    },
+    {
+      icon: "database",
+      title: "Free Database",
+      description:
+        "MongoDB or MySQL included on higher plans — no external service needed.",
+    },
+    {
+      icon: "clock",
+      title: "24/7 Uptime",
+      description:
+        "Always-on nodes with monitoring so your bot never silently disappears.",
+    },
   ],
 };
 
@@ -383,38 +648,68 @@ export const vps = {
       name: "4GiB",
       ram: "4GB DDR4",
       price: 549,
-      specs: ["2 vCores", "40GB NVME SSD", "Dedicated IPv4", "Full Root Access"],
+      specs: [
+        "2 vCores",
+        "40GB NVME SSD",
+        "Dedicated IPv4",
+        "Full Root Access",
+      ],
     },
     {
       name: "8GiB",
       ram: "8GB DDR4",
       price: 899,
       popular: true,
-      specs: ["4 vCores", "80GB NVME SSD", "Dedicated IPv4", "Full Root Access"],
+      specs: [
+        "4 vCores",
+        "80GB NVME SSD",
+        "Dedicated IPv4",
+        "Full Root Access",
+      ],
     },
     {
       name: "16GiB",
       ram: "16GB DDR4",
       price: 1499,
-      specs: ["6 vCores", "120GB NVME SSD", "Dedicated IPv4", "Full Root Access"],
+      specs: [
+        "6 vCores",
+        "120GB NVME SSD",
+        "Dedicated IPv4",
+        "Full Root Access",
+      ],
     },
     {
       name: "32GiB",
       ram: "32GB DDR4",
       price: 2199,
-      specs: ["8 vCores", "200GB NVME SSD", "Dedicated IPv4", "Full Root Access"],
+      specs: [
+        "8 vCores",
+        "200GB NVME SSD",
+        "Dedicated IPv4",
+        "Full Root Access",
+      ],
     },
     {
       name: "64GiB",
       ram: "64GB DDR4",
       price: 4199,
-      specs: ["16 vCores", "300GB NVME SSD", "Dedicated IPv4", "Full Root Access"],
+      specs: [
+        "16 vCores",
+        "300GB NVME SSD",
+        "Dedicated IPv4",
+        "Full Root Access",
+      ],
     },
     {
       name: "Custom Plan",
       ram: "Custom",
       price: "Create Ticket",
-      specs: ["Scalable Resources", "Tailored Hardware", "Bespoke Config", "Bulk Pricing"],
+      specs: [
+        "Scalable Resources",
+        "Tailored Hardware",
+        "Bespoke Config",
+        "Bulk Pricing",
+      ],
     },
   ] as Plan[],
   hardware: [
@@ -452,50 +747,85 @@ export const gameServers = {
       name: "Ignite",
       ram: "4 GB",
       price: 269,
-      specs: ["4 GB DDR5 RAM", "150% Dedicated CPU Allocation", "20 GB Gen4 NVMe Storage"],
+      specs: [
+        "4 GB DDR5 RAM",
+        "150% Dedicated CPU Allocation",
+        "20 GB Gen4 NVMe Storage",
+      ],
     },
     {
       name: "Velocity",
       ram: "8 GB",
       price: 449,
       popular: true,
-      specs: ["8 GB DDR5 RAM", "250% Dedicated CPU Allocation", "35 GB Gen4 NVMe Storage"],
+      specs: [
+        "8 GB DDR5 RAM",
+        "250% Dedicated CPU Allocation",
+        "35 GB Gen4 NVMe Storage",
+      ],
     },
     {
       name: "Titan",
       ram: "12 GB",
       price: 719,
-      specs: ["12 GB DDR5 RAM", "350% Dedicated CPU Allocation", "50 GB Gen4 NVMe Storage"],
+      specs: [
+        "12 GB DDR5 RAM",
+        "350% Dedicated CPU Allocation",
+        "50 GB Gen4 NVMe Storage",
+      ],
     },
     {
       name: "Phantom",
       ram: "24 GB",
       price: 1079,
-      specs: ["24 GB DDR5 RAM", "600% Dedicated CPU Allocation", "100 GB Gen4 NVMe Storage"],
+      specs: [
+        "24 GB DDR5 RAM",
+        "600% Dedicated CPU Allocation",
+        "100 GB Gen4 NVMe Storage",
+      ],
     },
     {
       name: "Infinity",
       ram: "32 GB",
       price: 1439,
-      specs: ["32 GB DDR5 RAM", "800% Dedicated CPU Allocation", "150 GB Gen4 NVMe Storage"],
+      specs: [
+        "32 GB DDR5 RAM",
+        "800% Dedicated CPU Allocation",
+        "150 GB Gen4 NVMe Storage",
+      ],
     },
     {
       name: "Dominion",
       ram: "48 GB",
       price: 1889,
-      specs: ["48 GB DDR5 RAM", "1200% Dedicated CPU Allocation", "200 GB Gen4 NVMe Storage"],
+      specs: [
+        "48 GB DDR5 RAM",
+        "1200% Dedicated CPU Allocation",
+        "200 GB Gen4 NVMe Storage",
+      ],
     },
     {
       name: "Ascendant",
       ram: "64 GB",
       price: 2519,
-      specs: ["64 GB DDR5 RAM", "1600% Dedicated CPU Allocation", "300 GB Gen4 NVMe Storage"],
+      specs: [
+        "64 GB DDR5 RAM",
+        "1600% Dedicated CPU Allocation",
+        "300 GB Gen4 NVMe Storage",
+      ],
     },
     {
       name: "Custom Forge",
       ram: "Custom",
       price: "Create Ticket",
-      specs: ["Custom RAM", "Custom CPU Allocation", "Custom NVMe Storage", "Tailored hardware resource framework", "Custom server configuration", "Custom Quote"],
+      specs: [
+        "Custom RAM",
+        "Custom CPU Allocation",
+        "Custom NVMe Storage",
+        "Tailored hardware resource framework",
+        "Custom server configuration",
+        "Custom Quote",
+      ],
     },
   ] as Plan[],
 };
@@ -509,11 +839,21 @@ export const domains = {
     "We register a hand-picked set of the most useful TLDs for gaming communities — free DNS management and instant setup on every one.",
   note: "This is the full list we currently register. Need a TLD that isn't here? Ask on Discord and we'll try to add it.",
   tlds: [
-    { tld: ".fun", price: 149, popular: true, note: "Perfect for gaming servers" },
+    {
+      tld: ".fun",
+      price: 149,
+      popular: true,
+      note: "Perfect for gaming servers",
+    },
     { tld: ".xyz", price: 249, popular: true, note: "Affordable and modern" },
     { tld: ".site", price: 379, note: "Simple all-purpose choice" },
     { tld: ".shop", price: 449, note: "Perfect for online stores" },
-    { tld: ".com", price: 999, popular: true, note: "The classic — best for brands" },
+    {
+      tld: ".com",
+      price: 999,
+      popular: true,
+      note: "The classic — best for brands",
+    },
     { tld: ".net", price: 1099, note: "Networks and infrastructure" },
     { tld: ".org", price: 1049, note: "Communities and projects" },
     { tld: ".io", price: 1299, note: "Dev-favorite modern extension" },
@@ -522,11 +862,31 @@ export const domains = {
     { tld: ".cloud", price: 749, note: "Great for panels & proxies" },
     { tld: ".host", price: 799, note: "Made for hosting brands" },
     { tld: ".bot", price: 699, note: "Perfect for Discord bots" },
-  ] as { tld: string; price: number | string; popular?: boolean; note: string }[],
+  ] as {
+    tld: string;
+    price: number | string;
+    popular?: boolean;
+    note: string;
+  }[],
   features: [
-    { icon: "lock", title: "Free WHOIS Privacy", description: "Your personal details stay hidden from public WHOIS lookups." },
-    { icon: "settings", title: "Full DNS Control", description: "A, AAAA, CNAME, MX, SRV and TXT records — perfect for Minecraft SRV setups." },
-    { icon: "zap", title: "Instant Activation", description: "Domains are live within minutes and connect to your server in one click." },
+    {
+      icon: "lock",
+      title: "Free WHOIS Privacy",
+      description:
+        "Your personal details stay hidden from public WHOIS lookups.",
+    },
+    {
+      icon: "settings",
+      title: "Full DNS Control",
+      description:
+        "A, AAAA, CNAME, MX, SRV and TXT records — perfect for Minecraft SRV setups.",
+    },
+    {
+      icon: "zap",
+      title: "Instant Activation",
+      description:
+        "Domains are live within minutes and connect to your server in one click.",
+    },
   ],
 };
 
@@ -538,19 +898,142 @@ export const features = {
   subtitle:
     "Every part of our stack is tuned for one thing — keeping your Minecraft world running at 20 TPS.",
   items: [
-    { icon: "cpu", title: "High-Clock CPUs", description: "Ryzen chips up to 5.7 GHz — Minecraft is single-thread hungry, so clock speed is king." },
-    { icon: "zap", title: "Instant Setup", description: "Your server is online within 60 seconds of checkout, pre-configured and ready to join." },
+    {
+      icon: "cpu",
+      title: "High-Clock CPUs",
+      description:
+        "Ryzen chips up to 5.7 GHz — Minecraft is single-thread hungry, so clock speed is king.",
+    },
+    {
+      icon: "zap",
+      title: "Instant Setup",
+      description:
+        "Your server is online within 60 seconds of checkout, pre-configured and ready to join.",
+    },
     {
       icon: "shield",
       title: "Free DDoS Protection",
-      description: "Minecraft-aware filtering absorbs attacks at the edge so your players never get kicked — always on, always included, no configuration needed.",
+      description:
+        "Minecraft-aware filtering absorbs attacks at the edge so your players never get kicked — always on, always included, no configuration needed.",
       wide: true,
     },
-    { icon: "plug", title: "1-Click Plugins & Mods", description: "Install from thousands of plugins, mods and full modpacks straight from the panel." },
-    { icon: "archive", title: "Automatic Backups", description: "Scheduled offsite backups with one-click restore keep every world safe." },
-    { icon: "settings", title: "Full Panel Control", description: "File manager, console, schedulers, sub-users and version switching — all included." },
-    { icon: "chart", title: "Instant Upgrades", description: "Add RAM or CPU as your community grows — applied instantly, no world migration." },
+    {
+      icon: "plug",
+      title: "1-Click Plugins & Mods",
+      description:
+        "Install from thousands of plugins, mods and full modpacks straight from the panel.",
+    },
+    {
+      icon: "archive",
+      title: "Automatic Backups",
+      description:
+        "Scheduled offsite backups with one-click restore keep every world safe.",
+    },
+    {
+      icon: "settings",
+      title: "Full Panel Control",
+      description:
+        "File manager, console, schedulers, sub-users and version switching — all included.",
+    },
+    {
+      icon: "chart",
+      title: "Instant Upgrades",
+      description:
+        "Add RAM or CPU as your community grows — applied instantly, no world migration.",
+    },
   ],
+};
+
+export const gameFeatures = features.items;
+
+export const games = [
+  { id: "minecraft", name: "Minecraft", color: "#2563EB" },
+  { id: "discord-bots", name: "Discord Bots", color: "#10B981" },
+  { id: "rust", name: "Rust", color: "#F97316" },
+  { id: "ark", name: "ARK", color: "#F59E0B" },
+  { id: "cs2", name: "CS2", color: "#EF4444" },
+  { id: "valheim", name: "Valheim", color: "#14B8A6" },
+  { id: "terraria", name: "Terraria", color: "#A855F7" },
+  { id: "palworld", name: "Palworld", color: "#22C55E" },
+] as const;
+
+const MinecraftTierFallback = [
+  {
+    name: "Aether",
+    price: 30,
+    specs: ["2 GB DDR5 RAM", "65% CPU", "15 GB NVMe"],
+    popular: false,
+  },
+  {
+    name: "Zephyr",
+    price: 60,
+    specs: ["4 GB DDR5 RAM", "120% CPU", "30 GB NVMe"],
+    popular: true,
+  },
+  {
+    name: "Nyx",
+    price: 90,
+    specs: ["6 GB DDR5 RAM", "180% CPU", "45 GB NVMe"],
+    popular: false,
+  },
+];
+
+export const gameTiers =
+  minecraft.categories[0]?.plans ?? MinecraftTierFallback;
+
+export const productPages: Record<
+  string,
+  {
+    badge: string;
+    title: string;
+    accent: string;
+    subtitle: string;
+    fromPrice: number;
+    tiers: {
+      name: string;
+      price: number | string;
+      specs: string[];
+      popular?: boolean;
+    }[];
+    features: { icon: string; title: string; description: string }[];
+  }
+> = {
+  minecraft: {
+    badge: minecraft.badge,
+    title: minecraft.title,
+    accent: "Servers",
+    subtitle: minecraft.subtitle,
+    fromPrice: 30,
+    tiers: minecraft.categories[0]?.plans ?? gameTiers,
+    features: features.items,
+  },
+  bots: {
+    badge: botHosting.badge,
+    title: botHosting.title,
+    accent: "24/7",
+    subtitle: botHosting.subtitle,
+    fromPrice: 54,
+    tiers: botHosting.plans,
+    features: botHosting.features,
+  },
+  gameservers: {
+    badge: gameServers.badge,
+    title: gameServers.title,
+    accent: "Hosting",
+    subtitle: gameServers.subtitle,
+    fromPrice: 269,
+    tiers: gameServers.plans,
+    features: features.items,
+  },
+  vps: {
+    badge: vps.badge,
+    title: vps.title,
+    accent: vps.accent,
+    subtitle: vps.subtitle,
+    fromPrice: 299,
+    tiers: vps.plans,
+    features: features.items,
+  },
 };
 
 /* ------------------------- PANEL SHOWCASE ------------------------- */
@@ -561,10 +1044,30 @@ export const showcase = {
   subtitle: "A custom-built control panel that puts every tool one click away.",
   autoAdvance: 5000,
   cards: [
-    { icon: "terminal", title: "Shell Access", description: "Manage your server directly through our own custom shell — no third-party tools required." },
-    { icon: "plug", title: "Plugin Manager", description: "Browse and install thousands of Spigot & Paper plugins with a single click." },
-    { icon: "archive", title: "Modpack Manager", description: "One-click Forge, Fabric and CurseForge modpack installs with automatic version handling." },
-    { icon: "heart", title: "TPS Analytics", description: "Live TPS, RAM, CPU and player charts with detailed historical logs." },
+    {
+      icon: "terminal",
+      title: "Shell Access",
+      description:
+        "Manage your server directly through our own custom shell — no third-party tools required.",
+    },
+    {
+      icon: "plug",
+      title: "Plugin Manager",
+      description:
+        "Browse and install thousands of Spigot & Paper plugins with a single click.",
+    },
+    {
+      icon: "archive",
+      title: "Modpack Manager",
+      description:
+        "One-click Forge, Fabric and CurseForge modpack installs with automatic version handling.",
+    },
+    {
+      icon: "heart",
+      title: "TPS Analytics",
+      description:
+        "Live TPS, RAM, CPU and player charts with detailed historical logs.",
+    },
   ],
 };
 
@@ -603,7 +1106,8 @@ export const faq = {
         "Free plans are community rewards rather than a public tier — invite friends to our Discord and you can unlock one through our invite rewards. Hop into the server, check the rewards channel, and our team will set you up. No credit card is ever required.",
     },
     {
-      question: "What's the difference between Budget, Standard and Performance?",
+      question:
+        "What's the difference between Budget, Standard and Performance?",
       answer:
         "They differ by CPU and storage class. Budget runs on Ryzen 5 (4.2 GHz) for vanilla and light plugin servers. Standard uses Ryzen 7 (4.7 GHz) for plugin-heavy servers and modpacks. Performance runs top-bin Ryzen 9 (5.7 GHz) with Gen4 NVMe for large networks and the heaviest modpacks.",
     },
@@ -640,12 +1144,54 @@ export const status = {
     "Real-time availability across every layer of our platform. This page refreshes automatically and is powered by the same probes that page our on-call engineers.",
   refreshSeconds: 30,
   services: [
-    { id: "panel", name: "Game Panel", desc: "Dashboard, console & shell access", uptime: "99.98%", latency: 42, seed: 3 },
-    { id: "mc", name: "Minecraft Nodes", desc: "Budget · Standard · Performance fleets", uptime: "99.95%", latency: 38, seed: 7 },
-    { id: "bots", name: "Bot Hosting Nodes", desc: "Always-on Discord bot workers", uptime: "99.91%", latency: 51, seed: 11 },
-    { id: "games", name: "Game Server Nodes", desc: "Dockerized multi-game runtimes", uptime: "99.97%", latency: 44, seed: 17 },
-    { id: "dns", name: "Domains & DNS", desc: "Registrar, DNS zones & SSL issuance", uptime: "100.0%", latency: 23, seed: 23 },
-    { id: "api", name: "Public API & Billing", desc: "Client API, orders & provisioning", uptime: "99.99%", latency: 35, seed: 29 },
+    {
+      id: "panel",
+      name: "Game Panel",
+      desc: "Dashboard, console & shell access",
+      uptime: "99.98%",
+      latency: 42,
+      seed: 3,
+    },
+    {
+      id: "mc",
+      name: "Minecraft Nodes",
+      desc: "Budget · Standard · Performance fleets",
+      uptime: "99.95%",
+      latency: 38,
+      seed: 7,
+    },
+    {
+      id: "bots",
+      name: "Bot Hosting Nodes",
+      desc: "Always-on Discord bot workers",
+      uptime: "99.91%",
+      latency: 51,
+      seed: 11,
+    },
+    {
+      id: "games",
+      name: "Game Server Nodes",
+      desc: "Dockerized multi-game runtimes",
+      uptime: "99.97%",
+      latency: 44,
+      seed: 17,
+    },
+    {
+      id: "dns",
+      name: "Domains & DNS",
+      desc: "Registrar, DNS zones & SSL issuance",
+      uptime: "100.0%",
+      latency: 23,
+      seed: 23,
+    },
+    {
+      id: "api",
+      name: "Public API & Billing",
+      desc: "Client API, orders & provisioning",
+      uptime: "99.99%",
+      latency: 35,
+      seed: 29,
+    },
   ],
   regions: [
     { name: "Mumbai Edge", ms: 11 },
@@ -700,23 +1246,94 @@ export const extensions = {
     {
       id: "themes",
       name: "Premium Themes & Interface Designs",
-      tagline: "Transform your panel with high-performance, modern interface designs.",
+      tagline:
+        "Transform your panel with high-performance, modern interface designs.",
       accent: "#A855F7",
       items: [
-        { icon: "palette", name: "Abyss Theme (Purple/Amber/Crimson/Emerald)", price: 6.0, desc: "A vibrant multi-color set for users who want a high-contrast dark interface." },
-        { icon: "layout", name: "Ark Modern Theme", price: 7.0, desc: "Sleek, minimalist design inspired by modern cloud platforms." },
-        { icon: "cat", name: "Catppuccin Panel Design", price: 6.5, desc: "Soothing pastel-themed interface with high readability." },
-        { icon: "briefcase", name: "Darkenate Executive Theme", price: 7.0, desc: "Professional, clean design built for enterprise-grade hostings." },
-        { icon: "sparkles", name: "Euphoria UI Template", price: 6.5, desc: "Vibrant accents and smooth animations for an engaging user experience." },
-        { icon: "zap", name: "Kaelix Prime Interface", price: 7.5, desc: "Advanced futuristic UI with real-time reactive elements." },
-        { icon: "brush", name: "Lemem Custom Theme", price: 5.0, desc: "Lightweight, customizable framework for easy color and brand adjustments." },
-        { icon: "package", name: "M3dactyl Material Design", price: 6.0, desc: "Google's Material Design principles applied to the Pterodactyl ecosystem." },
-        { icon: "nebula", name: "Nebula Core UI", price: 8.0, desc: "Premium cosmic-themed interface with unique blurred backgrounds." },
-        { icon: "settings", name: "Recolor Framework Theme", price: 4.0, desc: "Powerful engine to rebrand your panel in seconds without code." },
-        { icon: "layers", name: "Slate Clean Theme", price: 5.5, desc: "Distraction-free layout focusing entirely on server performance and control." },
-        { icon: "slice", name: "Slice Modern Layout", price: 6.0, desc: "Innovative navigation-focused design for faster server switching." },
-        { icon: "star", name: "Stellar Cosmic Theme", price: 7.0, desc: "Deep space aesthetic with glowing border highlights and custom icons." },
-        { icon: "maximize", name: "XL Panel Panoramic Theme", price: 7.0, desc: "Edge-to-edge layout designed for large displays and power users." },
+        {
+          icon: "palette",
+          name: "Abyss Theme (Purple/Amber/Crimson/Emerald)",
+          price: 6.0,
+          desc: "A vibrant multi-color set for users who want a high-contrast dark interface.",
+        },
+        {
+          icon: "layout",
+          name: "Ark Modern Theme",
+          price: 7.0,
+          desc: "Sleek, minimalist design inspired by modern cloud platforms.",
+        },
+        {
+          icon: "cat",
+          name: "Catppuccin Panel Design",
+          price: 6.5,
+          desc: "Soothing pastel-themed interface with high readability.",
+        },
+        {
+          icon: "briefcase",
+          name: "Darkenate Executive Theme",
+          price: 7.0,
+          desc: "Professional, clean design built for enterprise-grade hostings.",
+        },
+        {
+          icon: "sparkles",
+          name: "Euphoria UI Template",
+          price: 6.5,
+          desc: "Vibrant accents and smooth animations for an engaging user experience.",
+        },
+        {
+          icon: "zap",
+          name: "Kaelix Prime Interface",
+          price: 7.5,
+          desc: "Advanced futuristic UI with real-time reactive elements.",
+        },
+        {
+          icon: "brush",
+          name: "Lemem Custom Theme",
+          price: 5.0,
+          desc: "Lightweight, customizable framework for easy color and brand adjustments.",
+        },
+        {
+          icon: "package",
+          name: "M3dactyl Material Design",
+          price: 6.0,
+          desc: "Google's Material Design principles applied to the Pterodactyl ecosystem.",
+        },
+        {
+          icon: "nebula",
+          name: "Nebula Core UI",
+          price: 8.0,
+          desc: "Premium cosmic-themed interface with unique blurred backgrounds.",
+        },
+        {
+          icon: "settings",
+          name: "Recolor Framework Theme",
+          price: 4.0,
+          desc: "Powerful engine to rebrand your panel in seconds without code.",
+        },
+        {
+          icon: "layers",
+          name: "Slate Clean Theme",
+          price: 5.5,
+          desc: "Distraction-free layout focusing entirely on server performance and control.",
+        },
+        {
+          icon: "slice",
+          name: "Slice Modern Layout",
+          price: 6.0,
+          desc: "Innovative navigation-focused design for faster server switching.",
+        },
+        {
+          icon: "star",
+          name: "Stellar Cosmic Theme",
+          price: 7.0,
+          desc: "Deep space aesthetic with glowing border highlights and custom icons.",
+        },
+        {
+          icon: "maximize",
+          name: "XL Panel Panoramic Theme",
+          price: 7.0,
+          desc: "Edge-to-edge layout designed for large displays and power users.",
+        },
       ] as Extension[],
     },
     {
@@ -725,15 +1342,60 @@ export const extensions = {
       tagline: "Essential tools for staff and system administrators.",
       accent: "#EF4444",
       items: [
-        { icon: "file-search", name: "Admin Audit Logs", price: 5.0, desc: "Detailed activity tracking for all administrative actions." },
-        { icon: "trash", name: "Activity Purges", price: 4.0, desc: "Automatically clean up old logs and temporary system data." },
-        { icon: "shield", name: "Better Admin Panel", price: 6.0, desc: "Enhanced administrative interface with streamlined workflows." },
-        { icon: "bell", name: "Blue Announcements System", price: 4.5, desc: "Panel-wide notification and announcement framework." },
-        { icon: "terminal", name: "Console Logs Viewer", price: 3.5, desc: "Stand-alone historical console log browser for administrators." },
-        { icon: "blocks", name: "MC Logs Integration", price: 4.0, desc: "Direct integration with popular Minecraft log sharing services." },
-        { icon: "moon", name: "Night Admin Panel", price: 5.5, desc: "Eye-strain reducing theme specifically for administrative views." },
-        { icon: "ban", name: "Pterodactyl Panel Ban", price: 6.0, desc: "Advanced user banning system with reason tracking and evidence logs." },
-        { icon: "layout", name: "Ultra Dark Admin Overlay", price: 5.5, desc: "Subtle but deep darkening layer for admin management tools." },
+        {
+          icon: "file-search",
+          name: "Admin Audit Logs",
+          price: 5.0,
+          desc: "Detailed activity tracking for all administrative actions.",
+        },
+        {
+          icon: "trash",
+          name: "Activity Purges",
+          price: 4.0,
+          desc: "Automatically clean up old logs and temporary system data.",
+        },
+        {
+          icon: "shield",
+          name: "Better Admin Panel",
+          price: 6.0,
+          desc: "Enhanced administrative interface with streamlined workflows.",
+        },
+        {
+          icon: "bell",
+          name: "Blue Announcements System",
+          price: 4.5,
+          desc: "Panel-wide notification and announcement framework.",
+        },
+        {
+          icon: "terminal",
+          name: "Console Logs Viewer",
+          price: 3.5,
+          desc: "Stand-alone historical console log browser for administrators.",
+        },
+        {
+          icon: "blocks",
+          name: "MC Logs Integration",
+          price: 4.0,
+          desc: "Direct integration with popular Minecraft log sharing services.",
+        },
+        {
+          icon: "moon",
+          name: "Night Admin Panel",
+          price: 5.5,
+          desc: "Eye-strain reducing theme specifically for administrative views.",
+        },
+        {
+          icon: "ban",
+          name: "Pterodactyl Panel Ban",
+          price: 6.0,
+          desc: "Advanced user banning system with reason tracking and evidence logs.",
+        },
+        {
+          icon: "layout",
+          name: "Ultra Dark Admin Overlay",
+          price: 5.5,
+          desc: "Subtle but deep darkening layer for admin management tools.",
+        },
       ] as Extension[],
     },
     {
@@ -742,21 +1404,96 @@ export const extensions = {
       tagline: "Automation and tools to keep your data safe and organized.",
       accent: "#3B82F6",
       items: [
-        { icon: "save", name: "Automated System Backups", price: 7.5, desc: "Scheduled full-node backups with offsite storage support." },
-        { icon: "edit", name: "Configuration File Editor", price: 5.0, desc: "Native YAML, JSON, and properties editor with syntax highlighting." },
-        { icon: "sort", name: "Custom Server Sorting", price: 3.0, desc: "Allows users to organize their dashboard as they prefer." },
-        { icon: "database", name: "Database Import/Export Tool", price: 6.5, desc: "Move SQL data in and out of the panel without external tools." },
-        { icon: "refresh-cw", name: "MySQL Auto-Backup Utility", price: 7.5, desc: "Per-database backup scheduling with retention policies." },
-        { icon: "globe", name: "Panel Address Override", price: 4.0, desc: "Custom branding for server connection addresses." },
-        { icon: "download", name: "Pull Files Downloader", price: 4.5, desc: "Transfer files between servers directly through the panel." },
-        { icon: "clock", name: "Saga Auto-Suspension", price: 8.0, desc: "Advanced billing integration for automated service cycling." },
-        { icon: "hash", name: "Server ID Allocator", price: 3.0, desc: "Customizable server identification and numbering system." },
-        { icon: "import", name: "Server Importer Engine", price: 9.0, desc: "Migrate servers from other providers in one click." },
-        { icon: "split", name: "Server Splitter Framework", price: 9.5, desc: "Split large servers into multiple instances safely." },
-        { icon: "cpu", name: "Show Node IDs Mod", price: 2.5, desc: "Displays internal node identifiers for faster troubleshooting." },
-        { icon: "undo", name: "Trash Bin Recovery System", price: 6.0, desc: "Adds a 'Deleted Servers' view for easy data recovery." },
-        { icon: "link", name: "URL Downloader Utility", price: 5.0, desc: "Fetch remote assets directly into the server file system." },
-        { icon: "info", name: "VM Info & Metrics", price: 5.0, desc: "Visual display of hypervisor metrics for virtual instances." },
+        {
+          icon: "save",
+          name: "Automated System Backups",
+          price: 7.5,
+          desc: "Scheduled full-node backups with offsite storage support.",
+        },
+        {
+          icon: "edit",
+          name: "Configuration File Editor",
+          price: 5.0,
+          desc: "Native YAML, JSON, and properties editor with syntax highlighting.",
+        },
+        {
+          icon: "sort",
+          name: "Custom Server Sorting",
+          price: 3.0,
+          desc: "Allows users to organize their dashboard as they prefer.",
+        },
+        {
+          icon: "database",
+          name: "Database Import/Export Tool",
+          price: 6.5,
+          desc: "Move SQL data in and out of the panel without external tools.",
+        },
+        {
+          icon: "refresh-cw",
+          name: "MySQL Auto-Backup Utility",
+          price: 7.5,
+          desc: "Per-database backup scheduling with retention policies.",
+        },
+        {
+          icon: "globe",
+          name: "Panel Address Override",
+          price: 4.0,
+          desc: "Custom branding for server connection addresses.",
+        },
+        {
+          icon: "download",
+          name: "Pull Files Downloader",
+          price: 4.5,
+          desc: "Transfer files between servers directly through the panel.",
+        },
+        {
+          icon: "clock",
+          name: "Saga Auto-Suspension",
+          price: 8.0,
+          desc: "Advanced billing integration for automated service cycling.",
+        },
+        {
+          icon: "hash",
+          name: "Server ID Allocator",
+          price: 3.0,
+          desc: "Customizable server identification and numbering system.",
+        },
+        {
+          icon: "import",
+          name: "Server Importer Engine",
+          price: 9.0,
+          desc: "Migrate servers from other providers in one click.",
+        },
+        {
+          icon: "split",
+          name: "Server Splitter Framework",
+          price: 9.5,
+          desc: "Split large servers into multiple instances safely.",
+        },
+        {
+          icon: "cpu",
+          name: "Show Node IDs Mod",
+          price: 2.5,
+          desc: "Displays internal node identifiers for faster troubleshooting.",
+        },
+        {
+          icon: "undo",
+          name: "Trash Bin Recovery System",
+          price: 6.0,
+          desc: "Adds a 'Deleted Servers' view for easy data recovery.",
+        },
+        {
+          icon: "link",
+          name: "URL Downloader Utility",
+          price: 5.0,
+          desc: "Fetch remote assets directly into the server file system.",
+        },
+        {
+          icon: "info",
+          name: "VM Info & Metrics",
+          price: 5.0,
+          desc: "Visual display of hypervisor metrics for virtual instances.",
+        },
       ] as Extension[],
     },
     {
@@ -765,10 +1502,30 @@ export const extensions = {
       tagline: "Fine-tune and burst your node resources dynamically.",
       accent: "#10B981",
       items: [
-        { icon: "zap", name: "Pterodactyl CPU Burst Controller", price: 10.0, desc: "Allow servers to briefly exceed limits during heavy loads." },
-        { icon: "cpu", name: "Pterodactyl RAM Burst Controller", price: 10.0, desc: "Dynamic memory allocation for peak performance demands." },
-        { icon: "activity", name: "Real-Time Resource Manager", price: 8.5, desc: "Adaptive limit adjustments based on live node utilization." },
-        { icon: "server", name: "Node Infrastructure Manager", price: 7.0, desc: "Streamlined node health monitoring and maintenance dashboard." },
+        {
+          icon: "zap",
+          name: "Pterodactyl CPU Burst Controller",
+          price: 10.0,
+          desc: "Allow servers to briefly exceed limits during heavy loads.",
+        },
+        {
+          icon: "cpu",
+          name: "Pterodactyl RAM Burst Controller",
+          price: 10.0,
+          desc: "Dynamic memory allocation for peak performance demands.",
+        },
+        {
+          icon: "activity",
+          name: "Real-Time Resource Manager",
+          price: 8.5,
+          desc: "Adaptive limit adjustments based on live node utilization.",
+        },
+        {
+          icon: "server",
+          name: "Node Infrastructure Manager",
+          price: 7.0,
+          desc: "Streamlined node health monitoring and maintenance dashboard.",
+        },
       ] as Extension[],
     },
     {
@@ -777,58 +1534,240 @@ export const extensions = {
       tagline: "The ultimate power suite for Minecraft community owners.",
       accent: "#16A34A",
       items: [
-        { icon: "box", name: "Minecraft Mod Manager", price: 11.0, desc: "Browse and install mods directly from the panel." },
-        { icon: "user-check", name: "Minecraft Player Manager", price: 8.0, desc: "Web-based whitelist, ban, and op management." },
-        { icon: "plug", name: "Minecraft Plugin Manager", price: 12.0, desc: "One-click installs for thousands of Spigot and Paper plugins." },
-        { icon: "radar", name: "MC Player Tracking Matrix", price: 6.5, desc: "Historical player count and session duration charts." },
-        { icon: "refresh-cw", name: "MC Plugins Sync Tool", price: 7.0, desc: "Keep plugins identical across multiple server instances." },
-        { icon: "wrench", name: "MC Tools Core Panel", price: 7.5, desc: "Central hub for world optimization and cleanups." },
-        { icon: "search", name: "Modrinth Native Browser", price: 10.0, desc: "Direct integration with the Modrinth ecosystem." },
-        { icon: "edit-3", name: "MOTD Visual Maker", price: 4.0, desc: "Drag-and-drop editor for server list descriptions." },
-        { icon: "archive", name: "Saga Minecraft Modpack Installer", price: 12.0, desc: "One-click setup for major modpacks (CurseForge/FTB)." },
-        { icon: "settings-2", name: "Saga Server Properties UI", price: 6.5, desc: "Visual editor for server.properties with valid values." },
-        { icon: "image", name: "Server Icon Importer", price: 3.5, desc: "Easy upload and resize for 64x64 server-icon.png files." },
-        { icon: "sliders", name: "Server Properties Manager", price: 5.5, desc: "Bulk management for multi-server property syncing." },
-        { icon: "wand-2", name: "Vanilla Tweaks Installer", price: 6.0, desc: "Direct integration with the Vanilla Tweaks datapack library." },
-        { icon: "list-tree", name: "Version Changer Suite", price: 8.5, desc: "Switch between Java, Bedrock, and various versions instantly." },
-        { icon: "check-circle", name: "Votifier Testing Utility", price: 4.5, desc: "Debug vote listener connectivity directly from the UI." },
+        {
+          icon: "box",
+          name: "Minecraft Mod Manager",
+          price: 11.0,
+          desc: "Browse and install mods directly from the panel.",
+        },
+        {
+          icon: "user-check",
+          name: "Minecraft Player Manager",
+          price: 8.0,
+          desc: "Web-based whitelist, ban, and op management.",
+        },
+        {
+          icon: "plug",
+          name: "Minecraft Plugin Manager",
+          price: 12.0,
+          desc: "One-click installs for thousands of Spigot and Paper plugins.",
+        },
+        {
+          icon: "radar",
+          name: "MC Player Tracking Matrix",
+          price: 6.5,
+          desc: "Historical player count and session duration charts.",
+        },
+        {
+          icon: "refresh-cw",
+          name: "MC Plugins Sync Tool",
+          price: 7.0,
+          desc: "Keep plugins identical across multiple server instances.",
+        },
+        {
+          icon: "wrench",
+          name: "MC Tools Core Panel",
+          price: 7.5,
+          desc: "Central hub for world optimization and cleanups.",
+        },
+        {
+          icon: "search",
+          name: "Modrinth Native Browser",
+          price: 10.0,
+          desc: "Direct integration with the Modrinth ecosystem.",
+        },
+        {
+          icon: "edit-3",
+          name: "MOTD Visual Maker",
+          price: 4.0,
+          desc: "Drag-and-drop editor for server list descriptions.",
+        },
+        {
+          icon: "archive",
+          name: "Saga Minecraft Modpack Installer",
+          price: 12.0,
+          desc: "One-click setup for major modpacks (CurseForge/FTB).",
+        },
+        {
+          icon: "settings-2",
+          name: "Saga Server Properties UI",
+          price: 6.5,
+          desc: "Visual editor for server.properties with valid values.",
+        },
+        {
+          icon: "image",
+          name: "Server Icon Importer",
+          price: 3.5,
+          desc: "Easy upload and resize for 64x64 server-icon.png files.",
+        },
+        {
+          icon: "sliders",
+          name: "Server Properties Manager",
+          price: 5.5,
+          desc: "Bulk management for multi-server property syncing.",
+        },
+        {
+          icon: "wand-2",
+          name: "Vanilla Tweaks Installer",
+          price: 6.0,
+          desc: "Direct integration with the Vanilla Tweaks datapack library.",
+        },
+        {
+          icon: "list-tree",
+          name: "Version Changer Suite",
+          price: 8.5,
+          desc: "Switch between Java, Bedrock, and various versions instantly.",
+        },
+        {
+          icon: "check-circle",
+          name: "Votifier Testing Utility",
+          price: 4.5,
+          desc: "Debug vote listener connectivity directly from the UI.",
+        },
       ] as Extension[],
     },
     {
       id: "ux-elements",
       name: "UI Elements & Layout Enhancements",
-      tagline: "Focused upgrades that make the panel feel like a native product.",
+      tagline:
+        "Focused upgrades that make the panel feel like a native product.",
       accent: "#2563EB",
       items: [
-        { icon: "table", name: "Blue Tables UI Modifier", price: 3.0, desc: "Responsive blue-accent table theme with sticky headers and zebra rows." },
-        { icon: "code", name: "Custom CSS Injection Tool", price: 4.0, desc: "Inject scoped stylesheets safely with live preview." },
-        { icon: "file-code", name: "Monaco Advanced Code Editor", price: 5.5, desc: "IntelliSense, minimap and multi-cursor editing for every file." },
-        { icon: "arrow-down", name: "No-Pagination Endless Scrolling", price: 3.5, desc: "Seamless infinite scroll in place of standard pagination." },
-        { icon: "users", name: "Player Listing Displays", price: 4.0, desc: "Real-time online player cards with avatars and ping." },
-        { icon: "package", name: "Pteromonaco Code Suite", price: 5.0, desc: "Monaco plus tabbed editing and syntax themes, bundled." },
-        { icon: "image", name: "Dynamic Server Backgrounds", price: 3.0, desc: "Animated, server-aware backgrounds for the dashboard." },
-        { icon: "panel-left", name: "Sidebar Navigation Customizer", price: 3.5, desc: "Drag to reorder, pin and group sidebar navigation." },
-        { icon: "star", name: "Simple Favicon Manager", price: 2.0, desc: "Upload and swap panel favicons instantly." },
-        { icon: "edit-3", name: "Simple Footer Editor", price: 2.5, desc: "Edit footer text and links directly from the admin UI." },
-        { icon: "snowflake", name: "Snowflake Particle Overlay", price: 2.0, desc: "Seasonal particle overlays with density and drift controls." },
-        { icon: "rocket", name: "Startup Changer Utility", price: 3.5, desc: "Switch between pre-built startup command profiles." },
-        { icon: "bar-chart", name: "Static & Panel Statistics Views", price: 4.5, desc: "Embeddable TPS, players and uptime widgets." },
+        {
+          icon: "table",
+          name: "Blue Tables UI Modifier",
+          price: 3.0,
+          desc: "Responsive blue-accent table theme with sticky headers and zebra rows.",
+        },
+        {
+          icon: "code",
+          name: "Custom CSS Injection Tool",
+          price: 4.0,
+          desc: "Inject scoped stylesheets safely with live preview.",
+        },
+        {
+          icon: "file-code",
+          name: "Monaco Advanced Code Editor",
+          price: 5.5,
+          desc: "IntelliSense, minimap and multi-cursor editing for every file.",
+        },
+        {
+          icon: "arrow-down",
+          name: "No-Pagination Endless Scrolling",
+          price: 3.5,
+          desc: "Seamless infinite scroll in place of standard pagination.",
+        },
+        {
+          icon: "users",
+          name: "Player Listing Displays",
+          price: 4.0,
+          desc: "Real-time online player cards with avatars and ping.",
+        },
+        {
+          icon: "package",
+          name: "Pteromonaco Code Suite",
+          price: 5.0,
+          desc: "Monaco plus tabbed editing and syntax themes, bundled.",
+        },
+        {
+          icon: "image",
+          name: "Dynamic Server Backgrounds",
+          price: 3.0,
+          desc: "Animated, server-aware backgrounds for the dashboard.",
+        },
+        {
+          icon: "panel-left",
+          name: "Sidebar Navigation Customizer",
+          price: 3.5,
+          desc: "Drag to reorder, pin and group sidebar navigation.",
+        },
+        {
+          icon: "star",
+          name: "Simple Favicon Manager",
+          price: 2.0,
+          desc: "Upload and swap panel favicons instantly.",
+        },
+        {
+          icon: "edit-3",
+          name: "Simple Footer Editor",
+          price: 2.5,
+          desc: "Edit footer text and links directly from the admin UI.",
+        },
+        {
+          icon: "snowflake",
+          name: "Snowflake Particle Overlay",
+          price: 2.0,
+          desc: "Seasonal particle overlays with density and drift controls.",
+        },
+        {
+          icon: "rocket",
+          name: "Startup Changer Utility",
+          price: 3.5,
+          desc: "Switch between pre-built startup command profiles.",
+        },
+        {
+          icon: "bar-chart",
+          name: "Static & Panel Statistics Views",
+          price: 4.5,
+          desc: "Embeddable TPS, players and uptime widgets.",
+        },
       ] as Extension[],
     },
     {
       id: "auth",
       name: "Auth, Integrations & Routing",
-      tagline: "Deeper platform capabilities — identity, chat, and network automation.",
+      tagline:
+        "Deeper platform capabilities — identity, chat, and network automation.",
       accent: "#8B5CF6",
       items: [
-        { icon: "key", name: "Discord Authentication Blueprint", price: 12.0, desc: "Full OAuth2 Discord SSO with role-based permissions." },
-        { icon: "shield", name: "Social OAuth Secure Login", price: 8.0, desc: "Google and GitHub sign-in with MFA-ready session management." },
-        { icon: "message-square", name: "Tawk.to Live Chat Integration", price: 4.5, desc: "Embed Tawk.to with authenticated user context." },
-        { icon: "navigation", name: "Domain & Network Redirector", price: 4.0, desc: "Smart multi-domain redirects with SSL handling." },
-        { icon: "bell", name: "Resource Threshold Alerts", price: 5.5, desc: "CPU, RAM and disk alerts via webhooks." },
-        { icon: "globe", name: "Network Subdomain Manager", price: 7.5, desc: "Bulk-create, assign and release SRV and A records." },
-        { icon: "map", name: "Subdomains Mapping Matrix", price: 6.0, desc: "Visual map of every subdomain to its server and port." },
-        { icon: "languages", name: "CoreSystem Translations Module", price: 9.0, desc: "Panel-wide i18n with per-user locales and RTL support." },
+        {
+          icon: "key",
+          name: "Discord Authentication Blueprint",
+          price: 12.0,
+          desc: "Full OAuth2 Discord SSO with role-based permissions.",
+        },
+        {
+          icon: "shield",
+          name: "Social OAuth Secure Login",
+          price: 8.0,
+          desc: "Google and GitHub sign-in with MFA-ready session management.",
+        },
+        {
+          icon: "message-square",
+          name: "Tawk.to Live Chat Integration",
+          price: 4.5,
+          desc: "Embed Tawk.to with authenticated user context.",
+        },
+        {
+          icon: "navigation",
+          name: "Domain & Network Redirector",
+          price: 4.0,
+          desc: "Smart multi-domain redirects with SSL handling.",
+        },
+        {
+          icon: "bell",
+          name: "Resource Threshold Alerts",
+          price: 5.5,
+          desc: "CPU, RAM and disk alerts via webhooks.",
+        },
+        {
+          icon: "globe",
+          name: "Network Subdomain Manager",
+          price: 7.5,
+          desc: "Bulk-create, assign and release SRV and A records.",
+        },
+        {
+          icon: "map",
+          name: "Subdomains Mapping Matrix",
+          price: 6.0,
+          desc: "Visual map of every subdomain to its server and port.",
+        },
+        {
+          icon: "languages",
+          name: "CoreSystem Translations Module",
+          price: 9.0,
+          desc: "Panel-wide i18n with per-user locales and RTL support.",
+        },
       ] as Extension[],
     },
   ],
@@ -842,8 +1781,16 @@ export const extensions = {
 /* --------------------------- LEGAL PAGES -------------------------- */
 
 export const legalDropdown = [
-  { name: "Terms of Service", href: "/terms-of-services", description: "Our service agreement and usage terms" },
-  { name: "Privacy Policy", href: "/privacy-policy", description: "How we handle and protect your data" },
+  {
+    name: "Terms of Service",
+    href: "/terms-of-services",
+    description: "Our service agreement and usage terms",
+  },
+  {
+    name: "Privacy Policy",
+    href: "/privacy-policy",
+    description: "How we handle and protect your data",
+  },
 ];
 
 export interface LegalDoc {

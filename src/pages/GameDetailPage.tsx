@@ -10,7 +10,7 @@ import {
   Users,
   Terminal,
 } from "lucide-react";
-import { games, gameTiers, gameFeatures, site } from "../data/config";
+import { games, gameTiers, features, site } from "../data/config";
 import { href } from "../router";
 import PageHero from "../components/PageHero";
 import TierCard from "../components/TierCard";
@@ -27,7 +27,8 @@ const featureIcons: Record<string, typeof Zap> = {
 };
 
 export default function GameDetailPage({ gameId }: { gameId: string }) {
-  const game = games.find((g) => g.id === gameId);
+  const game = games.find((g: (typeof games)[number]) => g.id === gameId);
+  const gameFeatures = features.items;
   if (!game) return <NotFound />;
 
   return (
@@ -46,7 +47,10 @@ export default function GameDetailPage({ gameId }: { gameId: string }) {
           Deploy {game.name}
           <ArrowRight className="w-4 h-4" />
         </a>
-        <a href={href("/games")} className="button-secondary inline-flex items-center gap-2 px-6 py-3.5 rounded-lg font-orbitron text-sm font-semibold tracking-wider text-slate-800 dark:text-white">
+        <a
+          href={href("/games")}
+          className="button-secondary inline-flex items-center gap-2 px-6 py-3.5 rounded-lg font-orbitron text-sm font-semibold tracking-wider text-slate-800 dark:text-white"
+        >
           <ArrowLeft className="w-4 h-4" />
           All Games
         </a>
@@ -63,9 +67,24 @@ export default function GameDetailPage({ gameId }: { gameId: string }) {
             subtitle={`Start completely free — then scale up as your community grows. Every plan includes unlimited slots, full panel access and DDoS protection.`}
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 items-stretch">
-            {gameTiers.map((t, i) => (
-              <TierCard key={t.name} tier={t} index={i} accentColor={game.color} />
-            ))}
+            {gameTiers.map(
+              (
+                t: {
+                  name: string;
+                  price: number | string;
+                  specs: string[];
+                  popular?: boolean;
+                },
+                i: number,
+              ) => (
+                <TierCard
+                  key={t.name}
+                  tier={t}
+                  index={i}
+                  accentColor={game.color}
+                />
+              ),
+            )}
           </div>
         </div>
       </section>
@@ -80,33 +99,38 @@ export default function GameDetailPage({ gameId }: { gameId: string }) {
             subtitle={`Standard on every ${game.name} server — no hidden fees, no paid add-ons required.`}
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {gameFeatures.map((f, i) => {
-              const Icon = featureIcons[f.icon] ?? Zap;
-              return (
-                <motion.div
-                  key={f.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.5, delay: i * 0.06 }}
-                  className="card-shell group relative overflow-hidden"
-                >
-                  <div className="flex justify-between items-start">
-                    <div className="p-5 flex-1">
-                      <h3 className="font-orbitron text-base font-semibold text-slate-900 dark:text-white mb-1.5 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                        {f.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed transition-colors">
-                        {f.description}
-                      </p>
+            {gameFeatures.map(
+              (
+                f: { icon: string; title: string; description: string },
+                i: number,
+              ) => {
+                const Icon = featureIcons[f.icon] ?? Zap;
+                return (
+                  <motion.div
+                    key={f.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.5, delay: i * 0.06 }}
+                    className="card-shell group relative overflow-hidden"
+                  >
+                    <div className="flex justify-between items-start">
+                      <div className="p-5 flex-1">
+                        <h3 className="font-orbitron text-base font-semibold text-slate-900 dark:text-white mb-1.5 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          {f.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed transition-colors">
+                          {f.description}
+                        </p>
+                      </div>
+                      <div className="w-11 h-11 border-l border-b border-slate-200 dark:border-white/8 group-hover:border-blue-500/40 flex items-center justify-center flex-shrink-0 transition-colors">
+                        <Icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      </div>
                     </div>
-                    <div className="w-11 h-11 border-l border-b border-slate-200 dark:border-white/8 group-hover:border-blue-500/40 flex items-center justify-center flex-shrink-0 transition-colors">
-                      <Icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+                  </motion.div>
+                );
+              },
+            )}
           </div>
 
           {/* bottom CTA */}
