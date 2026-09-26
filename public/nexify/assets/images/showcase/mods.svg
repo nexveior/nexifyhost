@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800">
+  <rect width="1280" height="800" fill="#0b0f19"/>
+  <rect x="46" y="46" width="1188" height="708" rx="22" fill="#111827" stroke="#334155" stroke-width="3"/>
+  <text x="92" y="132" font-family="Arial,sans-serif" font-size="40" font-weight="700" fill="#f8fafc">Modpack Manager</text>
+  <rect x="92" y="172" width="1096" height="58" rx="14" fill="#1e293b"/><circle cx="1137" cy="201" r="17" fill="#3b82f6"/>
+  <g fill="#172033" stroke="#334155" stroke-width="2"><rect x="92" y="276" width="330" height="184" rx="18"/><rect x="475" y="276" width="330" height="184" rx="18"/><rect x="858" y="276" width="330" height="184" rx="18"/></g>
+  <g fill="#a78bfa"><rect x="118" y="305" width="90" height="90" rx="16"/><rect x="501" y="305" width="90" height="90" rx="16"/><rect x="884" y="305" width="90" height="90" rx="16"/></g>
+  <g fill="#475569"><rect x="118" y="505" width="920" height="14" rx="7"/><rect x="118" y="550" width="740" height="14" rx="7"/><rect x="118" y="595" width="850" height="14" rx="7"/></g>
+  <rect x="984" y="646" width="204" height="54" rx="12" fill="#2563eb"/><text x="1086" y="681" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#fff">INSTALL</text>
+</svg>

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="psky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a0e05"/>
+      <stop offset="1" stop-color="#7c2d12"/>
+    </linearGradient>
+    <radialGradient id="pglow" cx="0.5" cy="0.5" r="0.65">
+      <stop offset="0" stop-color="#fbbf24" stop-opacity="0.9"/>
+      <stop offset="0.55" stop-color="#f59e0b" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pfort" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b2315"/>
+      <stop offset="1" stop-color="#1d1008"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#psky)"/>
+  <circle cx="400" cy="200" r="220" fill="url(#pglow)"/>
+
+  <!-- fortress silhouette -->
+  <g fill="url(#pfort)">
+    <rect x="140" y="260" width="520" height="120"/>
+    <rect x="120" y="200" width="90" height="180"/>
+    <rect x="330" y="150" width="140" height="230"/>
+    <rect x="590" y="200" width="90" height="180"/>
+    <rect x="120" y="180" width="24" height="20"/><rect x="150" y="180" width="24" height="20"/><rect x="180" y="180" width="24" height="20"/>
+    <rect x="330" y="130" width="24" height="20"/><rect x="360" y="130" width="24" height="20"/><rect x="390" y="130" width="24" height="20"/><rect x="420" y="130" width="24" height="20"/><rect x="450" y="130" width="24" height="20"/>
+    <rect x="590" y="180" width="24" height="20"/><rect x="620" y="180" width="24" height="20"/><rect x="650" y="180" width="24" height="20"/>
+  </g>
+
+  <!-- nether portal -->
+  <g>
+    <rect x="368" y="240" width="64" height="120" fill="#12060a" stroke="#f97316" stroke-width="5"/>
+    <path d="M376 340c10-28-8-36 6-60 8 14 20 10 16-8 18 14 20 44 6 68z" fill="#f97316"/>
+    <path d="M384 340c6-18-4-22 4-36 5 9 12 6 9-5 11 9 12 28 3 41z" fill="#fde68a"/>
+  </g>
+
+  <!-- fire windows -->
+  <g fill="#fb923c">
+    <rect x="152" y="230" width="18" height="26"/>
+    <rect x="180" y="230" width="18" height="26"/>
+    <rect x="606" y="230" width="18" height="26"/>
+    <rect x="634" y="230" width="18" height="26"/>
+  </g>
+
+  <!-- speed streaks -->
+  <g stroke="#fbbf24" stroke-linecap="round" opacity="0.85">
+    <path d="M60 120h90" stroke-width="5"/>
+    <path d="M100 150h60" stroke-width="4"/>
+    <path d="M650 90h90" stroke-width="5"/>
+    <path d="M690 126h56" stroke-width="4"/>
+    <path d="M660 330h80" stroke-width="5"/>
+    <path d="M64 322h70" stroke-width="4"/>
+  </g>
+
+  <!-- embers -->
+  <g fill="#fdba74">
+    <rect x="250" y="110" width="7" height="7" opacity="0.8"/>
+    <rect x="300" y="70" width="5" height="5" opacity="0.7"/>
+    <rect x="530" y="120" width="7" height="7" opacity="0.8"/>
+    <rect x="480" y="90" width="5" height="5" opacity="0.7"/>
+  </g>
+
+  <!-- lava ground -->
+  <rect y="380" width="800" height="70" fill="#170a05"/>
+  <g fill="#f97316" opacity="0.9">
+    <rect x="40" y="396" width="120" height="8"/>
+    <rect x="300" y="408" width="180" height="8"/>
+    <rect x="620" y="398" width="140" height="8"/>
+  </g>
+  <g fill="#fde68a" opacity="0.7">
+    <rect x="90" y="412" width="60" height="6"/>
+    <rect x="520" y="416" width="80" height="6"/>
+  </g>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="botsky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d0920"/>
+      <stop offset="1" stop-color="#2a1a63"/>
+    </linearGradient>
+    <linearGradient id="botbody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c7d2fe"/>
+      <stop offset="1" stop-color="#8b9fe8"/>
+    </linearGradient>
+    <radialGradient id="botglow" cx="0.5" cy="0.5" r="0.6">
+      <stop offset="0" stop-color="#818cf8" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#818cf8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#botsky)"/>
+
+  <!-- circuit grid -->
+  <g stroke="#4f46e5" stroke-width="2" opacity="0.35">
+    <path d="M0 620h200l80-80h220M1280 100h-240l-60 60h-200"/>
+    <circle cx="280" cy="620" r="7" fill="#6366f1"/>
+    <circle cx="500" cy="540" r="7" fill="#6366f1"/>
+    <circle cx="1040" cy="100" r="7" fill="#6366f1"/>
+    <circle cx="840" cy="160" r="7" fill="#6366f1"/>
+  </g>
+
+  <circle cx="900" cy="360" r="300" fill="url(#botglow)"/>
+
+  <!-- left: code terminal -->
+  <g transform="translate(90 150)">
+    <rect width="480" height="420" rx="22" fill="#111224" stroke="#3f3d6e" stroke-width="3"/>
+    <circle cx="36" cy="34" r="9" fill="#f87171"/>
+    <circle cx="66" cy="34" r="9" fill="#fbbf24"/>
+    <circle cx="96" cy="34" r="9" fill="#34d399"/>
+    <g font-family="monospace" font-size="26" fill="#a5b4fc">
+      <text x="32" y="110"><tspan fill="#7dd3fc">const</tspan> bot = <tspan fill="#7dd3fc">new</tspan> Client()</text>
+      <text x="32" y="160">bot.on(<tspan fill="#f0abfc">"ready"</tspan>, () =&gt;</text>
+      <text x="60" y="210">console.log(<tspan fill="#86efac">"online!"</tspan>)</text>
+      <text x="32" y="260">})</text>
+      <text x="32" y="334">bot.login(token)</text>
+    </g>
+    <rect x="32" y="360" width="180" height="34" rx="6" fill="#5865F2"/>
+    <text x="122" y="385" text-anchor="middle" font-family="monospace" font-size="22" font-weight="700" fill="#fff">RUN</text>
+  </g>
+
+  <!-- right: friendly robot -->
+  <g transform="translate(760 210)">
+    <!-- antenna -->
+    <path d="M140 30V0" stroke="#a5b4fc" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="140" cy="-4" r="12" fill="#818cf8"/>
+    <!-- head -->
+    <rect x="20" y="30" width="240" height="180" rx="44" fill="url(#botbody)" stroke="#c7d2fe" stroke-width="4"/>
+    <!-- face -->
+    <rect x="46" y="70" width="188" height="98" rx="24" fill="#141539"/>
+    <circle cx="102" cy="118" r="17" fill="#818cf8"/>
+    <circle cx="178" cy="118" r="17" fill="#818cf8"/>
+    <path d="M108 150c10 10 54 10 64 0" stroke="#818cf8" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <!-- ears -->
+    <rect x="-6" y="90" width="26" height="62" rx="12" fill="#8b9fe8"/>
+    <rect x="260" y="90" width="26" height="62" rx="12" fill="#8b9fe8"/>
+    <!-- neck + body -->
+    <rect x="116" y="220" width="48" height="26" fill="#8b9fe8"/>
+    <rect x="52" y="252" width="176" height="120" rx="34" fill="url(#botbody)" stroke="#c7d2fe" stroke-width="4"/>
+    <circle cx="140" cy="314" r="30" fill="#141539"/>
+    <path d="M140 294v20l14 12" stroke="#818cf8" stroke-width="7" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <!-- connection nodes around robot -->
+  <g>
+    <circle cx="700" cy="140" r="10" fill="#6366f1"/>
+    <circle cx="1150" cy="220" r="10" fill="#6366f1"/>
+    <circle cx="1180" cy="480" r="10" fill="#6366f1"/>
+    <circle cx="760" cy="560" r="10" fill="#6366f1"/>
+    <path d="M700 140l70 60M1150 220l-90 50M1180 480l-80-40M760 560l40-60" stroke="#6366f1" stroke-width="3" stroke-dasharray="2 10"/>
+  </g>
+</svg>

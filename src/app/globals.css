@@ -1,0 +1,402 @@
+@import "tailwindcss";
+
+/* class-based dark variant so we can toggle + auto-detect via <html class="dark"> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-quicksand: "Quicksand", sans-serif;
+
+  --color-void: #0a0b0f;
+  --color-panel: #10121b;
+  --color-accent: #2563eb;
+  --color-accent-soft: #3b82f6;
+
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-pulse-slow: pulseSlow 5s ease-in-out infinite;
+  --animate-spin-slow: spin 14s linear infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #f2f5fb;
+}
+
+/* Clip accidental horizontal overflow without creating a scroll container.
+   Unlike overflow:hidden, this keeps nested position:sticky working. */
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow-x: clip;
+}
+
+body {
+  background-color: transparent;
+  color: #0f172a;
+  font-family: var(--font-quicksand);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.dark,
+.dark body,
+.dark #root {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.site-shell main section {
+  background-color: rgba(242, 245, 251, 0.3) !important;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.dark .site-shell main section {
+  background-color: rgba(10, 11, 15, 0.34) !important;
+}
+
+.site-shell > footer {
+  background-color: rgba(227, 232, 242, 0.55) !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.dark .site-shell > footer {
+  background-color: rgba(8, 9, 13, 0.62) !important;
+}
+
+/* Prevent viewport-width rounding and oversized decorative elements from
+   exposing an empty strip in portrait phones using desktop-site mode. */
+section,
+header,
+footer,
+nav,
+main {
+  width: 100%;
+  max-width: 100%;
+}
+
+.font-orbitron {
+  font-family: var(--font-orbitron);
+}
+
+/* ---- accent helpers ---- */
+.text-accent {
+  color: #2563eb;
+}
+.dark .text-accent {
+  color: #60a5fa;
+}
+
+.accent-gradient-text {
+  background: linear-gradient(120deg, #2563eb 0%, #60a5fa 50%, #2563eb 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 6s linear infinite;
+}
+.dark .accent-gradient-text {
+  background: linear-gradient(120deg, #60a5fa 0%, #2563eb 50%, #60a5fa 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* glass cards — centrally themed so every section upgrades at once */
+.card-shell {
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.74) 0%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 0.85rem;
+  box-shadow: 0 12px 32px -20px rgba(15, 23, 42, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  transition: border-color 0.35s ease, background 0.35s ease, transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+.dark .card-shell {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.035) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow: 0 20px 44px -28px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.card-shell:hover {
+  border-color: rgba(59, 130, 246, 0.55);
+  box-shadow: 0 18px 42px -22px rgba(37, 99, 235, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+.dark .card-shell:hover {
+  box-shadow: 0 24px 50px -26px rgba(37, 99, 235, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.hover-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.12) 0%,
+    rgba(37, 99, 235, 0.05) 55%,
+    rgba(37, 99, 235, 0.1) 100%
+  );
+  border-color: rgba(59, 130, 246, 0.45) !important;
+}
+.dark .hover-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.14) 0%,
+    rgba(37, 99, 235, 0.05) 55%,
+    rgba(37, 99, 235, 0.12) 100%
+  );
+}
+
+/* primary button (theme independent) */
+.button-primary {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.35), 0 8px 24px -8px rgba(37, 99, 235, 0.55);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.button-primary:hover {
+  filter: brightness(1.12);
+  box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.6), 0 12px 32px -8px rgba(37, 99, 235, 0.7);
+}
+
+/* secondary button */
+.button-secondary {
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.dark .button-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.button-secondary:hover {
+  border-color: rgba(96, 165, 250, 0.55);
+  background: rgba(37, 99, 235, 0.12);
+}
+
+/* badge — angled chip used above every section title */
+.chip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  border-radius: 1rem 0.15rem 1rem 0.15rem;
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  font-family: var(--font-orbitron);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+.dark .chip-badge {
+  border-color: rgba(59, 130, 246, 0.4);
+  background: rgba(37, 99, 235, 0.1);
+  color: #60a5fa;
+}
+
+/* glow blobs */
+.blob-primary {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.22) 0%, transparent 65%);
+}
+.dark .blob-primary {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.28) 0%, transparent 65%);
+}
+.blob-secondary {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.14) 0%, transparent 65%);
+}
+.dark .blob-secondary {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, transparent 65%);
+}
+
+/* grid backdrop */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+.dark .bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+/* marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes pulseSlow {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 99px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.35);
+  color: inherit;
+}
+.dark ::selection {
+  background: rgba(37, 99, 235, 0.45);
+  color: #fff;
+}
+
+/* ------------------------------------------------------------------ */
+/* Mobile fit — make the whole layout comfortably compact on phones     */
+/* without shrinking desktop.                                          */
+/* ------------------------------------------------------------------ */
+@media (max-width: 640px) {
+  /* content rhythm */
+  section {
+    background-clip: padding-box;
+  }
+
+  header {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  footer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* tighter section spacing than the desktop's py-24–py-28 */
+  #features,
+  #plans,
+  #panel,
+  #faq,
+  .pricing-section,
+  .domains-section,
+  .bot-section,
+  .gameservers-section,
+  .status-section {
+    padding-top: 3.25rem !important;
+    padding-bottom: 3.25rem !important;
+  }
+
+  /* hero should sit closer to the fixed navbar */
+  .hero-section {
+    padding-top: 8.5rem !important;
+    padding-bottom: 2rem !important;
+    min-height: auto !important;
+  }
+
+  .page-hero-section {
+    padding-top: 8.75rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* headings don't need to be as large on phones */
+  .font-orbitron.text-4xl,
+  .font-orbitron.text-5xl,
+  .font-orbitron.text-6xl,
+  .font-orbitron.text-3xl {
+    line-height: 1.18;
+  }
+
+  /* badges and small chips trim their letter-spacing on narrow screens */
+  .chip-badge {
+    letter-spacing: 0.08em;
+    padding: 0.38rem 0.75rem;
+    font-size: 0.666rem;
+  }
+
+  .button-primary,
+  .button-secondary {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* cards get slightly tighter padding by default */
+  .card-shell.p-5,
+  .card-shell.p-6,
+  .card-shell.p-7 {
+    padding: 1.1rem !important;
+  }
+
+  /* shared pricing family cards: image shouldn't dominate the phone */
+  .plan-family-image {
+    height: 6.25rem !important;
+  }
+
+  /* plan cards used across Minecraft/bots/game servers */
+  .plan-card-price {
+    font-size: 1.85rem !important;
+  }
+
+  /* free plan CTA becomes a clean vertical block */
+  .free-callout {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+  }
+  .free-callout a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* footer columns shouldn't be cramped side-by-side */
+  .footer-grid {
+    gap: 2rem !important;
+  }
+}

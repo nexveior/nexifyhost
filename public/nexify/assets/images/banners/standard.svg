@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="ssky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1e3f"/>
+      <stop offset="1" stop-color="#1e4fa3"/>
+    </linearGradient>
+    <linearGradient id="swall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#94a3b8"/>
+      <stop offset="1" stop-color="#5b6b80"/>
+    </linearGradient>
+    <radialGradient id="sglow" cx="0.5" cy="0.5" r="0.6">
+      <stop offset="0" stop-color="#60a5fa" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#ssky)"/>
+  <circle cx="400" cy="150" r="200" fill="url(#sglow)"/>
+
+  <!-- stars -->
+  <g fill="#dbeafe" opacity="0.7">
+    <rect x="80" y="60" width="6" height="6"/><rect x="260" y="40" width="5" height="5"/><rect x="560" y="70" width="6" height="6"/><rect x="710" y="50" width="5" height="5"/><rect x="400" y="34" width="5" height="5"/>
+  </g>
+
+  <!-- town silhouette -->
+  <g fill="url(#swall)">
+    <rect x="180" y="250" width="440" height="120"/>
+    <rect x="160" y="200" width="80" height="170"/>
+    <rect x="360" y="160" width="80" height="210"/>
+    <rect x="560" y="200" width="80" height="170"/>
+  </g>
+  <!-- battlements -->
+  <g fill="#64748b">
+    <rect x="160" y="186" width="18" height="14"/><rect x="186" y="186" width="18" height="14"/><rect x="212" y="186" width="18" height="14"/>
+    <rect x="360" y="146" width="18" height="14"/><rect x="386" y="146" width="18" height="14"/><rect x="412" y="146" width="18" height="14"/>
+    <rect x="560" y="186" width="18" height="14"/><rect x="586" y="186" width="18" height="14"/><rect x="612" y="186" width="18" height="14"/>
+    <rect x="200" y="236" width="22" height="14"/><rect x="260" y="236" width="22" height="14"/><rect x="320" y="236" width="22" height="14"/><rect x="460" y="236" width="22" height="14"/><rect x="520" y="236" width="22" height="14"/><rect x="580" y="236" width="22" height="14"/>
+  </g>
+  <!-- lit windows -->
+  <g fill="#fbbf24">
+    <rect x="188" y="232" width="20" height="26"/>
+    <rect x="388" y="190" width="20" height="26"/>
+    <rect x="388" y="238" width="20" height="26"/>
+    <rect x="588" y="232" width="20" height="26"/>
+    <rect x="270" y="290" width="20" height="24"/>
+    <rect x="500" y="290" width="20" height="24"/>
+  </g>
+  <rect x="378" y="310" width="44" height="60" fill="#2b1f10"/>
+
+  <!-- flag -->
+  <path d="M400 160v-70h12v70" fill="#334155"/>
+  <rect x="400" y="90" width="52" height="30" fill="#2563EB"/>
+
+  <!-- floating data particles -->
+  <g fill="#93c5fd">
+    <rect x="180" y="120" width="8" height="8" opacity="0.8"/>
+    <rect x="240" y="90" width="6" height="6" opacity="0.6"/>
+    <rect x="560" y="110" width="8" height="8" opacity="0.8"/>
+    <rect x="620" y="80" width="6" height="6" opacity="0.6"/>
+    <rect x="470" y="70" width="7" height="7" opacity="0.7"/>
+  </g>
+
+  <!-- ground -->
+  <rect y="370" width="800" height="80" fill="#173763"/>
+  <path d="M0 370h800v7H0z" fill="#3b6ecb" opacity="0.8"/>
+  <g fill="#2563eb" opacity="0.35">
+    <rect x="90" y="392" width="40" height="13"/><rect x="330" y="406" width="40" height="13"/><rect x="620" y="395" width="40" height="13"/>
+  </g>
+</svg>
